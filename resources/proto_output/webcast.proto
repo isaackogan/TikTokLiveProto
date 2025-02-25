@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+
+message Person {
+    string name = ;
+
+    // Test
+    int32 age = ;
+    Address address = ;
+
+    message Address {
+    	string street = ;
+    	string city = ;
+	}
+}
