@@ -106,18 +106,40 @@ def replace_event_names(_root_messages):
     return _root_messages
 
 
+def snake_case_field_names(_root_messages):
+    """Convert all field names to snake_case wheras they are currently camelCase."""
+    for root_message in _root_messages:
+
+        def snake_case_fields(message):
+            for field in message['fields']:
+                # convert camelCase to snake_case
+                field['name'] = ''.join(['_' + c.lower() if c.isupper() else c for c in field['name']]).lstrip('_')
+            for nested_message in message['nested_messages']:
+                snake_case_fields(nested_message)
+
+        snake_case_fields(root_message)
+
+    return _root_messages
+
+
+replaced_names = replace_event_names(root_messages)
 
 context = {
     "imports": [],
-    "root_messages": replace_event_names(root_messages),
+    "root_messages": replaced_names,
 }
-
-output = template.render(context)
 
 proto_output = Path(__file__).parent.parent.parent / './resources/proto_output'
 
 if not proto_output.is_dir():
     proto_output.mkdir()
 
+
 with open(proto_output / 'webcast.proto', 'w') as f:
+    output = template.render(context)
+    f.write(output)
+
+with open(proto_output / 'webcast-snake_case.proto', 'w') as f:
+    context['root_messages'] = snake_case_field_names(replaced_names)
+    output = template.render(context)
     f.write(output)

@@ -14,10 +14,10 @@ message GalleryData {
     int64 endTimeInMs = 3;
 
     message TitleData {
-        int64 goalCount = 1;
-        int64 currentSponsorId = 2;
+    	int64 goalCount = 1;
+    	int64 currentSponsorId = 2;
 
-    }
+	}
 
 }
 
@@ -61,9 +61,9 @@ message CompetitionSettleEnd {
     TakeTheStageBiz takeTheStageBiz = 100;
 
     message TakeTheStageBiz {
-        int32 takeTheStageStatus = 1;
+    	int32 takeTheStageStatus = 1;
 
-    }
+	}
 
 }
 
@@ -71,20 +71,20 @@ message MockResponse {
     Data data = 1;
 
     message GuideVideoURL {
-        string matchUrl = 1;
-        string interactUrl = 2;
-        string cohostUrl = 3;
-        string giftUrl = 4;
-        string multiguestUrl = 5;
+    	string matchUrl = 1;
+    	string interactUrl = 2;
+    	string cohostUrl = 3;
+    	string giftUrl = 4;
+    	string multiguestUrl = 5;
 
-    }
+	}
 
     message Data {
-        Room room = 1;
-        int64 mockRoomId = 2;
-        GuideVideoURL guideVideos = 3;
+    	Room room = 1;
+    	int64 mockRoomId = 2;
+    	GuideVideoURL guideVideos = 3;
 
-    }
+	}
 
 }
 
@@ -111,27 +111,27 @@ message PanelRefreshData {
     EligibleVaultGifts vaultData = 102;
 
     message GalleryData {
-        int64 sponsorId = 1;
-        int64 giftId = 2;
-        int64 ownProgress = 3;
-        int64 leftCountToSponsor = 4;
-        bool canSponsor = 5;
-        bool isGalleryAvailable = 6;
+    	int64 sponsorId = 1;
+    	int64 giftId = 2;
+    	int64 ownProgress = 3;
+    	int64 leftCountToSponsor = 4;
+    	bool canSponsor = 5;
+    	bool isGalleryAvailable = 6;
 
-    }
+	}
 
     message UserLevel {
-        int64 currentScore = 1;
-        int64 currentLevel = 2;
-        int64 nextLevelScore = 3;
-        bool didUserOptOut = 4;
+    	int64 currentScore = 1;
+    	int64 currentLevel = 2;
+    	int64 nextLevelScore = 3;
+    	bool didUserOptOut = 4;
 
-    }
+	}
 
     message EligibleVaultGifts {
-        repeated int64 giftIds = 1;
+    	repeated int64 giftIds = 1;
 
-    }
+	}
 
 }
 
@@ -142,6 +142,7 @@ message AudienceReserveUserInfo {
 }
 
 message WebcastGroupLiveMemberNotifyMessage {
+    CommonMessageData baseMessage = 1;
     int64 hostUserId = 2;
     repeated MemberInfo memberInfo = 3;
 
@@ -177,9 +178,9 @@ message CountdownForAllGetContentResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        CountdownForAllContent playContent = 1;
+    	CountdownForAllContent playContent = 1;
 
-    }
+	}
 
 }
 
@@ -270,6 +271,7 @@ message WaitUser {
 }
 
 message WebcastGoalUpdateMessage {
+    CommonMessageData baseMessage = 1;
     LiveStreamGoalIndicator indicator = 2;
     LiveStreamGoal goal = 3;
     int64 contributorId = 4;
@@ -303,6 +305,7 @@ message OecLiveShoppingMessageV2 {
 }
 
 message WebcastSubscriptionGuideMessage {
+    CommonMessageData baseMessage = 1;
     Text description = 2;
     Text buttonName = 3;
     string buttonUrl = 4;
@@ -328,10 +331,10 @@ message WallpaperAiCreateResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        int64 keywordsReviewResult = 1;
-        string reviewId = 2;
+    	int64 keywordsReviewResult = 1;
+    	string reviewId = 2;
 
-    }
+	}
 
 }
 
@@ -347,6 +350,7 @@ message SpriteImageItem {
 }
 
 message WebcastNoticeboardReviewMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     string mediaNodeId = 3;
     int32 postReviewStatus = 4;
@@ -360,19 +364,19 @@ message SearchRivalsResponse {
     ResponseData data = 1;
 
     message Cell {
-        int32 cellType = 1;
-        Room room = 2;
+    	int32 cellType = 1;
+    	Room room = 2;
 
-    }
+	}
 
     message ResponseData {
-        repeated Cell cellList = 1;
-        map<int64, RivalExtraInfo> rivalExtraInfos = 2;
-        int32 nextOffset = 9;
-        bool hasMore = 10;
-        string searchId = 11;
+    	repeated Cell cellList = 1;
+    	map<int64, RivalExtraInfo> rivalExtraInfos = 2;
+    	int32 nextOffset = 9;
+    	bool hasMore = 10;
+    	string searchId = 11;
 
-    }
+	}
 
 }
 
@@ -393,14 +397,15 @@ message StarCommentDeleteResponse {
     Data data = 1;
 
     message Data {
-        StarCommentQueue queue = 1;
-        int64 serverCurMsgStartTimeMs = 2;
+    	StarCommentQueue queue = 1;
+    	int64 serverCurMsgStartTimeMs = 2;
 
-    }
+	}
 
 }
 
 message WebcastMemberMessage {
+    CommonMessageData baseMessage = 1;
     User user = 2;
     int32 count = 3;
     User operator = 4;
@@ -434,12 +439,12 @@ message WebcastMemberMessage {
     int32 hitAbStatus = 35;
 
     message EffectConfigBean {
-        int32 type = 1;
-        ImageModel icon = 2;
-        Text textKey = 4;
-        ImageModel badge = 8;
+    	int32 type = 1;
+    	ImageModel icon = 2;
+    	Text textKey = 4;
+    	ImageModel badge = 8;
 
-    }
+	}
 
 }
 
@@ -458,6 +463,7 @@ message CalmDownInfo {
 }
 
 message WebcastBottomMessage {
+    CommonMessageData baseMessage = 1;
     string content = 2;
     int32 showType = 3;
     int32 textType = 4;
@@ -489,6 +495,7 @@ message GuessWidgetsData {
 }
 
 message WebcastCapsuleMessage {
+    CommonMessageData baseMessage = 1;
     ImageModel icon = 2;
     Text desc = 3;
     Text buttonText = 4;
@@ -500,6 +507,7 @@ message WebcastCapsuleMessage {
 }
 
 message WebcastLinkMicBattle {
+    CommonMessageData baseMessage = 1;
     int64 battleId = 2;
     BattleSetting battleSetting = 3;
     int32 action = 4;
@@ -543,6 +551,7 @@ message GiftKeywords {
 }
 
 message WebcastQuestionSelectedMessage {
+    CommonMessageData baseMessage = 1;
     Question question = 2;
 
 }
@@ -601,14 +610,15 @@ message ShowAgainGuestResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool success = 1;
-        ShowContent showContent = 2;
+    	bool success = 1;
+    	ShowContent showContent = 2;
 
-    }
+	}
 
 }
 
 message WebcastTrayMessage {
+    CommonMessageData baseMessage = 1;
     User user = 2;
     Text title = 3;
     Text describe = 4;
@@ -634,16 +644,16 @@ message GiftReceiveRecordsResponse {
     Extra extra = 2;
 
     message Data {
-        repeated GiftRecord giftRecords = 1;
-        bool hasNext = 2;
-        int64 refTimestamp = 3;
+    	repeated GiftRecord giftRecords = 1;
+    	bool hasNext = 2;
+    	int64 refTimestamp = 3;
 
-    }
+	}
 
     message Extra {
-        string logId = 1;
+    	string logId = 1;
 
-    }
+	}
 
 }
 
@@ -735,6 +745,7 @@ message GuessOptionStats {
 }
 
 message WebcastAssetMessage {
+    CommonMessageData baseMessage = 1;
     int64 assetId = 2;
     Text panelDisplayText = 3;
     bool showMessage = 4;
@@ -767,10 +778,10 @@ message NoticeboardTemplateCreateResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool isSuccess = 1;
-        NoticeboardTemplate template = 2;
+    	bool isSuccess = 1;
+    	NoticeboardTemplate template = 2;
 
-    }
+	}
 
 }
 
@@ -781,6 +792,7 @@ message ResourceAttr {
 }
 
 message WebcastWalletLiveRewardsRatioMessage {
+    CommonMessageData baseMessage = 1;
     WalletLiveRewardsRatioImMsg imMsg = 2;
 
 }
@@ -789,13 +801,14 @@ message WallpaperPicReplyResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool result = 1;
+    	bool result = 1;
 
-    }
+	}
 
 }
 
 message WebcastLinkScreenChangeMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     LinkerGuestCancelEnlargeContent guestCancelEnlarge = 3;
     LinkerEnlargeStatusSynContent enlargeStatusSyn = 4;
@@ -807,12 +820,12 @@ message GroupChatGuestDetailsResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        repeated GroupChatGuestDetail guestDetails = 1;
-        int64 roomCreateGroupId = 2;
-        int64 roomCreateGroupCurrentUserNum = 3;
-        int64 roomCreateGroupCurrentUserNumLimit = 4;
+    	repeated GroupChatGuestDetail guestDetails = 1;
+    	int64 roomCreateGroupId = 2;
+    	int64 roomCreateGroupCurrentUserNum = 3;
+    	int64 roomCreateGroupCurrentUserNumLimit = 4;
 
-    }
+	}
 
 }
 
@@ -820,9 +833,9 @@ message WallpaperUserLeaveResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool result = 1;
+    	bool result = 1;
 
-    }
+	}
 
 }
 
@@ -833,11 +846,13 @@ message PlaybookTagInfo {
 }
 
 message WebcastPartnershipPunishMessage {
+    CommonMessageData baseMessage = 1;
     PunishEventInfo punishInfo = 2;
 
 }
 
 message WebcastGiftPanelUpdateMessage {
+    CommonMessageData baseMessage = 1;
     int64 roomId = 2;
     int64 timestamp = 3;
     GalleryData galleryData = 10;
@@ -878,23 +893,23 @@ message MultiGuestLinkmicInfo {
     HostDisplayInfo hostDisplayInfo = 14;
 
     message HostDisplayInfo {
-        string hostIconBackgroundUrl = 1;
-        string hostIconUrl = 2;
-        string hostColor = 3;
-        string iconLinkUrl = 4;
-        int64 hostType = 5;
+    	string hostIconBackgroundUrl = 1;
+    	string hostIconUrl = 2;
+    	string hostColor = 3;
+    	string iconLinkUrl = 4;
+    	int64 hostType = 5;
 
-    }
+	}
 
     message ListUser {
-        User user = 1;
-        int64 modifyTime = 2;
-        int32 roleType = 4;
-        string linkmicIdStr = 5;
-        int64 fanTicket = 7;
-        int32 fanTicketIconType = 10;
+    	User user = 1;
+    	int64 modifyTime = 2;
+    	int32 roleType = 4;
+    	string linkmicIdStr = 5;
+    	int64 fanTicket = 7;
+    	int32 fanTicketIconType = 10;
 
-    }
+	}
 
 }
 
@@ -935,6 +950,7 @@ message LinkerWaitingListChangeContent {
 }
 
 message WebcastAnchorTaskReminderMessage {
+    CommonMessageData baseMessage = 1;
     string taskRecordId = 2;
 
 }
@@ -943,9 +959,9 @@ message NoticeboardUpdateResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        NoticeboardContent noticeboardContent = 1;
+    	NoticeboardContent noticeboardContent = 1;
 
-    }
+	}
 
 }
 
@@ -959,6 +975,7 @@ message WaveAlgorithmData {
 }
 
 message WebcastLinkBusinessMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     PopupStateChangeContent popupStateChangeContent = 3;
 
@@ -968,12 +985,12 @@ message NoticeboardTemplateFetchListResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        repeated NoticeboardTemplate myTemplates = 1;
-        repeated NoticeboardTemplate recommendedTemplates = 2;
-        int64 createNumLimit = 3;
-        bool isOfficialUser = 4;
+    	repeated NoticeboardTemplate myTemplates = 1;
+    	repeated NoticeboardTemplate recommendedTemplates = 2;
+    	int64 createNumLimit = 3;
+    	bool isOfficialUser = 4;
 
-    }
+	}
 
 }
 
@@ -1017,17 +1034,17 @@ message ViolationStatusResponse {
     ResponseExtra extra = 2;
 
     message ResponseData {
-        int32 status = 1;
-        PerceptionDialogInfo perceptionDialog = 2;
-        PunishEventInfo punishEvent = 3;
-        Text perceptionToast = 4;
+    	int32 status = 1;
+    	PerceptionDialogInfo perceptionDialog = 2;
+    	PunishEventInfo punishEvent = 3;
+    	Text perceptionToast = 4;
 
-    }
+	}
 
     message ResponseExtra {
-        int64 now = 1;
+    	int64 now = 1;
 
-    }
+	}
 
 }
 
@@ -1039,10 +1056,10 @@ message OptPairInfo {
     int64 optPairType = 5;
 
     message OptPairUser {
-        User user = 1;
-        int64 roomId = 2;
+    	User user = 1;
+    	int64 roomId = 2;
 
-    }
+	}
 
 }
 
@@ -1079,6 +1096,7 @@ message GuestShowdownGetContentParams {
 }
 
 message WebcastLinkLayerMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     int64 channelId = 3;
     int32 scene = 4;
@@ -1143,9 +1161,9 @@ message AnchorSettingsUpdateResponse {
     Extra extra = 1;
 
     message Extra {
-        int64 now = 1;
+    	int64 now = 1;
 
-    }
+	}
 
 }
 
@@ -1159,23 +1177,23 @@ message TagV2 {
     SimilarInterestContent similarInterestContent = 12;
 
     message UserInfo {
-        int64 userId = 1;
-        string nickName = 2;
-        ImageModel avatarThumb = 3;
+    	int64 userId = 1;
+    	string nickName = 2;
+    	ImageModel avatarThumb = 3;
 
-    }
+	}
 
     message SecondDegreeRelationContent {
-        repeated UserInfo relatedUsers = 1;
-        int64 totalRelatedUserCnt = 2;
+    	repeated UserInfo relatedUsers = 1;
+    	int64 totalRelatedUserCnt = 2;
 
-    }
+	}
 
     message SimilarInterestContent {
-        int64 contentId = 1;
-        string displayText = 2;
+    	int64 contentId = 1;
+    	string displayText = 2;
 
-    }
+	}
 
 }
 
@@ -1195,42 +1213,42 @@ message LiveCoreSDKData {
     PushData pushData = 2;
 
     message Quality {
-        string name = 1;
-        string sdkKey = 2;
-        int32 iconType = 6;
+    	string name = 1;
+    	string sdkKey = 2;
+    	int32 iconType = 6;
 
-    }
+	}
 
     message Options {
-        Quality defaultQuality = 1;
-        repeated Quality qualityList = 2;
-        Quality defaultPreviewQuality = 3;
-        bool showQualityButton = 4;
+    	Quality defaultQuality = 1;
+    	repeated Quality qualityList = 2;
+    	Quality defaultPreviewQuality = 3;
+    	bool showQualityButton = 4;
 
-    }
+	}
 
     message PullData {
-        string streamData = 1;
-        Options options = 2;
+    	string streamData = 1;
+    	Options options = 2;
 
-    }
+	}
 
     message ResolutionParams {
-        int64 width = 1;
-        int64 height = 2;
-        int64 defaultBitrate = 3;
-        int64 minBitrate = 4;
-        int64 maxBitrate = 5;
-        int64 fps = 6;
+    	int64 width = 1;
+    	int64 height = 2;
+    	int64 defaultBitrate = 3;
+    	int64 minBitrate = 4;
+    	int64 maxBitrate = 5;
+    	int64 fps = 6;
 
-    }
+	}
 
     message PushData {
-        map<string, ResolutionParams> resolutionParams = 1;
-        int32 pushStreamLevel = 2;
-        string streamData = 3;
+    	map<string, ResolutionParams> resolutionParams = 1;
+    	int32 pushStreamLevel = 2;
+    	string streamData = 3;
 
-    }
+	}
 
 }
 
@@ -1284,6 +1302,7 @@ message EndShowParams {
 }
 
 message WebcastControlMessage {
+    CommonMessageData baseMessage = 1;
     int32 action = 2;
     string tips = 3;
     Extra extraInfo = 4;
@@ -1294,24 +1313,25 @@ message WebcastControlMessage {
     int32 floatStyle = 9;
 
     message Extra {
-        string banInfoUrl = 1;
-        int64 reasonNo = 2;
-        Text title = 3;
-        Text violationReason = 4;
-        string source = 8;
+    	string banInfoUrl = 1;
+    	int64 reasonNo = 2;
+    	Text title = 3;
+    	Text violationReason = 4;
+    	string source = 8;
 
-    }
+	}
 
 }
 
 message WebcastMarqueeAnnouncementMessage {
+    CommonMessageData baseMessage = 1;
     string messageScene = 2;
     repeated MessageEntity messageEntity = 3;
 
     message MessageEntity {
-        WebcastRoomNotifyMessage notifyMessage = 1;
+    	WebcastRoomNotifyMessage notifyMessage = 1;
 
-    }
+	}
 
 }
 
@@ -1389,6 +1409,7 @@ message CountdownEndParams {
 }
 
 message WebcastChatMessage {
+    CommonMessageData baseMessage = 1;
     User userInfo = 2;
     string content = 3;
     bool visibleToSender = 4;
@@ -1431,13 +1452,13 @@ message GiftPanelCardletByCreator {
     int32 copywritingType = 7;
 
     message CardletButton {
-        ImageModel leftIcon = 1;
-        string text = 2;
-        string schema = 3;
-        int32 buttonType = 4;
-        int32 buttonPriority = 5;
+    	ImageModel leftIcon = 1;
+    	string text = 2;
+    	string schema = 3;
+    	int32 buttonType = 4;
+    	int32 buttonPriority = 5;
 
-    }
+	}
 
 }
 
@@ -1445,13 +1466,14 @@ message GuestShowdownGetContentResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        GuestShowdownContent playContent = 1;
+    	GuestShowdownContent playContent = 1;
 
-    }
+	}
 
 }
 
 message WebcastGiftDynamicRestrictionMessage {
+    CommonMessageData baseMessage = 1;
     DynamicRestriction dynamicRestriction = 2;
 
 }
@@ -1461,11 +1483,11 @@ message GoalData {
     map<int64, Progress> goalProgress = 2;
 
     message Progress {
-        int64 currentProgress = 1;
-        int64 target = 2;
-        int64 expiredTimestampInMs = 3;
+    	int64 currentProgress = 1;
+    	int64 target = 2;
+    	int64 expiredTimestampInMs = 3;
 
-    }
+	}
 
 }
 
@@ -1549,6 +1571,7 @@ message RoomCreateInfo {
 }
 
 message WebcastSubNotifyMessage {
+    CommonMessageData baseMessage = 1;
     User user = 2;
     int32 exhibitionType = 3;
     int64 subMonth = 4;
@@ -1595,15 +1618,16 @@ message CompetitionScoreChange {
     TakeTheStageBiz takeTheStageBiz = 100;
 
     message TakeTheStageBiz {
-        int32 status = 1;
-        int64 performanceStartTime = 2;
-        TakeTheStageOrderInfo orderInfo = 3;
+    	int32 status = 1;
+    	int64 performanceStartTime = 2;
+    	TakeTheStageOrderInfo orderInfo = 3;
 
-    }
+	}
 
 }
 
 message WebcastCommonPopupMessage {
+    CommonMessageData baseMessage = 1;
     string schemaUrl = 2;
     bool anchorPopup = 3;
 
@@ -1625,42 +1649,42 @@ message FansEventData {
     repeated int32 triggerTaskTypes = 101;
 
     message EntranceGuidanceData {
-        Text text = 1;
-        ImageModel icon = 2;
-        int32 guidanceType = 5;
-        string freqControlKey = 6;
-        int64 freqControlDuration = 7;
-        int32 freqControlValue = 8;
+    	Text text = 1;
+    	ImageModel icon = 2;
+    	int32 guidanceType = 5;
+    	string freqControlKey = 6;
+    	int64 freqControlDuration = 7;
+    	int32 freqControlValue = 8;
 
-    }
+	}
 
     message ExpChangeData {
-        bool claimedAllPoints = 1;
+    	bool claimedAllPoints = 1;
 
-    }
+	}
 
     message GetUnclaimedPoints {
-        int64 unclaimedPoints = 1;
-        int64 expireTimestamp = 2;
+    	int64 unclaimedPoints = 1;
+    	int64 expireTimestamp = 2;
 
-    }
+	}
 
     message NewFansData {
-        int64 fansCount = 1;
+    	int64 fansCount = 1;
 
-    }
+	}
 
     message TaskCompleteData {
-        int32 taskType = 1;
-        bool isClearToday = 2;
+    	int32 taskType = 1;
+    	bool isClearToday = 2;
 
-    }
+	}
 
     message TeamRankUpdate {
-        int64 updatedRank = 1;
-        int64 updatedScore = 2;
+    	int64 updatedRank = 1;
+    	int64 updatedScore = 2;
 
-    }
+	}
 
 }
 
@@ -1682,7 +1706,7 @@ message TriggerResumeNoticeResponse {
 
     message ResponseData {
 
-    }
+	}
 
 }
 
@@ -1701,6 +1725,7 @@ message EffectCategory {
 }
 
 message WebcastEcBarrageMessage {
+    CommonMessageData baseMessage = 1;
     ImageModel icon = 2;
     Text content = 3;
     int64 duration = 4;
@@ -1710,6 +1735,7 @@ message WebcastEcBarrageMessage {
 }
 
 message WebcastPromoteAdStatusMessage {
+    CommonMessageData baseMessage = 1;
     int64 adId = 2;
     int32 status = 3;
 
@@ -1724,9 +1750,9 @@ message GetShowContentResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        ShowContent showContent = 1;
+    	ShowContent showContent = 1;
 
-    }
+	}
 
 }
 
@@ -1817,6 +1843,7 @@ message ByteRTCExtInfo {
 }
 
 message WebcastInteractionHubGoalMessage {
+    CommonMessageData baseMessage = 1;
     Text interactionGoal = 2;
     Text interactionTips = 3;
     int32 interactionGoalType = 4;
@@ -1922,52 +1949,52 @@ message Gift {
     GiftPanelBeaconBubble beaconBubble = 120;
 
     message BatchGiftInfo {
-        bool canBatchSend = 1;
-        repeated int64 availableCounts = 2;
+    	bool canBatchSend = 1;
+    	repeated int64 availableCounts = 2;
 
-    }
+	}
 
     message CrossScreenEffectInfo {
-        map<int64, int32> singleActionEffectIds = 1;
-        map<int64, int32> actionEffectIds = 2;
-        map<int64, int32> reactionEffectIds = 3;
+    	map<int64, int32> singleActionEffectIds = 1;
+    	map<int64, int32> actionEffectIds = 2;
+    	map<int64, int32> reactionEffectIds = 3;
 
-    }
+	}
 
     message GiftSponsorInfo {
-        int64 sponsorId = 1;
-        int64 sponsorCount = 2;
-        int64 currentCount = 3;
-        int64 leftCountToSponsor = 4;
-        bool canSponsor = 5;
+    	int64 sponsorId = 1;
+    	int64 sponsorCount = 2;
+    	int64 currentCount = 3;
+    	int64 leftCountToSponsor = 4;
+    	bool canSponsor = 5;
 
-    }
+	}
 
     message UGGiftStructInfo {
-        bool isUgGift = 1;
-        int64 ugPointsCost = 2;
+    	bool isUgGift = 1;
+    	int64 ugPointsCost = 2;
 
-    }
+	}
 
     message GiftSkin {
-        int64 giftSkinId = 1;
-        string giftSkinName = 2;
-        ImageModel staticImage = 3;
-        ImageModel animatedImage = 4;
+    	int64 giftSkinId = 1;
+    	string giftSkinName = 2;
+    	ImageModel staticImage = 3;
+    	ImageModel animatedImage = 4;
 
-    }
+	}
 
     message GiftText {
-        int64 giftTextId = 1;
-        string giftTextName = 2;
+    	int64 giftTextId = 1;
+    	string giftTextName = 2;
 
-    }
+	}
 
     message GiftSkinToGiftTextsInfo {
-        int64 giftSkinId = 1;
-        repeated int64 giftTextIds = 2;
+    	int64 giftSkinId = 1;
+    	repeated int64 giftTextIds = 2;
 
-    }
+	}
 
 }
 
@@ -1985,6 +2012,7 @@ message AnchorActivityTaskProgress {
 }
 
 message WebcastEpiMessage {
+    CommonMessageData baseMessage = 1;
     EpiDecision decisions = 2;
 
 }
@@ -2020,6 +2048,7 @@ message CommonMessageData {
 }
 
 message WebcastLinkmicAnimationMessage {
+    CommonMessageData baseMessage = 1;
     ApplyAnimationContent applyAnimationContent = 2;
 
 }
@@ -2076,10 +2105,10 @@ message CountdownForAllStartResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool isExists = 1;
-        CountdownForAllContent playContent = 2;
+    	bool isExists = 1;
+    	CountdownForAllContent playContent = 2;
 
-    }
+	}
 
 }
 
@@ -2119,6 +2148,7 @@ message RealTimePerformancePageMessage {
 }
 
 message WebcastStreamStatusMessage {
+    CommonMessageData baseMessage = 1;
     repeated StreamStatusChangeInfo streams = 2;
 
 }
@@ -2129,11 +2159,13 @@ message AudienceRejectContent {
 }
 
 message WebcastGiftCollectionUpdateMessage {
+    CommonMessageData baseMessage = 1;
     GiftCollection giftCollection = 2;
 
 }
 
 message WebcastCommercialCustomMessage {
+    CommonMessageData baseMessage = 1;
     int64 customMessageId = 2;
     ImageModel brandLogo = 3;
     Text brandName = 4;
@@ -2144,15 +2176,16 @@ message WebcastCommercialCustomMessage {
     int64 duration = 9;
 
     message RightLabel {
-        string backgroundColor = 1;
-        Text content = 2;
-        int64 height = 3;
+    	string backgroundColor = 1;
+    	Text content = 2;
+    	int64 height = 3;
 
-    }
+	}
 
 }
 
 message WebcastGuideMessage {
+    CommonMessageData baseMessage = 1;
     int64 guideType = 2;
     int64 giftId = 3;
     string description = 4;
@@ -2221,6 +2254,7 @@ message BlockStatus {
 }
 
 message WebcastDonationMessage {
+    CommonMessageData baseMessage = 1;
     int64 total = 2;
     string currency = 3;
     repeated User sponsor = 4;
@@ -2232,11 +2266,11 @@ message CohostListResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        int64 totalPositionCount = 1;
-        int64 groupChannelId = 2;
-        repeated CohostListUser users = 3;
+    	int64 totalPositionCount = 1;
+    	int64 groupChannelId = 2;
+    	repeated CohostListUser users = 3;
 
-    }
+	}
 
 }
 
@@ -2258,31 +2292,31 @@ message JoinGroupMessageExtra {
     repeated RivalExtra otherUsers = 3;
 
     message AuthenticationInfo {
-        string customVerify = 1;
-        string enterpriseVerifyReason = 2;
-        ImageModel authenticationBadge = 3;
+    	string customVerify = 1;
+    	string enterpriseVerifyReason = 2;
+    	ImageModel authenticationBadge = 3;
 
-    }
+	}
 
     message RivalExtra {
-        int64 userCount = 4;
-        ImageModel avatarThumb = 5;
-        string displayId = 6;
-        AuthenticationInfo authenticationInfo = 7;
-        string nickname = 8;
-        int64 followStatus = 9;
-        Hashtag hashtag = 10;
-        TopHostInfo topHostInfo = 11;
-        int64 userId = 12;
-        bool isBestTeammate = 13;
-        OptPairInfo optPairInfo = 14;
-        int64 eoyLevel = 15;
-        int32 nudgeInfo = 16;
-        int64 reservationId = 17;
-        int64 followerCount = 18;
-        RivalsGameTag gameTag = 19;
+    	int64 userCount = 4;
+    	ImageModel avatarThumb = 5;
+    	string displayId = 6;
+    	AuthenticationInfo authenticationInfo = 7;
+    	string nickname = 8;
+    	int64 followStatus = 9;
+    	Hashtag hashtag = 10;
+    	TopHostInfo topHostInfo = 11;
+    	int64 userId = 12;
+    	bool isBestTeammate = 13;
+    	OptPairInfo optPairInfo = 14;
+    	int64 eoyLevel = 15;
+    	int32 nudgeInfo = 16;
+    	int64 reservationId = 17;
+    	int64 followerCount = 18;
+    	RivalsGameTag gameTag = 19;
 
-    }
+	}
 
 }
 
@@ -2290,13 +2324,14 @@ message BizMigrateGroupResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        map<int64, CohostUserInfo> userInfos = 1;
+    	map<int64, CohostUserInfo> userInfos = 1;
 
-    }
+	}
 
 }
 
 message WebcastLiveGameIntroMessage {
+    CommonMessageData baseMessage = 1;
     Text content = 2;
     bool hasRankInfo = 3;
 
@@ -2306,21 +2341,21 @@ message LivePodcastResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool canBeLivePodcast = 1;
-        bool canBeSocialLive = 2;
-        LiveScenario liveScenario = 3;
-        LivePermissionApply livePermissionApply = 4;
-        bool showLiveStudio = 5;
-        AnchorLevelPermission anchorLevelPermission = 6;
-        bool canBePicoLivePodcast = 7;
-        TryMode tryMode = 8;
-        LiveStudioPermissionStatus liveStudioPermissionStatus = 9;
-        Stream stream = 10;
-        int64 canCache = 11;
-        bool showMockLiveTab = 12;
-        EntranceConditionsPopup conditionsPopup = 13;
+    	bool canBeLivePodcast = 1;
+    	bool canBeSocialLive = 2;
+    	LiveScenario liveScenario = 3;
+    	LivePermissionApply livePermissionApply = 4;
+    	bool showLiveStudio = 5;
+    	AnchorLevelPermission anchorLevelPermission = 6;
+    	bool canBePicoLivePodcast = 7;
+    	TryMode tryMode = 8;
+    	LiveStudioPermissionStatus liveStudioPermissionStatus = 9;
+    	Stream stream = 10;
+    	int64 canCache = 11;
+    	bool showMockLiveTab = 12;
+    	EntranceConditionsPopup conditionsPopup = 13;
 
-    }
+	}
 
 }
 
@@ -2337,10 +2372,10 @@ message SubPinCard {
     int64 lastPinTimestamp = 10;
 
     message Text {
-        int32 type = 1;
-        string content = 2;
+    	int32 type = 1;
+    	string content = 2;
 
-    }
+	}
 
 }
 
@@ -2352,14 +2387,14 @@ message CompetitionInitiateInfo {
     TakeTheStageBiz takeTheStageBiz = 100;
 
     message AnchorInfo {
-        int64 userId = 1;
+    	int64 userId = 1;
 
-    }
+	}
 
     message TakeTheStageBiz {
-        repeated AnchorInfo anchors = 1;
+    	repeated AnchorInfo anchors = 1;
 
-    }
+	}
 
 }
 
@@ -2404,13 +2439,13 @@ message ResumeResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        string rtcExtInfo = 1;
-        bool isResume = 2;
-        repeated CohostListUser users = 3;
-        int64 totalPositionCount = 4;
-        int64 channelId = 5;
+    	string rtcExtInfo = 1;
+    	bool isResume = 2;
+    	repeated CohostListUser users = 3;
+    	int64 totalPositionCount = 4;
+    	int64 channelId = 5;
 
-    }
+	}
 
 }
 
@@ -2467,23 +2502,23 @@ message TextEffect {
     Detail landscapeDetail = 2;
 
     message Detail {
-        Text text = 1;
-        int32 textFontSize = 2;
-        ImageModel background = 3;
-        int64 start = 4;
-        int64 duration = 5;
-        int32 x = 6;
-        int32 y = 7;
-        int32 width = 8;
-        int32 height = 9;
-        int32 shadowDx = 10;
-        int32 shadowDy = 11;
-        int32 shadowRadius = 12;
-        string shadowColor = 13;
-        string strokeColor = 14;
-        int32 strokeWidth = 15;
+    	Text text = 1;
+    	int32 textFontSize = 2;
+    	ImageModel background = 3;
+    	int64 start = 4;
+    	int64 duration = 5;
+    	int32 x = 6;
+    	int32 y = 7;
+    	int32 width = 8;
+    	int32 height = 9;
+    	int32 shadowDx = 10;
+    	int32 shadowDy = 11;
+    	int32 shadowRadius = 12;
+    	string shadowColor = 13;
+    	string strokeColor = 14;
+    	int32 strokeWidth = 15;
 
-    }
+	}
 
 }
 
@@ -2504,10 +2539,10 @@ message CompetitionReplyResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        CompetitionCommon bizCommon = 1;
-        map<int64, CompetitionABInfo> abInfos = 2;
+    	CompetitionCommon bizCommon = 1;
+    	map<int64, CompetitionABInfo> abInfos = 2;
 
-    }
+	}
 
 }
 
@@ -2524,6 +2559,7 @@ message UserArmiesWrapper {
 }
 
 message WebcastPartnershipDropsCardChangeMessage {
+    CommonMessageData baseMessage = 1;
     int32 changeMode = 2;
     string dropsId = 3;
     int64 cardShowDuration = 4;
@@ -2533,6 +2569,7 @@ message WebcastPartnershipDropsCardChangeMessage {
 }
 
 message WebcastGameGuessWidgetsMessage {
+    CommonMessageData baseMessage = 1;
     GuessWidgets guessWidgets = 2;
 
 }
@@ -2570,6 +2607,7 @@ message GoodyBagUserInfo {
 }
 
 message WebcastMiddleTouchMessage {
+    CommonMessageData baseMessage = 1;
     UnifyBaseActionData actionData = 2;
     MiddleTouchExtra extra = 3;
 
@@ -2590,9 +2628,9 @@ message CheckUpdateResponse {
     Data data = 1;
 
     message Data {
-        bool updated = 1;
+    	bool updated = 1;
 
-    }
+	}
 
 }
 
@@ -2648,6 +2686,7 @@ message GoalComparison {
 }
 
 message WebcastUserStatsMessage {
+    CommonMessageData baseMessage = 1;
     string mContent = 2;
     int64 mUserId = 3;
     int64 mActionType = 4;
@@ -2678,6 +2717,7 @@ message PerceptionFeedbackOption {
 }
 
 message WebcastWallpaperReviewMessage {
+    CommonMessageData baseMessage = 1;
     string aiPicUrl = 2;
     int64 reviewResult = 3;
     string contextKeywords = 4;
@@ -2692,12 +2732,12 @@ message BattleRecentContribResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        repeated string giftLogIds = 1;
-        map<int64, bool> supportedActions = 2;
-        map<int64, BattleResult> battleScore = 3;
-        map<int64, BattleTeamResult> teamBattleScore = 4;
+    	repeated string giftLogIds = 1;
+    	map<int64, bool> supportedActions = 2;
+    	map<int64, BattleResult> battleScore = 3;
+    	map<int64, BattleTeamResult> teamBattleScore = 4;
 
-    }
+	}
 
 }
 
@@ -2711,6 +2751,7 @@ message VideoMetaInfo {
 }
 
 message WebcastLinkMicAdMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     repeated LinkMicAdContent linkAdContents = 3;
 
@@ -2720,13 +2761,13 @@ message CompetitionInitiateResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        CompetitionCommon bizCommon = 1;
-        int32 inviterGiftPermissionType = 2;
-        repeated CompetitionTeamBase teams = 3;
-        int64 endTimestampSec = 4;
-        int64 actualEndTimestampSec = 5;
+    	CompetitionCommon bizCommon = 1;
+    	int32 inviterGiftPermissionType = 2;
+    	repeated CompetitionTeamBase teams = 3;
+    	int64 endTimestampSec = 4;
+    	int64 actualEndTimestampSec = 5;
 
-    }
+	}
 
 }
 
@@ -2748,15 +2789,15 @@ message StarCommentGetQueueResponse {
     Data data = 1;
 
     message Data {
-        StarCommentQueue queue = 1;
-        int64 serverCurMsgStartTimeMs = 2;
-        string clientReserve = 3;
-        int64 pollingIntervalMs = 4;
-        int64 normalIntervalBetweenMsgMs = 5;
-        int64 advancedIntervalBetweenMsgMs = 6;
-        int64 laggingIntervalBetweenMsgMs = 7;
+    	StarCommentQueue queue = 1;
+    	int64 serverCurMsgStartTimeMs = 2;
+    	string clientReserve = 3;
+    	int64 pollingIntervalMs = 4;
+    	int64 normalIntervalBetweenMsgMs = 5;
+    	int64 advancedIntervalBetweenMsgMs = 6;
+    	int64 laggingIntervalBetweenMsgMs = 7;
 
-    }
+	}
 
 }
 
@@ -2766,6 +2807,7 @@ message AgeRestrictionSettings {
 }
 
 message WebcastSubTimerStickerMessage {
+    CommonMessageData baseMessage = 1;
     SubTimerSticker sticker = 2;
 
 }
@@ -2795,11 +2837,11 @@ message StreamUrlExtra {
     bool enableByteVC1 = 20;
 
     message SrConfig {
-        bool enabled = 1;
-        int32 strength = 2;
-        bool antiAlias = 3;
+    	bool enabled = 1;
+    	int32 strength = 2;
+    	bool antiAlias = 3;
 
-    }
+	}
 
 }
 
@@ -2816,78 +2858,78 @@ message GetFirstRechargeInfoV2Resp {
     Data data = 1;
 
     message RewardProcess {
-        int64 rewardId = 1;
-        int32 rewardOrder = 2;
-        int32 rewardScene = 3;
-        int64 rewardAmount = 4;
-        int64 rewardExpire = 5;
-        ImageModel rewardIcon = 6;
+    	int64 rewardId = 1;
+    	int32 rewardOrder = 2;
+    	int32 rewardScene = 3;
+    	int64 rewardAmount = 4;
+    	int64 rewardExpire = 5;
+    	ImageModel rewardIcon = 6;
 
-    }
+	}
 
     message CampaignProcess {
-        int64 taskId = 1;
-        int32 taskOrder = 2;
-        int32 taskScene = 3;
-        int32 taskStatus = 4;
-        int64 taskTargetAmount = 5;
-        int64 taskFinishedAmount = 6;
-        int64 taskExpireTime = 7;
-        repeated RewardProcess rewards = 8;
+    	int64 taskId = 1;
+    	int32 taskOrder = 2;
+    	int32 taskScene = 3;
+    	int32 taskStatus = 4;
+    	int64 taskTargetAmount = 5;
+    	int64 taskFinishedAmount = 6;
+    	int64 taskExpireTime = 7;
+    	repeated RewardProcess rewards = 8;
 
-    }
+	}
 
     message CommonCampaignInfo {
-        string campaignName = 1;
-        int64 expireTime = 3;
-        int32 campaignStatus = 4;
-        repeated CampaignProcess campaignProcess = 5;
+    	string campaignName = 1;
+    	int64 expireTime = 3;
+    	int32 campaignStatus = 4;
+    	repeated CampaignProcess campaignProcess = 5;
 
-    }
+	}
 
     message FirstChargeGuideEffectRule {
-        bool enableFirstRechargeGuideEffect = 1;
-        repeated int32 enterRoomShowTime = 2;
-        int32 watchPkShowTime = 3;
+    	bool enableFirstRechargeGuideEffect = 1;
+    	repeated int32 enterRoomShowTime = 2;
+    	int32 watchPkShowTime = 3;
 
-    }
+	}
 
     message FirstRechargeCampaignV1 {
-        bool isFirstCharge = 1;
-        FirstChargeGuideEffectRule guideEffectRule = 2;
-        Diamond defaultDiamond = 3;
-        int32 firstChargeGiftStyle = 4;
-        ImageModel packageEntranceImage = 5;
+    	bool isFirstCharge = 1;
+    	FirstChargeGuideEffectRule guideEffectRule = 2;
+    	Diamond defaultDiamond = 3;
+    	int32 firstChargeGiftStyle = 4;
+    	ImageModel packageEntranceImage = 5;
 
-    }
+	}
 
     message FirstRechargeCampaignV2 {
-        bool isCashFirstCharge = 1;
-        int64 giftId = 2;
-        bool isShowCountdown = 3;
-        int64 expireTime = 4;
-        int32 totalFrozenCoins = 5;
-        int32 remainingFrozenCoins = 6;
-        int32 minimumNumberOfCoinsToUnlockFrozenCoins = 7;
-        int32 frozenCoinsForLargePackages = 8;
-        int32 frozenCoinsForSmallPackages = 9;
-        int32 rechargeCoinsForLargePackages = 10;
-        int32 rechargeCoinsForSmallPackages = 11;
-        bool isFirstActiveConsumption = 12;
-        int64 firstCashRechargeTs = 13;
+    	bool isCashFirstCharge = 1;
+    	int64 giftId = 2;
+    	bool isShowCountdown = 3;
+    	int64 expireTime = 4;
+    	int32 totalFrozenCoins = 5;
+    	int32 remainingFrozenCoins = 6;
+    	int32 minimumNumberOfCoinsToUnlockFrozenCoins = 7;
+    	int32 frozenCoinsForLargePackages = 8;
+    	int32 frozenCoinsForSmallPackages = 9;
+    	int32 rechargeCoinsForLargePackages = 10;
+    	int32 rechargeCoinsForSmallPackages = 11;
+    	bool isFirstActiveConsumption = 12;
+    	int64 firstCashRechargeTs = 13;
 
-    }
+	}
 
     message Data {
-        int32 campaignType = 1;
-        FirstRechargeCampaignV1 firstRechargeCampaignV1 = 2;
-        FirstRechargeCampaignV2 firstRechargeCampaignV2 = 3;
-        string campaignSchemaUrl = 4;
-        CommonCampaignInfo commonCampaignInfo = 5;
-        int64 serverUnixTime = 6;
-        string campaignFaqUrl = 7;
+    	int32 campaignType = 1;
+    	FirstRechargeCampaignV1 firstRechargeCampaignV1 = 2;
+    	FirstRechargeCampaignV2 firstRechargeCampaignV2 = 3;
+    	string campaignSchemaUrl = 4;
+    	CommonCampaignInfo commonCampaignInfo = 5;
+    	int64 serverUnixTime = 6;
+    	string campaignFaqUrl = 7;
 
-    }
+	}
 
 }
 
@@ -2907,10 +2949,10 @@ message NoticeboardTemplateUpdateResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool isSuccess = 1;
-        NoticeboardTemplate template = 2;
+    	bool isSuccess = 1;
+    	NoticeboardTemplate template = 2;
 
-    }
+	}
 
 }
 
@@ -2943,10 +2985,10 @@ message NoticeboardCreateResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool isExists = 1;
-        NoticeboardContent noticeboardContent = 2;
+    	bool isExists = 1;
+    	NoticeboardContent noticeboardContent = 2;
 
-    }
+	}
 
 }
 
@@ -2987,10 +3029,10 @@ message QuizStatistics {
     repeated OptionCountItem optionCount = 1;
 
     message OptionCountItem {
-        string optionId = 1;
-        int32 count = 2;
+    	string optionId = 1;
+    	int32 count = 2;
 
-    }
+	}
 
 }
 
@@ -3019,6 +3061,7 @@ message RTCExtraInfo {
 }
 
 message WebcastGiftGalleryMessage {
+    CommonMessageData baseMessage = 1;
     GiftInfo giftInfo = 2;
     User user = 3;
     User toUser = 4;
@@ -3028,12 +3071,12 @@ message WebcastGiftGalleryMessage {
     string logId = 52;
 
     message GiftInfo {
-        int64 lightedUpGiftId = 1;
-        bool highValue = 2;
-        Gift gift = 3;
-        string unlightedGiftIcon = 4;
+    	int64 lightedUpGiftId = 1;
+    	bool highValue = 2;
+    	Gift gift = 3;
+    	string unlightedGiftIcon = 4;
 
-    }
+	}
 
 }
 
@@ -3053,6 +3096,7 @@ message GuestClientList {
 }
 
 message WebcastGiftUpdateMessage {
+    CommonMessageData baseMessage = 1;
     int32 updateType = 2;
 
 }
@@ -3074,6 +3118,7 @@ message MigrateGroupReq {
 }
 
 message WebcastNoticeboardMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     NoticeboardContent noticeboardContent = 3;
     LinkerMediaChangeOperator operatorUserInfo = 4;
@@ -3089,6 +3134,7 @@ message LeaveContent {
 }
 
 message WebcastRoomEventMessage {
+    CommonMessageData baseMessage = 1;
     int64 eventId = 2;
     string title = 3;
     int64 startTime = 4;
@@ -3107,6 +3153,7 @@ message GiveawayInfo {
 }
 
 message WebcastUpgradeMessage {
+    CommonMessageData baseMessage = 1;
     Text text = 2;
 
 }
@@ -3118,6 +3165,7 @@ message WalletLiveRewardsRatioImMsg {
 }
 
 message WebcastBackpackMessage {
+    CommonMessageData baseMessage = 1;
     int32 changeType = 2;
     int32 action = 3;
     int32 itemType = 4;
@@ -3133,6 +3181,7 @@ message BarrageTypeFansLevelParam {
 }
 
 message WebcastAvatarStyleResultMessage {
+    CommonMessageData baseMessage = 1;
     int32 status = 2;
     string statusMessage = 3;
     ImageModel image = 4;
@@ -3166,11 +3215,13 @@ message GiftConfigs {
 }
 
 message WebcastGameSettingChangeMessage {
+    CommonMessageData baseMessage = 1;
     map<int64, UserSetting> currentUserSetting = 2;
 
 }
 
 message WebcastPartnershipDropsUpdateMessage {
+    CommonMessageData baseMessage = 1;
     int32 changeMode = 2;
     string dropsId = 3;
     string taskId = 4;
@@ -3240,6 +3291,7 @@ message SubGoalContribution {
 }
 
 message WebcastQuestionSwitchMessage {
+    CommonMessageData baseMessage = 1;
     bool on = 2;
 
 }
@@ -3255,6 +3307,7 @@ message BattleNoticeRuleGuide {
 }
 
 message WebcastLiveInfoAuditNoticeMessage {
+    CommonMessageData baseMessage = 1;
     int32 auditContentType = 2;
     int32 auditStatus = 3;
     string textStarlingKey = 4;
@@ -3323,9 +3376,9 @@ message GetUserPlaySettingsResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        map<string, int64> settingsMap = 1;
+    	map<string, int64> settingsMap = 1;
 
-    }
+	}
 
 }
 
@@ -3341,6 +3394,7 @@ message LinkerEnlargeStatusSynContent {
 }
 
 message WebcastLinkMicBattleVictoryLap {
+    CommonMessageData baseMessage = 1;
     int32 playType = 2;
     BattleTruthOrDareTriggerGuide battleTruthOrDareTriggerGuide = 3;
     BattleTruthOrDareTips playTips = 4;
@@ -3367,15 +3421,15 @@ message RoomBasedGiftData {
     map<int64, RoomBasedGifts> roomBasedGifts = 2;
 
     message GiftInfo {
-        int64 id = 1;
-        int64 price = 2;
+    	int64 id = 1;
+    	int64 price = 2;
 
-    }
+	}
 
     message RoomBasedGifts {
-        repeated GiftInfo giftInfo = 1;
+    	repeated GiftInfo giftInfo = 1;
 
-    }
+	}
 
 }
 
@@ -3538,10 +3592,10 @@ message CountdownStartResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool countdownExists = 1;
-        CountdownContent countdownContent = 2;
+    	bool countdownExists = 1;
+    	CountdownContent countdownContent = 2;
 
-    }
+	}
 
 }
 
@@ -3551,6 +3605,7 @@ message IntroConflictInfo {
 }
 
 message WebcastCommonToastMessage {
+    CommonMessageData baseMessage = 1;
     bool discardable = 2;
     bool immediate = 3;
     int32 duration = 4;
@@ -3651,6 +3706,7 @@ message GeckoAttr {
 }
 
 message WebcastToastMessage {
+    CommonMessageData baseMessage = 1;
     int64 displayDuration = 2;
     int64 delayDuration = 3;
     string scene = 4;
@@ -3663,6 +3719,7 @@ message PopupStateChangeContent {
 }
 
 message WebcastDonationStickerModifyMethod {
+    CommonMessageData baseMessage = 1;
     repeated DonationSticker decorationList = 2;
 
 }
@@ -3683,6 +3740,7 @@ message GameLiveConvertInfo {
 }
 
 message WebcastRoomMessage {
+    CommonMessageData baseMessage = 1;
     string content = 2;
     bool supprotLandscape = 3;
     int32 source = 4;
@@ -3710,6 +3768,7 @@ message KickOutContent {
 }
 
 message WebcastPollMessage {
+    CommonMessageData baseMessage = 1;
     int64 messageType = 2;
     int64 pollId = 3;
     PollStartContent startContent = 4;
@@ -3722,6 +3781,7 @@ message WebcastPollMessage {
 }
 
 message WebcastHighlightFragementReady {
+    CommonMessageData baseMessage = 1;
     GameLiveFragment gameLiveFragment = 2;
 
 }
@@ -3774,15 +3834,15 @@ message FollowGuideResponse {
     Extra extra = 2;
 
     message ResponseData {
-        bool isDisplay = 1;
-        repeated int64 displayList = 2;
+    	bool isDisplay = 1;
+    	repeated int64 displayList = 2;
 
-    }
+	}
 
     message Extra {
-        int64 now = 1;
+    	int64 now = 1;
 
-    }
+	}
 
 }
 
@@ -3790,10 +3850,10 @@ message AnchorSettingsResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        RoomBasicSettings settings = 1;
-        UserStats userStats = 3;
+    	RoomBasicSettings settings = 1;
+    	UserStats userStats = 3;
 
-    }
+	}
 
 }
 
@@ -3830,14 +3890,15 @@ message GuestShowdownCloseResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool success = 1;
-        GuestShowdownContent playContent = 2;
+    	bool success = 1;
+    	GuestShowdownContent playContent = 2;
 
-    }
+	}
 
 }
 
 message WebcastGiftPromptMessage {
+    CommonMessageData baseMessage = 1;
     string title = 2;
     string body = 3;
     int32 blockNumDays = 4;
@@ -3947,9 +4008,9 @@ message GetShowSettingsResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        ShowConfig showSettings = 1;
+    	ShowConfig showSettings = 1;
 
-    }
+	}
 
 }
 
@@ -3957,24 +4018,24 @@ message CompetitionContributorListResponse {
     ResponseData data = 1;
 
     message AnchorInfo {
-        int64 userId = 1;
-        int64 score = 2;
-        string formattedScore = 3;
+    	int64 userId = 1;
+    	int64 score = 2;
+    	string formattedScore = 3;
 
-    }
+	}
 
     message UserInfo {
-        User user = 1;
-        int64 score = 2;
-        string formattedScore = 3;
+    	User user = 1;
+    	int64 score = 2;
+    	string formattedScore = 3;
 
-    }
+	}
 
     message ResponseData {
-        repeated UserInfo users = 1;
-        AnchorInfo anchorInfo = 2;
+    	repeated UserInfo users = 1;
+    	AnchorInfo anchorInfo = 2;
 
-    }
+	}
 
 }
 
@@ -4064,6 +4125,7 @@ message ContentDisclosureSettings {
 }
 
 message WebcastForceFetchRecommendationsMessage {
+    CommonMessageData baseMessage = 1;
     repeated int64 reasons = 10;
     int64 fetchWithinMs = 11;
     string strategyContext = 100;
@@ -4081,10 +4143,10 @@ message AboutMe {
     AuditInfo auditInfo = 8;
 
     message AuditInfo {
-        int64 violationId = 1;
-        int64 taskType = 2;
+    	int64 violationId = 1;
+    	int64 taskType = 2;
 
-    }
+	}
 
 }
 
@@ -4108,6 +4170,7 @@ message FeedItem {
 }
 
 message WebcastGameGuessPinCardMessage {
+    CommonMessageData baseMessage = 1;
     PinCardView view = 2;
 
 }
@@ -4136,11 +4199,12 @@ message BattleTriggerGuideResponse {
 
     message ResponseData {
 
-    }
+	}
 
 }
 
 message WebcastLinkLayoutMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     int64 roomId = 3;
     int64 channelId = 4;
@@ -4158,6 +4222,7 @@ message LinkerAcceptNoticeContent {
 }
 
 message WebcastGameOCRPingMessage {
+    CommonMessageData baseMessage = 1;
     int64 pingValue = 2;
     bool isGame = 3;
     string gameFusionLabel = 4;
@@ -4207,6 +4272,7 @@ message WallpaperContent {
 }
 
 message WebcastAnchorGrowLevelMessage {
+    CommonMessageData baseMessage = 1;
     AnchorGrowLevelImMsg anchorGrowLevelImMsg = 2;
     AnchorGrowLevelImMsgV2 anchorGrowLevelImMsgV2 = 3;
 
@@ -4301,80 +4367,80 @@ message AnchorInfoResponse {
     ResponseData data = 1;
 
     message CameraPartnershipInfo {
-        bool permission = 1;
-        bool taskPermission = 2;
-        bool publishPermission = 3;
+    	bool permission = 1;
+    	bool taskPermission = 2;
+    	bool publishPermission = 3;
 
-    }
+	}
 
     message DropsBrief {
-        string dropsId = 1;
-        string icon = 2;
-        int64 beginTimestamp = 3;
+    	string dropsId = 1;
+    	string icon = 2;
+    	int64 beginTimestamp = 3;
 
-    }
+	}
 
     message DropsEntrance {
-        bool permission = 1;
-        bool hasSign = 2;
-        bool rewarded = 3;
-        string icon = 4;
-        int64 dropsCount = 5;
-        repeated DropsBrief recentDropsBriefs = 6;
+    	bool permission = 1;
+    	bool hasSign = 2;
+    	bool rewarded = 3;
+    	string icon = 4;
+    	int64 dropsCount = 5;
+    	repeated DropsBrief recentDropsBriefs = 6;
 
-    }
+	}
 
     message LabelFilterInfo {
-        bool gpppaAccount = 1;
-        string gpppaBanText = 2;
-        string gpppaBanToast = 3;
+    	bool gpppaAccount = 1;
+    	string gpppaBanText = 2;
+    	string gpppaBanToast = 3;
 
-    }
+	}
 
     message PartnershipInfo {
-        bool permission = 1;
-        bool hasSign = 2;
-        bool taskPermission = 3;
-        bool publishPermission = 4;
-        int64 partnershipInfoUpdateTimestamp = 5;
+    	bool permission = 1;
+    	bool hasSign = 2;
+    	bool taskPermission = 3;
+    	bool publishPermission = 4;
+    	int64 partnershipInfoUpdateTimestamp = 5;
 
-    }
+	}
 
     message TaskPriceUpdate {
-        string taskId = 1;
-        int64 priceUpdateTimestamp = 2;
+    	string taskId = 1;
+    	int64 priceUpdateTimestamp = 2;
 
-    }
+	}
 
     message PunishInfo {
-        string punishText = 1;
-        PunishEventInfo punishEventInfo = 2;
+    	string punishText = 1;
+    	PunishEventInfo punishEventInfo = 2;
 
-    }
+	}
 
     message ToggleInfo {
-        int64 gameTagId = 1;
-        int32 toggleStatus = 2;
+    	int64 gameTagId = 1;
+    	int32 toggleStatus = 2;
 
-    }
+	}
 
     message ResponseData {
-        repeated PunishInfo punishInfo = 1;
-        repeated TaskPriceUpdate priceUpdateList = 2;
-        LabelFilterInfo labelFilterInfo = 3;
-        bool taxpayoutconfirm = 4;
-        repeated PartnershipGameEvent enableEventList = 5;
-        repeated PartnershipBriefDrops enableDropsList = 6;
-        int32 toggleStatus = 7;
-        bool shootPermission = 8;
-        bool businessPartnership = 9;
-        DropsEntrance dropsEntrance = 10;
-        PartnershipInfo partnershipInfo = 11;
-        ToggleInfo toggleInfo = 12;
-        bool liveTakeDecouple = 13;
-        CameraPartnershipInfo cameraPartnershipInfo = 14;
+    	repeated PunishInfo punishInfo = 1;
+    	repeated TaskPriceUpdate priceUpdateList = 2;
+    	LabelFilterInfo labelFilterInfo = 3;
+    	bool taxpayoutconfirm = 4;
+    	repeated PartnershipGameEvent enableEventList = 5;
+    	repeated PartnershipBriefDrops enableDropsList = 6;
+    	int32 toggleStatus = 7;
+    	bool shootPermission = 8;
+    	bool businessPartnership = 9;
+    	DropsEntrance dropsEntrance = 10;
+    	PartnershipInfo partnershipInfo = 11;
+    	ToggleInfo toggleInfo = 12;
+    	bool liveTakeDecouple = 13;
+    	CameraPartnershipInfo cameraPartnershipInfo = 14;
 
-    }
+	}
 
 }
 
@@ -4404,10 +4470,10 @@ message TimerDetail {
     AuditInfo auditInfo = 23;
 
     message AuditInfo {
-        int64 violationId = 1;
-        int32 taskType = 2;
+    	int64 violationId = 1;
+    	int32 taskType = 2;
 
-    }
+	}
 
 }
 
@@ -4421,10 +4487,10 @@ message CompetitionSettlementStartResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        CompetitionCommon bizCommon = 1;
-        CompetitionSettleStart settleStart = 2;
+    	CompetitionCommon bizCommon = 1;
+    	CompetitionSettleStart settleStart = 2;
 
-    }
+	}
 
 }
 
@@ -4518,6 +4584,7 @@ message ChangeStateReq {
 }
 
 message WebcastCaptionMessage {
+    CommonMessageData baseMessage = 1;
     int64 timestampMs = 2;
     int64 durationMs = 3;
     repeated CaptionContent content = 4;
@@ -4544,15 +4611,15 @@ message GetMultiGuestRecommendRoomsResponse {
     Extra extra = 2;
 
     message ResponseData {
-        repeated MultiGuestRecommendRoomInfo recoRooms = 1;
-        bool isRateLimited = 2;
+    	repeated MultiGuestRecommendRoomInfo recoRooms = 1;
+    	bool isRateLimited = 2;
 
-    }
+	}
 
     message Extra {
-        int64 now = 1;
+    	int64 now = 1;
 
-    }
+	}
 
 }
 
@@ -4589,6 +4656,7 @@ message LyricStruct {
 }
 
 message WebcastLinkMicSignalingMethod {
+    CommonMessageData baseMessage = 1;
     string signal = 2;
 
 }
@@ -4605,29 +4673,29 @@ message PanelRefresh {
     repeated Gallery allGalleryData = 103;
 
     message FanClub {
-        int64 timeToSleep = 1;
+    	int64 timeToSleep = 1;
 
-    }
+	}
 
     message Gallery {
-        int64 sponsorId = 1;
-        bool lightGiftUp = 2;
-        int64 leftCountToSponsor = 3;
-        bool canSponsor = 4;
-        int64 goalCount = 5;
-        bool isGalleryAvailable = 6;
-        int64 giftId = 7;
+    	int64 sponsorId = 1;
+    	bool lightGiftUp = 2;
+    	int64 leftCountToSponsor = 3;
+    	bool canSponsor = 4;
+    	int64 goalCount = 5;
+    	bool isGalleryAvailable = 6;
+    	int64 giftId = 7;
 
-    }
+	}
 
     message UserLevel {
-        int64 currentScore = 1;
-        int64 currentLevel = 2;
-        int64 scoreLeftToLevel = 3;
-        bool isUpgrade = 4;
-        bool didUserOptOut = 5;
+    	int64 currentScore = 1;
+    	int64 currentLevel = 2;
+    	int64 scoreLeftToLevel = 3;
+    	bool isUpgrade = 4;
+    	bool didUserOptOut = 5;
 
-    }
+	}
 
 }
 
@@ -4653,39 +4721,41 @@ message SkinHostAccount {
 }
 
 message WebcastEnvelopePortalMessage {
+    CommonMessageData baseMessage = 1;
     PortalInfo portalInfo = 2;
     PortalTransTarget portalTransTarget = 3;
     int32 portalView = 4;
     int32 portalDisplay = 5;
 
     message PortalInfo {
-        string id = 1;
-        string idc = 2;
-        int32 sendAtSecond = 3;
-        int32 ddlSecond = 4;
-        int32 envelopeDiamonds = 5;
-        int32 portalDiamonds = 6;
-        string senderDisplayId = 7;
-        string senderId = 8;
-        ImageModel senderAvatar = 9;
-        int32 transCount = 10;
-        int32 touchCount = 11;
+    	string id = 1;
+    	string idc = 2;
+    	int32 sendAtSecond = 3;
+    	int32 ddlSecond = 4;
+    	int32 envelopeDiamonds = 5;
+    	int32 portalDiamonds = 6;
+    	string senderDisplayId = 7;
+    	string senderId = 8;
+    	ImageModel senderAvatar = 9;
+    	int32 transCount = 10;
+    	int32 touchCount = 11;
 
-    }
+	}
 
     message PortalTransTarget {
-        string roomId = 1;
-        ImageModel sendRoomCover = 2;
-        string anchorDisplayId = 3;
-        string anchorId = 4;
-        ImageModel anchorAvatar = 5;
-        int32 envelopeDiamonds = 6;
+    	string roomId = 1;
+    	ImageModel sendRoomCover = 2;
+    	string anchorDisplayId = 3;
+    	string anchorId = 4;
+    	ImageModel anchorAvatar = 5;
+    	int32 envelopeDiamonds = 6;
 
-    }
+	}
 
 }
 
 message WebcastCohostReserveMessage {
+    CommonMessageData baseMessage = 1;
     int32 reserveType = 2;
     int64 reservationId = 3;
     ReserveContent reserveContent = 4;
@@ -4718,6 +4788,7 @@ message CommerceStruct {
 }
 
 message WebcastBALeadGenMessage {
+    CommonMessageData baseMessage = 1;
     int32 op = 2;
     int64 pageId = 3;
     int64 opTime = 4;
@@ -4734,10 +4805,10 @@ message AnchorLiveReplayFrameResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        string reqId = 1;
-        repeated FrameInfo frameList = 2;
+    	string reqId = 1;
+    	repeated FrameInfo frameList = 2;
 
-    }
+	}
 
 }
 
@@ -4754,6 +4825,7 @@ message GroupPlayer {
 }
 
 message WebcastLinkMicArmies {
+    CommonMessageData baseMessage = 1;
     int64 battleId = 2;
     int64 channelId = 4;
     int64 giftSentTime = 5;
@@ -4790,10 +4862,10 @@ message WallpaperReplyResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool result = 1;
-        WallpaperContent wallpaperContent = 2;
+    	bool result = 1;
+    	WallpaperContent wallpaperContent = 2;
 
-    }
+	}
 
 }
 
@@ -4806,6 +4878,7 @@ message StreamStatusChangeInfo {
 }
 
 message WebcastPictionaryEndMessage {
+    CommonMessageData baseMessage = 1;
     int64 roundId = 2;
     string word = 3;
     int32 endType = 4;
@@ -4839,6 +4912,7 @@ message EnlargePositionStatusSynContent {
 }
 
 message WebcastRoomNotifyMessage {
+    CommonMessageData baseMessage = 1;
     string schema = 2;
     int64 notifyType = 3;
     string content = 4;
@@ -4931,14 +5005,15 @@ message MultiGuestPlayInfo {
     map<int32, MultiGuestPlayConfig> playSceneToConfigMap = 2;
 
     message MultiGuestPlayConfig {
-        int32 playScene = 1;
-        map<int32, int32> featureConfigMap = 2;
+    	int32 playScene = 1;
+    	map<int32, int32> featureConfigMap = 2;
 
-    }
+	}
 
 }
 
 message WebcastFansEventMessage {
+    CommonMessageData baseMessage = 1;
     User user = 2;
     int32 eventType = 11;
     FansLevelInfo fansLevelInfo = 12;
@@ -5034,9 +5109,9 @@ message AnchorGrowPerLiveTriggerResponse {
     Data data = 1;
 
     message Data {
-        AnchorGrowLevelTriggerInfo anchorGrowLevelInfo = 1;
+    	AnchorGrowLevelTriggerInfo anchorGrowLevelInfo = 1;
 
-    }
+	}
 
 }
 
@@ -5045,17 +5120,17 @@ message PushStreamInfo {
     repeated Quality qualityList = 2;
 
     message Quality {
-        string name = 1;
-        string sdkKey = 2;
-        string desc = 3;
-        int64 width = 4;
-        int64 height = 5;
-        int64 max_bitrate = 6;
-        int64 min_bitrate = 7;
-        int64 default_bitrate = 8;
-        int64 fps = 9;
+    	string name = 1;
+    	string sdkKey = 2;
+    	string desc = 3;
+    	int64 width = 4;
+    	int64 height = 5;
+    	int64 max_bitrate = 6;
+    	int64 min_bitrate = 7;
+    	int64 default_bitrate = 8;
+    	int64 fps = 9;
 
-    }
+	}
 
 }
 
@@ -5091,10 +5166,10 @@ message ReserveInfo {
     repeated ReserveUser displayUserList = 6;
 
     message ReserveUser {
-        User user = 1;
-        int64 roomId = 2;
+    	User user = 1;
+    	int64 roomId = 2;
 
-    }
+	}
 
 }
 
@@ -5233,10 +5308,10 @@ message RoomAuthStatus {
     bool enableshowuseruv = 130;
 
     message StarCommentPermissionSwitch {
-        int32 status = 1;
-        string offreason = 2;
+    	int32 status = 1;
+    	string offreason = 2;
 
-    }
+	}
 
 }
 
@@ -5261,15 +5336,15 @@ message MultiGuestReserveResponse {
     Extra extra = 2;
 
     message ResponseData {
-        WebcastPerceptionMessage perceptionInfo = 1;
-        AudienceReserveUserInfo reserveUserInfo = 2;
+    	WebcastPerceptionMessage perceptionInfo = 1;
+    	AudienceReserveUserInfo reserveUserInfo = 2;
 
-    }
+	}
 
     message Extra {
-        int64 now = 1;
+    	int64 now = 1;
 
-    }
+	}
 
 }
 
@@ -5277,11 +5352,11 @@ message HistoryCommentResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        repeated ProtoMessageFetchResult.BaseProtoMessage messages = 1;
-        bool hasMore = 2;
-        string cursor = 3;
+    	repeated ProtoMessageFetchResult.BaseProtoMessage messages = 1;
+    	bool hasMore = 2;
+    	string cursor = 3;
 
-    }
+	}
 
 }
 
@@ -5312,9 +5387,9 @@ message BannerInRoom {
     string activityId = 24;
 
     message BannerContentDynamic {
-        string jsonResource = 1;
+    	string jsonResource = 1;
 
-    }
+	}
 
 }
 
@@ -5323,20 +5398,20 @@ message ReserveResponse {
     ReserveExtra extra = 2;
 
     message ResponseData {
-        int64 reservationId = 1;
-        int64 createdTimestamp = 2;
+    	int64 reservationId = 1;
+    	int64 createdTimestamp = 2;
 
-    }
+	}
 
     message LogPb {
-        string imprId = 1;
+    	string imprId = 1;
 
-    }
+	}
 
     message ReserveExtra {
-        LogPb logPb = 1;
+    	LogPb logPb = 1;
 
-    }
+	}
 
 }
 
@@ -5518,6 +5593,7 @@ message AccompanimentStruct {
 }
 
 message WebcastFollowCardMessage {
+    CommonMessageData baseMessage = 1;
     int64 followCardId = 2;
     int64 maxRandom = 3;
 
@@ -5549,6 +5625,7 @@ message PotionCardInfo {
 }
 
 message WebcastActivityQuizUserIdentityMessage {
+    CommonMessageData baseMessage = 1;
     string primaryId = 2;
     int64 version = 3;
     string retainDeviceId = 4;
@@ -5587,11 +5664,11 @@ message FollowGuideParams {
     string triggerParamsJsonStr = 5;
 
     message FollowGuideInfo {
-        int64 guideUserId = 1;
-        int32 guideUserIdentity = 2;
-        int32 guideFollowStatus = 3;
+    	int64 guideUserId = 1;
+    	int32 guideUserIdentity = 2;
+    	int32 guideFollowStatus = 3;
 
-    }
+	}
 
 }
 
@@ -5604,6 +5681,7 @@ message MultiInviteResponse {
 }
 
 message WebcastLiveJourneyMessage {
+    CommonMessageData baseMessage = 1;
     LiveJourneyImMessage liveJourneyImMsg = 2;
 
 }
@@ -5627,10 +5705,10 @@ message BizRechargeResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        map<int64, CohostUserInfo> userInfos = 1;
-        repeated VirtualWaitingUser virtualWaitingUsers = 2;
+    	map<int64, CohostUserInfo> userInfos = 1;
+    	repeated VirtualWaitingUser virtualWaitingUsers = 2;
 
-    }
+	}
 
 }
 
@@ -5644,9 +5722,9 @@ message CountdownGetContentResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        repeated CountdownContent countdownContents = 1;
+    	repeated CountdownContent countdownContents = 1;
 
-    }
+	}
 
 }
 
@@ -5690,26 +5768,27 @@ message RankUser {
     string idStr = 1028;
 
     message Border {
-        ImageModel icon = 1;
-        int64 level = 2;
-        string source = 3;
-        ImageModel profileDecorationRibbon = 4;
-        PrivilegeLogExtra borderPrivilegeLogExtra = 5;
-        PrivilegeLogExtra profilePrivilegeLogExtra = 6;
+    	ImageModel icon = 1;
+    	int64 level = 2;
+    	string source = 3;
+    	ImageModel profileDecorationRibbon = 4;
+    	PrivilegeLogExtra borderPrivilegeLogExtra = 5;
+    	PrivilegeLogExtra profilePrivilegeLogExtra = 6;
 
-    }
+	}
 
     message FollowInfo {
-        int64 followingCount = 1;
-        int64 followerCount = 2;
-        int64 followStatus = 3;
-        int64 pushStatus = 4;
+    	int64 followingCount = 1;
+    	int64 followerCount = 2;
+    	int64 followStatus = 3;
+    	int64 pushStatus = 4;
 
-    }
+	}
 
 }
 
 message WebcastCommentsMessage {
+    CommonMessageData baseMessage = 1;
     User user = 2;
     string content = 3;
     string color = 4;
@@ -5723,15 +5802,16 @@ message CountdownGetUserHistoryResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        repeated UserCountdownRecord records = 1;
+    	repeated UserCountdownRecord records = 1;
 
-    }
+	}
 
 }
 
 message WebcastWeeklyRankRewardMessage {
     int64 userId = 1;
     BorderInfo borderInfo = 2;
+    CommonMessageData baseMessage = 3;
     WebcastRoomNotifyMessage notifyMessage = 4;
 
 }
@@ -5740,10 +5820,10 @@ message GetStarlingTranslationResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        string brandName = 1;
-        string content = 2;
+    	string brandName = 1;
+    	string content = 2;
 
-    }
+	}
 
 }
 
@@ -5764,6 +5844,7 @@ message UserAttr {
 }
 
 message WebcastLinkStateMessage {
+    CommonMessageData baseMessage = 1;
     int64 channelId = 2;
     int32 scene = 3;
     int64 version = 4;
@@ -5779,6 +5860,7 @@ message WebcastLinkStateMessage {
 }
 
 message WebcastAccessRecallMessage {
+    CommonMessageData baseMessage = 1;
     int32 status = 2;
     int64 duration = 3;
     int64 endTime = 4;
@@ -5825,6 +5907,7 @@ message FreqLimitGiftOption {
 }
 
 message WebcastAISummaryMessage {
+    CommonMessageData baseMessage = 1;
     string scene = 2;
     bool showAtFirst = 3;
     ImageModel icon = 4;
@@ -5879,6 +5962,7 @@ message NewAnchorGuideMsgInfo {
 }
 
 message WebcastPerceptionMessage {
+    CommonMessageData baseMessage = 1;
     PerceptionDialogInfo dialog = 2;
     PunishEventInfo publicEventInfo = 3;
     int32 endTime = 4;
@@ -5969,14 +6053,15 @@ message QuizRewardRule {
     repeated RewardItem rewardList = 3;
 
     message RewardItem {
-        string rewardName = 1;
-        string rewardAmount = 2;
+    	string rewardName = 1;
+    	string rewardAmount = 2;
 
-    }
+	}
 
 }
 
 message WebcastRoomVerifyMessage {
+    CommonMessageData baseMessage = 1;
     int32 verifyAction = 2;
     string content = 3;
     int64 noticeType = 4;
@@ -5988,10 +6073,10 @@ message GuestShowdownUpdateResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool success = 1;
-        GuestShowdownContent playContent = 2;
+    	bool success = 1;
+    	GuestShowdownContent playContent = 2;
 
-    }
+	}
 
 }
 
@@ -6061,6 +6146,7 @@ message GameLiveFragment {
 }
 
 message WebcastGuideTaskMessage {
+    CommonMessageData baseMessage = 1;
     string bizName = 2;
     repeated int32 operationTypes = 3;
     Text remindAreaText = 5;
@@ -6097,59 +6183,59 @@ message EcommerceEntrance {
     int32 viewVersion = 6;
 
     message SellingPoint {
-        string showText = 1;
-        int32 sellingPointType = 2;
+    	string showText = 1;
+    	int32 sellingPointType = 2;
 
-    }
+	}
 
     message ShopLabelImage {
-        int32 height = 1;
-        int32 width = 2;
-        string minetype = 3;
-        string thumbUri = 4;
-        repeated string thumbUriList = 5;
-        string uri = 6;
-        repeated string urlList = 7;
-        string color = 8;
+    	int32 height = 1;
+    	int32 width = 2;
+    	string minetype = 3;
+    	string thumbUri = 4;
+    	repeated string thumbUriList = 5;
+    	string uri = 6;
+    	repeated string urlList = 7;
+    	string color = 8;
 
-    }
+	}
 
     message StoreOfficialLabel {
-        ShopLabelImage labelImageLight = 1;
-        ShopLabelImage labelImageDark = 2;
-        int32 labelType = 3;
-        string labelTypeStr = 4;
+    	ShopLabelImage labelImageLight = 1;
+    	ShopLabelImage labelImageDark = 2;
+    	int32 labelType = 3;
+    	string labelTypeStr = 4;
 
-    }
+	}
 
     message StoreLabel {
-        StoreOfficialLabel officialLabel = 1;
-        bool isBytemall = 2;
+    	StoreOfficialLabel officialLabel = 1;
+    	bool isBytemall = 2;
 
-    }
+	}
 
     message ShopEntranceInfo {
-        string shopId = 1;
-        string shopName = 2;
-        string shopRating = 3;
-        StoreLabel storeLabel = 4;
-        string formatSoldCount = 5;
-        int64 soldCount = 6;
-        int32 expRatePercentile = 7;
-        string expRateTopDisplay = 8;
-        int32 rateDisplayStyle = 9;
-        bool showRateNotApplicable = 10;
-        repeated SellingPoint sellingPoint = 11;
+    	string shopId = 1;
+    	string shopName = 2;
+    	string shopRating = 3;
+    	StoreLabel storeLabel = 4;
+    	string formatSoldCount = 5;
+    	int64 soldCount = 6;
+    	int32 expRatePercentile = 7;
+    	string expRateTopDisplay = 8;
+    	int32 rateDisplayStyle = 9;
+    	bool showRateNotApplicable = 10;
+    	repeated SellingPoint sellingPoint = 11;
 
-    }
+	}
 
     message ShowcaseEntranceInfo {
-        string formatSoldCount = 1;
-        int64 soldCount = 2;
-        string showcaseName = 3;
-        repeated SellingPoint sellingPoint = 11;
+    	string formatSoldCount = 1;
+    	int64 soldCount = 2;
+    	string showcaseName = 3;
+    	repeated SellingPoint sellingPoint = 11;
 
-    }
+	}
 
 }
 
@@ -6190,6 +6276,7 @@ message MGetABInfosResp {
 }
 
 message WebcastEmoteChatMessage {
+    CommonMessageData baseMessage = 1;
     User user = 2;
     repeated EmoteModel emoteList = 3;
     MsgFilter msgFilter = 4;
@@ -6211,16 +6298,16 @@ message StarCommentPurchasePageResponse {
     Data data = 1;
 
     message Data {
-        int32 purchasePageStatus = 1;
-        string notAllowReason = 2;
-        StarCommentQueue queue = 3;
-        int32 wordLimit = 4;
-        int64 errorCode = 5;
-        StarCommentQueue originalQueue = 6;
-        int64 baselinePrice = 7;
-        PrivilegePrompt descInfo = 8;
+    	int32 purchasePageStatus = 1;
+    	string notAllowReason = 2;
+    	StarCommentQueue queue = 3;
+    	int32 wordLimit = 4;
+    	int64 errorCode = 5;
+    	StarCommentQueue originalQueue = 6;
+    	int64 baselinePrice = 7;
+    	PrivilegePrompt descInfo = 8;
 
-    }
+	}
 
 }
 
@@ -6261,11 +6348,13 @@ message AskDemoInfo {
 }
 
 message WebcastVideoLiveCouponRcmdMessage {
+    CommonMessageData baseMessage = 1;
     int64 rcmdCouponId = 2;
 
 }
 
 message WebcastVideoLiveGoodsRcmdMessage {
+    CommonMessageData baseMessage = 1;
     int64 rcmdGoodsId = 2;
 
 }
@@ -6283,9 +6372,9 @@ message TakeTheStageOrderInfo {
     int32 switchTurnReason = 3;
 
     message AnchorInfo {
-        int64 userId = 1;
+    	int64 userId = 1;
 
-    }
+	}
 
 }
 
@@ -6357,10 +6446,10 @@ message HotRoomData {
     repeated HotRoomState hotRoomState = 7;
 
     message HotRoomState {
-        int32 reason = 1;
-        int64 enterTs = 2;
+    	int32 reason = 1;
+    	int64 enterTs = 2;
 
-    }
+	}
 
 }
 
@@ -6439,10 +6528,10 @@ message WallpaperEndResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool success = 1;
-        WallpaperContent wallpaperContent = 2;
+    	bool success = 1;
+    	WallpaperContent wallpaperContent = 2;
 
-    }
+	}
 
 }
 
@@ -6508,6 +6597,7 @@ message AckStateReq {
 }
 
 message WebcastSocialMessage {
+    CommonMessageData baseMessage = 1;
     User user = 2;
     int64 shareType = 3;
     int64 action = 4;
@@ -6523,6 +6613,7 @@ message WebcastSocialMessage {
 }
 
 message WebcastPrivilegeAdvanceMessage {
+    CommonMessageData baseMessage = 1;
     WebcastRoomNotifyMessage notify = 2;
     string scene = 3;
     DisplayControl control = 4;
@@ -6544,11 +6635,12 @@ message InviteLiveEventUserResponse {
 
     message ResponseData {
 
-    }
+	}
 
 }
 
 message WebcastLinkMicBattlePunishFinish {
+    CommonMessageData baseMessage = 1;
     int64 channelId = 2;
     int64 opUid = 3;
     int32 reason = 4;
@@ -6558,6 +6650,7 @@ message WebcastLinkMicBattlePunishFinish {
 }
 
 message WebcastBoostedUsersMessage {
+    CommonMessageData baseMessage = 1;
     int64 totalCnt = 2;
     FlareBoostedUsers flare = 3;
     repeated PromoteAdBoostedUsers promoteAds = 4;
@@ -6589,17 +6682,19 @@ message CancelInviteContent {
 }
 
 message WebcastRankToastMessage {
+    CommonMessageData baseMessage = 1;
     RankToast toast = 2;
 
     message RankToast {
-        int64 userId = 1;
-        bool shouldToast = 2;
+    	int64 userId = 1;
+    	bool shouldToast = 2;
 
-    }
+	}
 
 }
 
 message WebcastUnauthorizedMemberMessage {
+    CommonMessageData baseMessage = 1;
     int32 action = 2;
     Text nickNamePrefix = 3;
     string nickName = 4;
@@ -6626,6 +6721,7 @@ message FYPCommerceStruct {
 }
 
 message WebcastRankUpdateMessage {
+    CommonMessageData baseMessage = 1;
     bool loop = 7;
     bool animationLoopForOff = 8;
     repeated UnionAnimationInfo unionAnimation = 9;
@@ -6670,6 +6766,7 @@ message UGGiftTaskInfo {
 }
 
 message WebcastCommentTrayMessage {
+    CommonMessageData baseMessage = 1;
     string content = 2;
     int64 contentType = 3;
     int64 count = 4;
@@ -6721,6 +6818,7 @@ message NotifyHighlightInfo {
 }
 
 message WebcastLikeMessage {
+    CommonMessageData baseMessage = 1;
     int32 count = 2;
     int64 total = 3;
     int32 color = 4;
@@ -6755,9 +6853,9 @@ message BizInviteResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        WebcastPerceptionMessage hostPerceptionInfo = 1;
+    	WebcastPerceptionMessage hostPerceptionInfo = 1;
 
-    }
+	}
 
 }
 
@@ -6769,6 +6867,7 @@ message LiveFilterMsgRule {
 }
 
 message WebcastMsgDetectMessage {
+    CommonMessageData baseMessage = 1;
     int32 detectType = 2;
     TriggerCondition triggerCondition = 3;
     TimeInfo timeInfo = 4;
@@ -6776,20 +6875,20 @@ message WebcastMsgDetectMessage {
     string fromRegion = 6;
 
     message TimeInfo {
-        int64 clientStartMs = 1;
-        int64 apiRecvTimeMs = 2;
-        int64 apiSendToGoimMs = 3;
+    	int64 clientStartMs = 1;
+    	int64 apiRecvTimeMs = 2;
+    	int64 apiSendToGoimMs = 3;
 
-    }
+	}
 
     message TriggerCondition {
-        bool uplinkDetectHTTP = 1;
-        bool uplinkDetectWebsocket = 2;
-        bool detectP2PMsg = 3;
-        bool detectRoomMsg = 4;
-        bool httpOptimize = 5;
+    	bool uplinkDetectHTTP = 1;
+    	bool uplinkDetectWebsocket = 2;
+    	bool detectP2PMsg = 3;
+    	bool detectRoomMsg = 4;
+    	bool httpOptimize = 5;
 
-    }
+	}
 
 }
 
@@ -6826,24 +6925,24 @@ message EOYBanner {
     GradeInfo gradeInfo = 10;
 
     message GradeInfo {
-        int64 level = 1;
-        int64 progress = 2;
-        int64 target = 3;
+    	int64 level = 1;
+    	int64 progress = 2;
+    	int64 target = 3;
 
-    }
+	}
 
     message MileStone {
-        int64 targetValue = 1;
-        int64 bonusTimes = 2;
+    	int64 targetValue = 1;
+    	int64 bonusTimes = 2;
 
-    }
+	}
 
     message StreakInfo {
-        int32 streakType = 1;
-        int64 progress = 2;
-        repeated MileStone mileStones = 3;
+    	int32 streakType = 1;
+    	int64 progress = 2;
+    	repeated MileStone mileStones = 3;
 
-    }
+	}
 
 }
 
@@ -6855,6 +6954,7 @@ message Skin {
 }
 
 message WebcastAnchorReminderWordMessage {
+    CommonMessageData baseMessage = 1;
     AnchorReminderWordInfoMsg reminderWordInfo = 2;
 
 }
@@ -6890,12 +6990,12 @@ message AtmosphereInfo {
     repeated Tag tags = 1;
 
     message Tag {
-        int32 type = 1;
-        string desc = 2;
-        int64 count = 3;
-        int32 status = 4;
+    	int32 type = 1;
+    	string desc = 2;
+    	int64 count = 3;
+    	int32 status = 4;
 
-    }
+	}
 
 }
 
@@ -6905,16 +7005,16 @@ message AnchorPreFinishData {
     map<string, string> metricsMap = 3;
 
     message ConfirmBox {
-        string title = 1;
-        int64 value = 2;
-        string schemaTitle = 3;
-        string uniqueId = 4;
-        string content = 5;
-        string confirmText = 6;
-        string cancelText = 7;
-        string schemaJumpLink = 8;
+    	string title = 1;
+    	int64 value = 2;
+    	string schemaTitle = 3;
+    	string uniqueId = 4;
+    	string content = 5;
+    	string confirmText = 6;
+    	string cancelText = 7;
+    	string schemaJumpLink = 8;
 
-    }
+	}
 
 }
 
@@ -6967,7 +7067,7 @@ message BizPermitJoinGroupResponse {
 
     message ResponseData {
 
-    }
+	}
 
 }
 
@@ -7015,6 +7115,7 @@ message LinkerInfo {
 }
 
 message WebcastPaidContentLiveShoppingMessage {
+    CommonMessageData baseMessage = 1;
     int32 actionType = 2;
     int32 liveSeriesNumber = 3;
     PopSeries popSeries = 4;
@@ -7039,6 +7140,7 @@ message LetViewerSingResp {
 }
 
 message WebcastRoomUserSeqMessage {
+    CommonMessageData baseMessage = 1;
     repeated Contributor mContributors = 2;
     int64 mTotal = 3;
     string popStr = 4;
@@ -7079,6 +7181,7 @@ message RandomGiftBubble {
 }
 
 message WebcastLinkMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     int64 channelId = 3;
     int32 scene = 4;
@@ -7116,6 +7219,7 @@ message MultiBattleFinishResponse {
 }
 
 message WebcastBarrageMessage {
+    CommonMessageData baseMessage = 1;
     BarrageEvent event = 2;
     int32 msgType = 3;
     ImageModel icon = 4;
@@ -7146,21 +7250,22 @@ message WebcastBarrageMessage {
     BarrageTypeGiftGalleryParam giftGalleryParams = 104;
 
     message BarrageEvent {
-        string eventName = 1;
-        map<string, string> params = 2;
+    	string eventName = 1;
+    	map<string, string> params = 2;
 
-    }
+	}
 
     message RightLabel {
-        string backgroundColor = 1;
-        Text content = 2;
-        int64 height = 3;
+    	string backgroundColor = 1;
+    	Text content = 2;
+    	int64 height = 3;
 
-    }
+	}
 
 }
 
 message WebcastGiftNoticeMessage {
+    CommonMessageData baseMessage = 1;
     GiftNotice giftNotice = 2;
 
 }
@@ -7173,6 +7278,7 @@ message LiveStudioPermissionStatus {
 }
 
 message WebcastBizStickerMessage {
+    CommonMessageData baseMessage = 1;
     repeated RoomSticker bizSticker = 2;
 
 }
@@ -7198,6 +7304,7 @@ message AvatarImageSelectTips {
 }
 
 message WebcastNewAnchorGuideMessage {
+    CommonMessageData baseMessage = 1;
     NewAnchorGuideMsgInfo guideMsg = 2;
 
 }
@@ -7222,12 +7329,12 @@ message EffectSearchResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        repeated EffectStruct effects = 1;
-        int64 nextOffset = 2;
-        bool hasMore = 3;
-        repeated EffectStruct collections = 4;
+    	repeated EffectStruct effects = 1;
+    	int64 nextOffset = 2;
+    	bool hasMore = 3;
+    	repeated EffectStruct collections = 4;
 
-    }
+	}
 
 }
 
@@ -7262,21 +7369,21 @@ message TakeTheStageInfo {
     FinalCallInfo finalCallInfo = 101;
 
     message FinalCallInfo {
-        int64 plannedSettlementEndTime = 1;
-        int64 extraTimeInterval = 2;
+    	int64 plannedSettlementEndTime = 1;
+    	int64 extraTimeInterval = 2;
 
-    }
+	}
 
     message StartedInfo {
-        int64 performanceStartTime = 1;
-        TakeTheStageOrderInfo orderInfo = 2;
+    	int64 performanceStartTime = 1;
+    	TakeTheStageOrderInfo orderInfo = 2;
 
-    }
+	}
 
     message VictoryLapInfo {
-        int64 plannedFinishTime = 1;
+    	int64 plannedFinishTime = 1;
 
-    }
+	}
 
 }
 
@@ -7311,6 +7418,7 @@ message AnchorLevel {
 }
 
 message WebcastGuestShowdownMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     GuestShowdownContent playContent = 3;
     LinkerMediaChangeOperator operatorUserInfo = 4;
@@ -7348,10 +7456,10 @@ message AnchorSettingInfo {
     repeated AnchorLastLayoutSetting lastLayoutSettings = 1;
 
     message AnchorLastLayoutSetting {
-        int64 scene = 1;
-        string layoutId = 2;
+    	int64 scene = 1;
+    	string layoutId = 2;
 
-    }
+	}
 
 }
 
@@ -7380,6 +7488,7 @@ message RoomReplayReason {
 }
 
 message WebcastQuestionSlideDownMessage {
+    CommonMessageData baseMessage = 1;
     int64 questionId = 2;
 
 }
@@ -7403,10 +7512,10 @@ message BattleTruthOrDareTriggerGuideV2 {
     bool isFirstTime = 9;
 
     message TruthOrDareTip {
-        string tipTypeKey = 1;
-        string tipContentKey = 2;
+    	string tipTypeKey = 1;
+    	string tipContentKey = 2;
 
-    }
+	}
 
 }
 
@@ -7420,10 +7529,10 @@ message GuestShowdownFinishToPunishmentResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool success = 1;
-        GuestShowdownContent playContent = 2;
+    	bool success = 1;
+    	GuestShowdownContent playContent = 2;
 
-    }
+	}
 
 }
 
@@ -7443,18 +7552,18 @@ message HostDisplayResponse {
     ResponseData data = 1;
 
     message DisplayInfo {
-        string hostIconBackgroundUrl = 1;
-        string hostIconUrl = 2;
-        string hostColor = 3;
-        string iconLinkUrl = 4;
-        int64 hostType = 5;
+    	string hostIconBackgroundUrl = 1;
+    	string hostIconUrl = 2;
+    	string hostColor = 3;
+    	string iconLinkUrl = 4;
+    	int64 hostType = 5;
 
-    }
+	}
 
     message ResponseData {
-        DisplayInfo displayInfo = 1;
+    	DisplayInfo displayInfo = 1;
 
-    }
+	}
 
 }
 
@@ -7470,9 +7579,9 @@ message InviteExtra {
     LogPb logPb = 1;
 
     message LogPb {
-        string clientLogId = 1;
+    	string clientLogId = 1;
 
-    }
+	}
 
 }
 
@@ -7556,19 +7665,19 @@ message GetShowRankResponse {
     ResponseData data = 1;
 
     message ShowRankUser {
-        int64 userId = 1;
-        int32 order = 2;
-        int64 score = 3;
-        string nickname = 4;
-        ImageModel avatarThumb = 5;
-        int64 followStatus = 6;
+    	int64 userId = 1;
+    	int32 order = 2;
+    	int64 score = 3;
+    	string nickname = 4;
+    	ImageModel avatarThumb = 5;
+    	int64 followStatus = 6;
 
-    }
+	}
 
     message ResponseData {
-        repeated ShowRankUser showRankUsers = 1;
+    	repeated ShowRankUser showRankUsers = 1;
 
-    }
+	}
 
 }
 
@@ -7649,6 +7758,7 @@ message PreviewCommentInfo {
 }
 
 message WebcastWishlistUpdateMessage {
+    CommonMessageData baseMessage = 1;
 
 }
 
@@ -7662,7 +7772,7 @@ message GuideReportResponse {
 
     message Data {
 
-    }
+	}
 
 }
 
@@ -7711,50 +7821,50 @@ message PublicAreaMessageCommon {
     int64 adminFoldType = 9;
 
     message TagItem {
-        int32 tagType = 1;
-        Text tagText = 2;
+    	int32 tagType = 1;
+    	Text tagText = 2;
 
-    }
+	}
 
     message Topic {
-        int32 topicActionType = 1;
-        Text topicText = 2;
-        Text topicTips = 3;
+    	int32 topicActionType = 1;
+    	Text topicText = 2;
+    	Text topicTips = 3;
 
-    }
+	}
 
     message CreatorSuccessInfo {
-        repeated TagItem tags = 1;
-        Topic topic = 2;
+    	repeated TagItem tags = 1;
+    	Topic topic = 2;
 
-    }
+	}
 
     message UserMetrics {
-        int32 type = 1;
-        string metricsValue = 2;
+    	int32 type = 1;
+    	string metricsValue = 2;
 
-    }
+	}
 
     message PortraitTag {
-        string tagId = 1;
-        int64 priority = 2;
-        string showValue = 3;
-        string showArgs = 4;
+    	string tagId = 1;
+    	int64 priority = 2;
+    	string showValue = 3;
+    	string showArgs = 4;
 
-    }
+	}
 
     message PortraitInfo {
-        repeated UserMetrics userMetrics = 1;
-        repeated PortraitTag portraitTag = 2;
+    	repeated UserMetrics userMetrics = 1;
+    	repeated PortraitTag portraitTag = 2;
 
-    }
+	}
 
     message UserInteractionInfo {
-        int64 likeCnt = 1;
-        int64 commentCnt = 2;
-        int64 shareCnt = 3;
+    	int64 likeCnt = 1;
+    	int64 commentCnt = 2;
+    	int64 shareCnt = 3;
 
-    }
+	}
 
 }
 
@@ -7762,10 +7872,10 @@ message NoticeboardTemplateDeleteResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool isSuccess = 1;
-        int64 noticeboardTemplateId = 2;
+    	bool isSuccess = 1;
+    	int64 noticeboardTemplateId = 2;
 
-    }
+	}
 
 }
 
@@ -7793,6 +7903,7 @@ message CohostTopic {
 }
 
 message WebcastActivityQuizCardMessage {
+    CommonMessageData baseMessage = 1;
     string schema = 2;
     string primaryId = 3;
     int64 timestamp = 4;
@@ -7895,6 +8006,7 @@ message LinkerListChangeContent {
 }
 
 message WebcastPortalMessage {
+    CommonMessageData baseMessage = 1;
     int32 payloadType = 2;
     int64 portalId = 3;
     int64 roomId = 4;
@@ -7905,23 +8017,23 @@ message WebcastPortalMessage {
     int64 nextPingTime = 9;
 
     message PortalBuy {
-        User sugarDaddy = 1;
+    	User sugarDaddy = 1;
 
-    }
+	}
 
     message PortalFinish {
-        User luckyPerson = 1;
+    	User luckyPerson = 1;
 
-    }
+	}
 
     message PortalInvite {
-        int64 inviteCountDown = 1;
-        int64 rewardCountDown = 2;
-        User sugarDaddy = 3;
-        User anchor = 4;
-        ImageModel cover = 5;
+    	int64 inviteCountDown = 1;
+    	int64 rewardCountDown = 2;
+    	User sugarDaddy = 3;
+    	User anchor = 4;
+    	ImageModel cover = 5;
 
-    }
+	}
 
 }
 
@@ -7965,9 +8077,9 @@ message MsgNotifyControlResp {
     Data data = 1;
 
     message Data {
-        map<int64, MsgNotifyQuota> quotaConfig = 1;
+    	map<int64, MsgNotifyQuota> quotaConfig = 1;
 
-    }
+	}
 
 }
 
@@ -8016,17 +8128,17 @@ message TopicPairResponse {
     ResponseData data = 1;
 
     message Setting {
-        int64 expectSuccSec = 1;
-        int64 timeoutSec = 2;
+    	int64 expectSuccSec = 1;
+    	int64 timeoutSec = 2;
 
-    }
+	}
 
     message ResponseData {
-        int64 pairId = 1;
-        repeated ImageModel rivalAvatars = 2;
-        Setting setting = 3;
+    	int64 pairId = 1;
+    	repeated ImageModel rivalAvatars = 2;
+    	Setting setting = 3;
 
-    }
+	}
 
 }
 
@@ -8039,18 +8151,20 @@ message PollOptionInfo {
 }
 
 message WebcastPopularCardMessage {
+    CommonMessageData baseMessage = 1;
     PopularCardInfo popularCardInfo = 2;
 
     message PopularCardInfo {
-        int32 status = 1;
-        int64 endTime = 3;
-        int32 enterNumber = 4;
+    	int32 status = 1;
+    	int64 endTime = 3;
+    	int32 enterNumber = 4;
 
-    }
+	}
 
 }
 
 message WebcastGameGuessToastMessage {
+    CommonMessageData baseMessage = 1;
     string roundIdStr = 2;
     bool showType = 3;
     string showOptionIdxStr = 4;
@@ -8070,6 +8184,7 @@ message Author {
 }
 
 message WebcastFeedUserRoomMonitorMessage {
+    CommonMessageData baseMessage = 1;
     int64 anchorId = 3;
     int64 roomId = 4;
     int64 roomStatus = 5;
@@ -8128,12 +8243,14 @@ message LikeIconInfo {
 }
 
 message WebcastGameRankNotifyMessage {
+    CommonMessageData baseMessage = 1;
     int32 msgType = 2;
     Text notifyText = 3;
 
 }
 
 message WebcastKaraokeReqMessage {
+    CommonMessageData baseMessage = 1;
     repeated ReqSong songList = 2;
     int64 totalReqCount = 3;
     int64 reqTimestampSeconds = 4;
@@ -8185,6 +8302,7 @@ message EcomLiveElementActions {
 }
 
 message WebcastGuestInviteGuideMessage {
+    CommonMessageData baseMessage = 1;
     repeated ImageModel inviteeAvatar = 2;
 
 }
@@ -8240,6 +8358,7 @@ message AnchorReminderWordInfoMsg {
 }
 
 message WebcastSpecialPushMessage {
+    CommonMessageData baseMessage = 1;
     string content = 2;
     string color = 3;
     string traceId = 4;
@@ -8321,10 +8440,10 @@ message EndShowResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool success = 1;
-        ShowContent showContent = 2;
+    	bool success = 1;
+    	ShowContent showContent = 2;
 
-    }
+	}
 
 }
 
@@ -8403,6 +8522,7 @@ message BattleNoticeCommonGuide {
 }
 
 message WebcastMultiGuestSuggestMessage {
+    CommonMessageData baseMessage = 1;
     repeated ImageModel suggestedImage = 2;
 
 }
@@ -8417,6 +8537,7 @@ message SubGoalPinCard {
 }
 
 message WebcastHotRoomMessage {
+    CommonMessageData baseMessage = 1;
     HotRoomData data = 2;
 
 }
@@ -8448,16 +8569,17 @@ message RankUpdate {
     AffiliatedInfo affiliatedInfo = 13;
 
     message AffiliatedInfo {
-        Text textContent = 1;
-        Text gapDesc = 2;
-        int64 realTimeRank = 3;
-        TeamRankBonusTime teamRankBonusTime = 4;
+    	Text textContent = 1;
+    	Text gapDesc = 2;
+    	int64 realTimeRank = 3;
+    	TeamRankBonusTime teamRankBonusTime = 4;
 
-    }
+	}
 
 }
 
 message WebcastPartnershipDropsAnchorMessage {
+    CommonMessageData baseMessage = 1;
     int32 changeMode = 2;
     string dropsId = 3;
     int64 anchorUid = 4;
@@ -8472,6 +8594,7 @@ message CohostListChangeContent {
 }
 
 message WebcastAccessControlMessage {
+    CommonMessageData baseMessage = 1;
     AccessControlCaptcha captcha = 2;
 
 }
@@ -8487,6 +8610,7 @@ message AnchorReplayInfoData {
 }
 
 message WebcastGuessQuestionAuditMessage {
+    CommonMessageData baseMessage = 1;
     GuessTemplate guessTemplate = 2;
 
 }
@@ -8495,10 +8619,10 @@ message FinishShowingGuestResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool success = 1;
-        ShowContent showContent = 2;
+    	bool success = 1;
+    	ShowContent showContent = 2;
 
-    }
+	}
 
 }
 
@@ -8508,6 +8632,7 @@ message TemplateEffectExtra {
 }
 
 message WebcastAuthorizationNotifyMessage {
+    CommonMessageData baseMessage = 1;
     string from = 2;
     string content = 3;
     string style = 4;
@@ -8515,26 +8640,27 @@ message WebcastAuthorizationNotifyMessage {
     RelationBlock userRelation = 7;
 
     message ContentBlock {
-        bool show = 1;
-        bool isAuthorized = 2;
-        string title = 3;
-        string content = 4;
-        string detail = 5;
+    	bool show = 1;
+    	bool isAuthorized = 2;
+    	string title = 3;
+    	string content = 4;
+    	string detail = 5;
 
-    }
+	}
 
     message RelationBlock {
-        bool show = 1;
-        bool isAuthorized = 2;
-        string title = 3;
-        string content = 4;
-        string detail = 5;
+    	bool show = 1;
+    	bool isAuthorized = 2;
+    	string title = 3;
+    	string content = 4;
+    	string detail = 5;
 
-    }
+	}
 
 }
 
 message WebcastLinkMicMethod {
+    CommonMessageData baseMessage = 1;
     int32 mType = 2;
     string accessKey = 3;
     int32 anchorLinkMicId = 4;
@@ -8673,25 +8799,25 @@ message User {
     bool isAnchorMarked = 1091;
 
     message ComboBadgeInfo {
-        ImageModel icon = 1;
-        int64 comboCount = 2;
+    	ImageModel icon = 1;
+    	int64 comboCount = 2;
 
-    }
+	}
 
     message FansClubInfo {
-        bool isSleeping = 1;
-        int64 fansLevel = 2;
-        int64 fansScore = 3;
-        ImageModel badge = 4;
-        int64 fansCount = 5;
-        string fansClubName = 6;
+    	bool isSleeping = 1;
+    	int64 fansLevel = 2;
+    	int64 fansScore = 3;
+    	ImageModel badge = 4;
+    	int64 fansCount = 5;
+    	string fansClubName = 6;
 
-    }
+	}
 
     message OwnRoom {
-        repeated int64 roomIdList = 1;
+    	repeated int64 roomIdList = 1;
 
-    }
+	}
 
 }
 
@@ -8703,6 +8829,7 @@ message UseSmokeCard {
 }
 
 message WebcastAvatarGenerateResultMessage {
+    CommonMessageData baseMessage = 1;
     Avatar avatar = 2;
 
 }
@@ -8720,6 +8847,7 @@ message StringBadge {
 }
 
 message WebcastRankTextMessage {
+    CommonMessageData baseMessage = 1;
     int32 scene = 2;
     int64 ownerIdxBeforeUpdate = 3;
     int64 ownerIdxAfterUpdate = 4;
@@ -8759,6 +8887,7 @@ message SubWaveStrikeInfo {
 }
 
 message WebcastOChannelModifyMessage {
+    CommonMessageData baseMessage = 1;
     int64 endTimeStamp = 2;
     int64 channelUid = 3;
 
@@ -8786,11 +8915,11 @@ message GiftPage {
     repeated GiftGroupInTab groupsInTab = 15;
 
     message GiftGroupInTab {
-        int32 groupInTab = 1;
-        Text title = 2;
-        Text description = 3;
+    	int32 groupInTab = 1;
+    	Text title = 2;
+    	Text description = 3;
 
-    }
+	}
 
 }
 
@@ -8806,6 +8935,7 @@ message JoinGroupReq {
 }
 
 message WebcastPictionaryUpdateMessage {
+    CommonMessageData baseMessage = 1;
     int64 correctCount = 2;
     int64 roundId = 3;
 
@@ -8870,6 +9000,7 @@ message LinkmicListResponse {
 }
 
 message WebcastGiftGuideMessage {
+    CommonMessageData baseMessage = 1;
     Text content = 2;
     int64 giftId = 3;
     bool hasSent = 4;
@@ -8890,15 +9021,16 @@ message WebcastGiftGuideMessage {
 }
 
 message WebcastPartnershipGameOfflineMessage {
+    CommonMessageData baseMessage = 1;
     repeated OfflineGameInfo offlineGameList = 2;
 
     message OfflineGameInfo {
-        string taskId = 1;
-        string toastText = 2;
-        int32 taskListLen = 3;
-        int32 offlineType = 4;
+    	string taskId = 1;
+    	string toastText = 2;
+    	int32 taskListLen = 3;
+    	int32 offlineType = 4;
 
-    }
+	}
 
 }
 
@@ -8906,10 +9038,10 @@ message NoticeboardOfficialTemplateUpdateResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool isSuccess = 1;
-        NoticeboardTemplate template = 2;
+    	bool isSuccess = 1;
+    	NoticeboardTemplate template = 2;
 
-    }
+	}
 
 }
 
@@ -8917,12 +9049,12 @@ message GetNoticeboardMaterialContentResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        string mediaNodeId = 1;
-        ConvertNoticeboardMaterialInfo convertNoticeboardMaterialInfo = 2;
-        int64 createTime = 3;
-        int64 updateTime = 4;
+    	string mediaNodeId = 1;
+    	ConvertNoticeboardMaterialInfo convertNoticeboardMaterialInfo = 2;
+    	int64 createTime = 3;
+    	int64 updateTime = 4;
 
-    }
+	}
 
 }
 
@@ -8953,16 +9085,16 @@ message BannerInRoomCollection {
     BannerInfo liveScene = 7;
 
     message BannerInfo {
-        string url = 1;
-        repeated BannerInRoom bannerList = 2;
-        ImageModel animationImage = 3;
-        BannerCollapseInfo collapseInfo = 4;
-        int32 height = 5;
-        int32 width = 6;
-        string lynxContainerUrl = 7;
-        int64 containerType = 8;
+    	string url = 1;
+    	repeated BannerInRoom bannerList = 2;
+    	ImageModel animationImage = 3;
+    	BannerCollapseInfo collapseInfo = 4;
+    	int32 height = 5;
+    	int32 width = 6;
+    	string lynxContainerUrl = 7;
+    	int64 containerType = 8;
 
-    }
+	}
 
 }
 
@@ -8970,9 +9102,9 @@ message StarlingTranslateResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        repeated StarlingTranslateInfo starlingTranslateInfo = 1;
+    	repeated StarlingTranslateInfo starlingTranslateInfo = 1;
 
-    }
+	}
 
 }
 
@@ -9038,6 +9170,7 @@ message BizResumeParams {
 }
 
 message WebcastOChannelAnchorMessage {
+    CommonMessageData baseMessage = 1;
     int64 startTimeStamp = 2;
     int64 endTimeStamp = 3;
     int32 roleType = 4;
@@ -9066,30 +9199,31 @@ message InviteResponse {
 }
 
 message WebcastLinkmicAudienceNoticeMessage {
+    CommonMessageData baseMessage = 1;
     int32 noticeType = 2;
     LinkMicAudienceTurnOnGuide turnOnGuide = 3;
     LinkMicAudienceInviteGuide inviteGuide = 4;
     LinkmicAudienceInviteGroupChatMemberGuide groupChatMemberInviteGuide = 5;
 
     message LinkMicAudienceNoticeText {
-        string text = 1;
+    	string text = 1;
 
-    }
+	}
 
     message LinkMicAudienceInviteGuide {
-        LinkMicAudienceNoticeText content = 1;
-        LinkMicAudienceNoticeText buttonContent = 2;
-        User user = 3;
-        int32 displayStrategy = 4;
-        string linkmicAudienceInviteNoticeReason = 5;
+    	LinkMicAudienceNoticeText content = 1;
+    	LinkMicAudienceNoticeText buttonContent = 2;
+    	User user = 3;
+    	int32 displayStrategy = 4;
+    	string linkmicAudienceInviteNoticeReason = 5;
 
-    }
+	}
 
     message LinkMicAudienceTurnOnGuide {
-        LinkMicAudienceNoticeText content = 1;
-        LinkMicAudienceNoticeText buttonContent = 2;
+    	LinkMicAudienceNoticeText content = 1;
+    	LinkMicAudienceNoticeText buttonContent = 2;
 
-    }
+	}
 
 }
 
@@ -9097,20 +9231,20 @@ message GuideKeywordsResponse {
     Data data = 1;
 
     message UserInfo {
-        bool isInEea = 1;
-        bool hasEverRecharged = 2;
-        int64 suggestedMinCoins = 3;
-        int64 suggestedMaxCoins = 4;
-        string coinExchangePrompt = 5;
+    	bool isInEea = 1;
+    	bool hasEverRecharged = 2;
+    	int64 suggestedMinCoins = 3;
+    	int64 suggestedMaxCoins = 4;
+    	string coinExchangePrompt = 5;
 
-    }
+	}
 
     message Data {
-        int64 version = 1;
-        UserInfo userInfo = 2;
-        repeated KeywordsLibrary keywordsLibrary = 3;
+    	int64 version = 1;
+    	UserInfo userInfo = 2;
+    	repeated KeywordsLibrary keywordsLibrary = 3;
 
-    }
+	}
 
 }
 
@@ -9178,6 +9312,7 @@ message LiveStreamGoalContributor {
 }
 
 message WebcastPartnershipTaskShowMessage {
+    CommonMessageData baseMessage = 1;
     int32 changeMode = 2;
     string taskId = 3;
     bool hasShowTask = 4;
@@ -9235,55 +9370,55 @@ message GiftsInfo {
     ServerStrategyContext serverStrategyContext = 44;
 
     message BatchGiftInfo {
-        int64 dismissExpireSeconds = 1;
-        int64 consumeLimit = 2;
+    	int64 dismissExpireSeconds = 1;
+    	int64 consumeLimit = 2;
 
-    }
+	}
 
     message BeaconBubbleInfo {
-        ImageModel liveGoalIcon = 1;
-        ImageModel anchorGalleryIcon = 2;
-        string liveGoalSchemaUrl = 3;
+    	ImageModel liveGoalIcon = 1;
+    	ImageModel anchorGalleryIcon = 2;
+    	string liveGoalSchemaUrl = 3;
 
-    }
+	}
 
     message GiftGalleryInfo {
-        string anchorRankingLeague = 1;
-        string galleryRankingLeague = 2;
+    	string anchorRankingLeague = 1;
+    	string galleryRankingLeague = 2;
 
-    }
+	}
 
     message LevelUpGiftInfo {
-        int64 giftId = 1;
-        int64 leftCountToLevelUp = 2;
-        int64 levelUpCount = 3;
-        int64 currentCount = 4;
-        int64 numOfUpgradeGiftsLeft = 5;
-        string showId = 6;
-        int64 minimumLevelGrade = 7;
+    	int64 giftId = 1;
+    	int64 leftCountToLevelUp = 2;
+    	int64 levelUpCount = 3;
+    	int64 currentCount = 4;
+    	int64 numOfUpgradeGiftsLeft = 5;
+    	string showId = 6;
+    	int64 minimumLevelGrade = 7;
 
-    }
+	}
 
     message LimitedTimeRewardGiftInfo {
-        int64 giftId = 1;
-        int64 validStart = 2;
-        int64 validEnd = 3;
-        GiftPanelBanner giftPanelBanner = 4;
+    	int64 giftId = 1;
+    	int64 validStart = 2;
+    	int64 validEnd = 3;
+    	GiftPanelBanner giftPanelBanner = 4;
 
-    }
+	}
 
     message UGPointsGiftInfo {
-        int64 maxAnchorTimes = 1;
-        bool hasSendGiftsInHistory = 2;
-        int64 validStartAt = 3;
-        int64 validEndAt = 4;
+    	int64 maxAnchorTimes = 1;
+    	bool hasSendGiftsInHistory = 2;
+    	int64 validStartAt = 3;
+    	int64 validEndAt = 4;
 
-    }
+	}
 
     message ServerStrategyContext {
-        repeated int64 previousSentGiftIds = 1;
+    	repeated int64 previousSentGiftIds = 1;
 
-    }
+	}
 
 }
 
@@ -9298,6 +9433,7 @@ message OrganizationModel {
 }
 
 message WebcastInteractiveEffectMessage {
+    CommonMessageData baseMessage = 1;
     string triggerData = 2;
 
 }
@@ -9312,16 +9448,16 @@ message ApplyGuideResponse {
     Extra extra = 2;
 
     message ResponseData {
-        bool isDisplay = 1;
-        int32 displayStrategy = 2;
-        bool triggerAgain = 3;
+    	bool isDisplay = 1;
+    	int32 displayStrategy = 2;
+    	bool triggerAgain = 3;
 
-    }
+	}
 
     message Extra {
-        int64 now = 1;
+    	int64 now = 1;
 
-    }
+	}
 
 }
 
@@ -9335,6 +9471,7 @@ message CancelJoinGroupReq {
 }
 
 message WebcastCohostTopicMessage {
+    CommonMessageData baseMessage = 1;
     int32 action = 2;
     CohostTopic topic = 3;
     TopicSetContent topicSetContent = 5;
@@ -9358,6 +9495,7 @@ message ReserveContent {
 }
 
 message WebcastGiftUnlockMessage {
+    CommonMessageData baseMessage = 1;
     repeated Gift gifts = 2;
     Text bubbleText = 3;
 
@@ -9420,28 +9558,28 @@ message CreateInfoResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        int64 tnsReportIntervalMs = 1;
-        int64 cliTnsCollectIntervalMs = 2;
-        OpenLsNotifyInfo openLsNotify = 3;
-        int64 serverTimestamp = 4;
-        bool hasLiveStudioLogin = 5;
-        bool haveMutilGuestPermission = 6;
-        bool haveDualDeviceCamera = 7;
-        bool haveScreenshotRecord = 8;
-        Text tips = 9;
-        InGameInfo inGameInfo = 10;
-        bool useCustomCover = 11;
-        bool allowMultiStream = 12;
-        bool enableLiveStudioMonitor = 13;
-        GameRevenueTipsMessage revenueTips = 14;
-        GameBannerContainer bannerData = 15;
-        MonetizationTipsConfig monetizationTipsConfig = 16;
-        int64 anchorFirstGameGoLiveTs = 17;
-        bool isGameAnchor = 18;
-        int64 userSettingDetail = 19;
-        int64 guessResultNoticeTime = 20;
+    	int64 tnsReportIntervalMs = 1;
+    	int64 cliTnsCollectIntervalMs = 2;
+    	OpenLsNotifyInfo openLsNotify = 3;
+    	int64 serverTimestamp = 4;
+    	bool hasLiveStudioLogin = 5;
+    	bool haveMutilGuestPermission = 6;
+    	bool haveDualDeviceCamera = 7;
+    	bool haveScreenshotRecord = 8;
+    	Text tips = 9;
+    	InGameInfo inGameInfo = 10;
+    	bool useCustomCover = 11;
+    	bool allowMultiStream = 12;
+    	bool enableLiveStudioMonitor = 13;
+    	GameRevenueTipsMessage revenueTips = 14;
+    	GameBannerContainer bannerData = 15;
+    	MonetizationTipsConfig monetizationTipsConfig = 16;
+    	int64 anchorFirstGameGoLiveTs = 17;
+    	bool isGameAnchor = 18;
+    	int64 userSettingDetail = 19;
+    	int64 guessResultNoticeTime = 20;
 
-    }
+	}
 
 }
 
@@ -9463,10 +9601,10 @@ message GiftChallengeProgress {
     int64 challengeId = 4;
 
     message StageData {
-        int64 totalPoints = 1;
-        int64 giftId = 2;
+    	int64 totalPoints = 1;
+    	int64 giftId = 2;
 
-    }
+	}
 
 }
 
@@ -9556,17 +9694,17 @@ message GiftListByCreatorResponse {
     Extra extra = 2;
 
     message Data {
-        GiftsInfoByCreator giftsInfo = 1;
-        repeated GiftPageByCreator pages = 2;
-        GiftActivityCreator activity = 3;
-        repeated GiftActivityCreator recommendationActivities = 4;
+    	GiftsInfoByCreator giftsInfo = 1;
+    	repeated GiftPageByCreator pages = 2;
+    	GiftActivityCreator activity = 3;
+    	repeated GiftActivityCreator recommendationActivities = 4;
 
-    }
+	}
 
     message Extra {
-        string logId = 1;
+    	string logId = 1;
 
-    }
+	}
 
 }
 
@@ -9592,6 +9730,7 @@ message DispersionParam {
 }
 
 message WebcastGiftMessage {
+    CommonMessageData baseMessage = 1;
     int64 giftId = 2;
     int32 fanTicketCount = 3;
     int32 groupCount = 4;
@@ -9640,24 +9779,24 @@ message WebcastGiftMessage {
     InteractiveGiftInfo interactiveGiftInfo = 48;
 
     message InteractiveGiftInfo {
-        int64 crossScreenDelay = 1;
-        int64 crossScreenRole = 2;
-        int32 ignoreConfig = 3;
-        int64 uniqId = 4;
-        int64 toUserTeamId = 5;
+    	int64 crossScreenDelay = 1;
+    	int64 crossScreenRole = 2;
+    	int32 ignoreConfig = 3;
+    	int64 uniqId = 4;
+    	int64 toUserTeamId = 5;
 
-    }
+	}
 
     message SponsorshipInfo {
-        int64 giftId = 1;
-        int64 sponsorId = 2;
-        bool lightGiftUp = 3;
-        string unlightedGiftIcon = 4;
-        string giftGalleryDetailPageSchemeUrl = 5;
-        bool giftGalleryClickSponsor = 6;
-        bool becomeAllSponsored = 21;
+    	int64 giftId = 1;
+    	int64 sponsorId = 2;
+    	bool lightGiftUp = 3;
+    	string unlightedGiftIcon = 4;
+    	string giftGalleryDetailPageSchemeUrl = 5;
+    	bool giftGalleryClickSponsor = 6;
+    	bool becomeAllSponsored = 21;
 
-    }
+	}
 
 }
 
@@ -9665,10 +9804,10 @@ message CountdownForAllEndResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool success = 1;
-        CountdownForAllContent playContent = 2;
+    	bool success = 1;
+    	CountdownForAllContent playContent = 2;
 
-    }
+	}
 
 }
 
@@ -9681,6 +9820,7 @@ message PermissionLevelInfo {
 }
 
 message WebcastSubQueueMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageTypeAction = 2;
     SubQueue queue = 3;
     User currentUser = 4;
@@ -9728,9 +9868,9 @@ message CompetitionFinishResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        CompetitionFinish finishInfo = 1;
+    	CompetitionFinish finishInfo = 1;
 
-    }
+	}
 
 }
 
@@ -9822,26 +9962,27 @@ message LivePermissionApplyResponse {
     ResponseData data = 1;
 
     message PermissionApplyInfo {
-        int32 mAnchorFansNum = 1;
-        int32 mForbiddenApplyCountdown = 2;
-        int32 mApplyNeedFansNum = 3;
-        int32 mTargetLiveTime = 4;
-        int32 mForbiddenApplyDays = 5;
-        int32 mApplyInvalidTime = 6;
-        int32 mNeedLiveTime = 7;
-        int32 mApplyStatus = 8;
-        int32 mApplySource = 9;
+    	int32 mAnchorFansNum = 1;
+    	int32 mForbiddenApplyCountdown = 2;
+    	int32 mApplyNeedFansNum = 3;
+    	int32 mTargetLiveTime = 4;
+    	int32 mForbiddenApplyDays = 5;
+    	int32 mApplyInvalidTime = 6;
+    	int32 mNeedLiveTime = 7;
+    	int32 mApplyStatus = 8;
+    	int32 mApplySource = 9;
 
-    }
+	}
 
     message ResponseData {
-        map<string, PermissionApplyInfo> permissionInfo = 1;
+    	map<string, PermissionApplyInfo> permissionInfo = 1;
 
-    }
+	}
 
 }
 
 message WebcastRoomBottomMessage {
+    CommonMessageData baseMessage = 1;
     string color = 3;
     string actionContent = 6;
     string actionType = 7;
@@ -9867,13 +10008,13 @@ message ProtoMessageFetchResult {
     bool historyNoMore = 13;
 
     message BaseProtoMessage {
-        string method = 1;
-        int64 msgId = 3;
-        int32 msgType = 4;
-        int64 offset = 5;
-        bool isHistory = 6;
+    	string method = 1;
+    	int64 msgId = 3;
+    	int32 msgType = 4;
+    	int64 offset = 5;
+    	bool isHistory = 6;
 
-    }
+	}
 
 }
 
@@ -9897,10 +10038,10 @@ message NoticeboardTemplateSaveResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool isSuccess = 1;
-        NoticeboardTemplate template = 2;
+    	bool isSuccess = 1;
+    	NoticeboardTemplate template = 2;
 
-    }
+	}
 
 }
 
@@ -9912,16 +10053,17 @@ message CompetitionInfo {
     GroupShowInfo groupShowInfo = 101;
 
     message GroupShowInfo {
-        int32 status = 1;
-        int64 endTimestamp = 2;
-        int64 actualEndTimestamp = 3;
-        int64 startTimestamp = 4;
+    	int32 status = 1;
+    	int64 endTimestamp = 2;
+    	int64 actualEndTimestamp = 3;
+    	int64 startTimestamp = 4;
 
-    }
+	}
 
 }
 
 message WebcastDonationInfoMessage {
+    CommonMessageData baseMessage = 1;
     string totalMoney = 2;
     string currency = 3;
     int64 totalUser = 4;
@@ -9929,6 +10071,7 @@ message WebcastDonationInfoMessage {
 }
 
 message WebcastGameMomentMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     int64 eventTime = 3;
     int64 maxTime = 4;
@@ -9985,6 +10128,7 @@ message RoomMultiGuestLinkmicInfo {
 }
 
 message WebcastImDeleteMessage {
+    CommonMessageData baseMessage = 1;
     repeated int64 deleteMsgIds = 2;
     repeated int64 deleteUserIds = 3;
 
@@ -9994,14 +10138,15 @@ message UpdateShowContentResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool success = 1;
-        ShowContent showContent = 2;
+    	bool success = 1;
+    	ShowContent showContent = 2;
 
-    }
+	}
 
 }
 
 message WebcastHashtagMessage {
+    CommonMessageData baseMessage = 1;
     Hashtag hashtag = 2;
 
 }
@@ -10021,6 +10166,7 @@ message NoticeboardTemplateFetchListParams {
 }
 
 message WebcastLinkMicBattleItemCard {
+    CommonMessageData baseMessage = 1;
     int64 battleId = 2;
     int32 msgType = 3;
     CardObtainGuide cardObtainGuide = 4;
@@ -10042,11 +10188,12 @@ message GuideKeywordsReportResponse {
 
     message Data {
 
-    }
+	}
 
 }
 
 message WebcastPrivilegeDynamicEffectMessage {
+    CommonMessageData baseMessage = 1;
     string scene = 2;
     ResourceAttr resourceAttr = 3;
     DisplayControl control = 4;
@@ -10056,59 +10203,59 @@ message WebcastPrivilegeDynamicEffectMessage {
     PrivilegeLogExtra privilegeLogExtra = 100;
 
     message ShadowConfig {
-        string shadowColor = 6;
-        int32 shadowDx = 7;
-        int32 shadowDy = 8;
-        int32 shadowRadius = 9;
+    	string shadowColor = 6;
+    	int32 shadowDx = 7;
+    	int32 shadowDy = 8;
+    	int32 shadowRadius = 9;
 
-    }
+	}
 
     message StrokeConfig {
-        string strokeColor = 1;
-        int32 strokeWidth = 2;
+    	string strokeColor = 1;
+    	int32 strokeWidth = 2;
 
-    }
+	}
 
     message FontStyle {
-        int32 maxLines = 1;
-        int32 fontSize = 2;
-        string fontColor = 3;
-        int32 weight = 4;
-        bool enableShadow = 5;
-        repeated ShadowConfig shadowConfigList = 6;
-        bool enableStroke = 7;
-        repeated StrokeConfig strokeConfigList = 8;
-        int32 horizontalAlign = 9;
-        int32 verticalAlign = 10;
+    	int32 maxLines = 1;
+    	int32 fontSize = 2;
+    	string fontColor = 3;
+    	int32 weight = 4;
+    	bool enableShadow = 5;
+    	repeated ShadowConfig shadowConfigList = 6;
+    	bool enableStroke = 7;
+    	repeated StrokeConfig strokeConfigList = 8;
+    	int32 horizontalAlign = 9;
+    	int32 verticalAlign = 10;
 
-    }
+	}
 
     message ImagePadding {
-        int32 leftPadding = 1;
-        int32 rightPadding = 2;
-        int32 topPadding = 3;
-        int32 bottomPadding = 4;
+    	int32 leftPadding = 1;
+    	int32 rightPadding = 2;
+    	int32 topPadding = 3;
+    	int32 bottomPadding = 4;
 
-    }
+	}
 
     message Placeholder {
-        int32 placeType = 1;
-        string targetImage = 2;
-        int32 targetWidth = 3;
-        int32 targetHeight = 4;
-        Text text = 5;
-        FontStyle fontStyle = 6;
-        ImagePadding imagePadding = 7;
+    	int32 placeType = 1;
+    	string targetImage = 2;
+    	int32 targetWidth = 3;
+    	int32 targetHeight = 4;
+    	Text text = 5;
+    	FontStyle fontStyle = 6;
+    	ImagePadding imagePadding = 7;
 
-    }
+	}
 
     message StickerEffectModel {
-        string resourceId = 1;
-        Text text = 2;
-        int64 duration = 3;
-        string panelType = 4;
+    	string resourceId = 1;
+    	Text text = 2;
+    	int64 duration = 3;
+    	string panelType = 4;
 
-    }
+	}
 
 }
 
@@ -10132,23 +10279,23 @@ message OnlineAudience {
     int64 previewCount = 10;
 
     message DisplayConfig {
-        bool showOnlinePanel = 1;
-        bool canPanelClick = 2;
-        bool showAvatarList = 3;
-        int64 avatarCount = 4;
-        bool showScore = 5;
+    	bool showOnlinePanel = 1;
+    	bool canPanelClick = 2;
+    	bool showAvatarList = 3;
+    	int64 avatarCount = 4;
+    	bool showScore = 5;
 
-    }
+	}
 
     message Rank {
-        User user = 1;
-        int64 score = 2;
-        int64 rank = 3;
-        string gapDescription = 4;
-        int64 userRestrictionLevel = 5;
-        RankUser rankUser = 6;
+    	User user = 1;
+    	int64 score = 2;
+    	int64 rank = 3;
+    	string gapDescription = 4;
+    	int64 userRestrictionLevel = 5;
+    	RankUser rankUser = 6;
 
-    }
+	}
 
 }
 
@@ -10181,6 +10328,7 @@ message GiftColorInfo {
 }
 
 message WebcastAnchorGetSubQuotaMessage {
+    CommonMessageData baseMessage = 1;
     string description = 2;
 
 }
@@ -10198,6 +10346,7 @@ message SortStatsTags {
 }
 
 message WebcastOecLiveHotRoomMessage {
+    CommonMessageData baseMessage = 1;
     map<string, string> pathMap = 2;
     int64 expireAt = 3;
 
@@ -10225,6 +10374,7 @@ message CountdownUser {
 }
 
 message WebcastRealtimeLiveCenterMethod {
+    CommonMessageData baseMessage = 1;
     string roomId = 2;
     RealtimeLiveCenterBaseData baseInfo = 3;
     RealtimeLiveCenterTips tipsInfo = 4;
@@ -10396,28 +10546,28 @@ message RivalExtraInfo {
     RivalsGameTag gameTag = 19;
 
     message BattleInfo {
-        int32 infoType = 1;
-        int64 value = 2;
+    	int32 infoType = 1;
+    	int64 value = 2;
 
-    }
+	}
 
     message ReserveInfo {
-        int64 reservationId = 1;
-        int32 replyStatus = 2;
-        string bubbleTip = 3;
-        int64 responseTime = 4;
-        bool isReservationSender = 5;
-        int64 createdTimestamp = 6;
-        bool viewed = 7;
+    	int64 reservationId = 1;
+    	int32 replyStatus = 2;
+    	string bubbleTip = 3;
+    	int64 responseTime = 4;
+    	bool isReservationSender = 5;
+    	int64 createdTimestamp = 6;
+    	bool viewed = 7;
 
-    }
+	}
 
     message Tag {
-        int32 tagType = 1;
-        string tagValue = 2;
-        string tagText = 3;
+    	int32 tagType = 1;
+    	string tagValue = 2;
+    	string tagText = 3;
 
-    }
+	}
 
 }
 
@@ -10448,6 +10598,7 @@ message GiftModeMeta {
 }
 
 message WebcastWallpaperMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     WallpaperContent wallpaperContent = 3;
 
@@ -10536,11 +10687,11 @@ message EntranceConditionsPopup {
     string title = 2;
 
     message Condition {
-        string name = 1;
-        string text = 2;
-        bool match = 3;
+    	string name = 1;
+    	string text = 2;
+    	bool match = 3;
 
-    }
+	}
 
 }
 
@@ -10550,6 +10701,7 @@ message ShortTouchExtra {
 }
 
 message WebcastSubPinEventMessage {
+    CommonMessageData baseMessage = 1;
     int32 actionType = 2;
     SubPinCard card = 3;
     int64 operatorUserId = 4;
@@ -10596,6 +10748,7 @@ message ApplyContent {
 }
 
 message WebcastLinkmicBattleTaskMessage {
+    CommonMessageData baseMessage = 1;
     int32 battleTaskMessageType = 2;
     BattleTaskStart taskStart = 3;
     BattleTaskUpdate taskUpdate = 4;
@@ -10620,6 +10773,7 @@ message TextPieceGift {
 }
 
 message WebcastStarCommentPushMessage {
+    CommonMessageData baseMessage = 1;
     int32 queueVersion = 2;
     StarCommentMessage current = 3;
     StarCommentMessage next = 4;
@@ -10657,6 +10811,7 @@ message KickOutBizContent {
 }
 
 message WebcastEcTaskRefreshCouponListMessage {
+    CommonMessageData baseMessage = 1;
     EcTaskRefreshCouponListEntity entity = 2;
 
 }
@@ -10680,19 +10835,20 @@ message GetUploadAuthResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        string accessKey = 1;
-        string secretKey = 2;
-        string sessionToken = 3;
-        string serviceId = 4;
-        string uploadDomain = 5;
-        int64 expiredTime = 6;
-        int64 currentTime = 7;
+    	string accessKey = 1;
+    	string secretKey = 2;
+    	string sessionToken = 3;
+    	string serviceId = 4;
+    	string uploadDomain = 5;
+    	int64 expiredTime = 6;
+    	int64 currentTime = 7;
 
-    }
+	}
 
 }
 
 message WebcastShortTouchMessage {
+    CommonMessageData baseMessage = 1;
     UnifyBaseActionData actionData = 2;
     ShortTouchExtra extra = 3;
 
@@ -10711,10 +10867,10 @@ message NoticeboardOfficialTemplateCreateResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool isSuccess = 1;
-        NoticeboardTemplate template = 2;
+    	bool isSuccess = 1;
+    	NoticeboardTemplate template = 2;
 
-    }
+	}
 
 }
 
@@ -10738,6 +10894,7 @@ message CancelJoinGroupContent {
 }
 
 message WebcastEffectControlMessage {
+    CommonMessageData baseMessage = 1;
     int32 controlType = 2;
     string resourceId = 3;
     bool replaceResumeEffect = 4;
@@ -10784,12 +10941,14 @@ message BillboardInfo {
 }
 
 message WebcastKaraokeRedDotMessage {
+    CommonMessageData baseMessage = 1;
     int64 hostSingReqCumulativeCount = 2;
     int64 youSingReqCumulativeCount = 3;
 
 }
 
 message WebcastQuestionDeleteMessage {
+    CommonMessageData baseMessage = 1;
     int64 questionId = 2;
     int64 userId = 3;
     int32 scene = 4;
@@ -10818,14 +10977,15 @@ message CompetitionLeaveResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        CompetitionCommon bizCommon = 1;
-        repeated CompetitionResultsTeamInfo teamInfos = 2;
+    	CompetitionCommon bizCommon = 1;
+    	repeated CompetitionResultsTeamInfo teamInfos = 2;
 
-    }
+	}
 
 }
 
 message WebcastInRoomBannerMessage {
+    CommonMessageData baseMessage = 1;
     map<string, string> extra = 2;
     int32 position = 3;
     int32 actionType = 4;
@@ -10833,6 +10993,7 @@ message WebcastInRoomBannerMessage {
 }
 
 message WebcastShareGuideMessage {
+    CommonMessageData baseMessage = 1;
     string shareChannel = 2;
 
 }
@@ -10868,12 +11029,12 @@ message HostReportOpenLinkmicPanelResponse {
 
     message ResponseData {
 
-    }
+	}
 
     message Extra {
-        int64 now = 1;
+    	int64 now = 1;
 
-    }
+	}
 
 }
 
@@ -10917,12 +11078,14 @@ message BattleTruthOrDareTriggerGuide {
 }
 
 message WebcastEventMessage {
+    CommonMessageData baseMessage = 1;
     int32 actionType = 2;
     EventCard card = 3;
 
 }
 
 message WebcastInRoomBannerEvent {
+    CommonMessageData baseMessage = 1;
     int32 position = 2;
     BannerInRoomCollection data = 3;
 
@@ -10960,10 +11123,10 @@ message CountdownEndResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool success = 1;
-        CountdownContent countdownContent = 2;
+    	bool success = 1;
+    	CountdownContent countdownContent = 2;
 
-    }
+	}
 
 }
 
@@ -11054,6 +11217,7 @@ message CapsuleBizParamsCommentFlaggedPromptForNewUser {
 }
 
 message WebcastPlayTogetherMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     PlayTogetherBasicInfo basicInfo = 3;
     PlayTogetherListChangeContent listChangeContent = 4;
@@ -11085,13 +11249,14 @@ message ToplivePageData {
 }
 
 message WebcastSubContractStatusMessage {
+    CommonMessageData baseMessage = 1;
     PushContractStatusResult data = 2;
     ResponseExtra extra = 3;
 
     message ResponseExtra {
-        int64 now = 1;
+    	int64 now = 1;
 
-    }
+	}
 
 }
 
@@ -11154,15 +11319,15 @@ message RivalsListsData {
     DynamicListConfig dynamicListConfig = 51;
 
     message BannerText {
-        string title = 1;
-        string subTitle = 2;
-        string buttonText = 3;
-        bool isMatchValid = 4;
-        bool isInUiExp = 5;
-        int32 bannerStyle = 6;
-        QuickCohostContentInfo quickCohostContentInfo = 7;
+    	string title = 1;
+    	string subTitle = 2;
+    	string buttonText = 3;
+    	bool isMatchValid = 4;
+    	bool isInUiExp = 5;
+    	int32 bannerStyle = 6;
+    	QuickCohostContentInfo quickCohostContentInfo = 7;
 
-    }
+	}
 
 }
 
@@ -11183,7 +11348,7 @@ message TopicSetResponse {
 
     message ResponseData {
 
-    }
+	}
 
 }
 
@@ -11200,6 +11365,7 @@ message MsgFilter {
 }
 
 message WebcastHourlyRankRewardMessage {
+    CommonMessageData baseMessage = 1;
     repeated HourlyRankRewardInfo winners = 2;
 
 }
@@ -11214,6 +11380,7 @@ message LynxGiftExtra {
 }
 
 message WebcastPictionaryStartMessage {
+    CommonMessageData baseMessage = 1;
     PictionaryInfo data = 2;
 
 }
@@ -11235,10 +11402,10 @@ message FansClubData {
     int64 anchorId = 6;
 
     message UserBadge {
-        map<int32, ImageModel> icons = 1;
-        string title = 2;
+    	map<int32, ImageModel> icons = 1;
+    	string title = 2;
 
-    }
+	}
 
 }
 
@@ -11246,14 +11413,15 @@ message CompetitionSwitchTurn {
     TakeTheStageBiz takeTheStageBiz = 100;
 
     message TakeTheStageBiz {
-        int64 performanceStartTime = 1;
-        TakeTheStageOrderInfo orderInfo = 2;
+    	int64 performanceStartTime = 1;
+    	TakeTheStageOrderInfo orderInfo = 2;
 
-    }
+	}
 
 }
 
 message WebcastGuestInviteMessage {
+    CommonMessageData baseMessage = 1;
     int64 roomId = 2;
     int64 inviterUserId = 3;
     string inviterNickname = 4;
@@ -11283,6 +11451,7 @@ message RealtimeLiveCenterBaseData {
 }
 
 message WebcastNoticeMessage {
+    CommonMessageData baseMessage = 1;
     string content = 2;
     int32 noticeType = 3;
     string style = 4;
@@ -11303,17 +11472,17 @@ message ReplyReserveResponse {
 
     message ResponseData {
 
-    }
+	}
 
     message LogPb {
-        string imprId = 1;
+    	string imprId = 1;
 
-    }
+	}
 
     message ReplyReserveExtra {
-        LogPb logPb = 1;
+    	LogPb logPb = 1;
 
-    }
+	}
 
 }
 
@@ -11333,10 +11502,10 @@ message CreateShowResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool showExists = 1;
-        ShowContent showContent = 2;
+    	bool showExists = 1;
+    	ShowContent showContent = 2;
 
-    }
+	}
 
 }
 
@@ -11370,9 +11539,9 @@ message GetWallpaperContentResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        WallpaperContent wallpaperContent = 1;
+    	WallpaperContent wallpaperContent = 1;
 
-    }
+	}
 
 }
 
@@ -11411,10 +11580,10 @@ message GetRunningNoticeboardMaterialContentResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        string imageUrl = 1;
-        string imageMetaUrl = 2;
+    	string imageUrl = 1;
+    	string imageMetaUrl = 2;
 
-    }
+	}
 
 }
 
@@ -11464,11 +11633,11 @@ message GiftConfigInfo {
     RoleConfig roleConfig = 2;
 
     message RoleConfig {
-        string viewer = 1;
-        string anchor = 2;
-        string gifter = 3;
+    	string viewer = 1;
+    	string anchor = 2;
+    	string gifter = 3;
 
-    }
+	}
 
 }
 
@@ -11483,10 +11652,10 @@ message GuestShowdownStartResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool isExists = 1;
-        GuestShowdownContent playContent = 2;
+    	bool isExists = 1;
+    	GuestShowdownContent playContent = 2;
 
-    }
+	}
 
 }
 
@@ -11519,6 +11688,7 @@ message BusinessLinksLiveMessage {
 }
 
 message WebcastPartnershipDownloadCountMessage {
+    CommonMessageData baseMessage = 1;
     int64 downloadedCount = 2;
     string gameId = 3;
 
@@ -11545,15 +11715,16 @@ message ImageModel {
     bool isAnimated = 9;
 
     message Content {
-        string name = 1;
-        string fontColor = 2;
-        int64 level = 3;
+    	string name = 1;
+    	string fontColor = 2;
+    	int64 level = 3;
 
-    }
+	}
 
 }
 
 message WebcastGreetingMessage {
+    CommonMessageData baseMessage = 1;
     UserIdentity userIdentity = 2;
     int64 enterMsgId = 3;
     Text greetingText = 4;
@@ -11618,10 +11789,10 @@ message WallpaperCreateResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool wallpaperExists = 1;
-        WallpaperContent wallpaperContent = 2;
+    	bool wallpaperExists = 1;
+    	WallpaperContent wallpaperContent = 2;
 
-    }
+	}
 
 }
 
@@ -11654,6 +11825,7 @@ message TimeTag {
 }
 
 message WebcastLiveShowMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     ShowContent showContent = 3;
     int32 showuserfinishreason = 4;
@@ -11662,6 +11834,7 @@ message WebcastLiveShowMessage {
 }
 
 message WebcastSubWaveMessage {
+    CommonMessageData baseMessage = 1;
     SubWaveImMsg subWaveImMsg = 2;
 
 }
@@ -11670,15 +11843,15 @@ message BizResumeResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool isShowing = 1;
-        ShowContent showContent = 2;
-        repeated CountdownContent countdownContents = 3;
-        CountdownForAllContent countdownForAllContent = 4;
-        repeated NoticeboardContent noticeboardContents = 5;
-        ActivePlaybook activePlaybook = 6;
-        GuestShowdownContent guestShowdownContent = 7;
+    	bool isShowing = 1;
+    	ShowContent showContent = 2;
+    	repeated CountdownContent countdownContents = 3;
+    	CountdownForAllContent countdownForAllContent = 4;
+    	repeated NoticeboardContent noticeboardContents = 5;
+    	ActivePlaybook activePlaybook = 6;
+    	GuestShowdownContent guestShowdownContent = 7;
 
-    }
+	}
 
 }
 
@@ -11689,6 +11862,7 @@ message UpgradeInfo {
 }
 
 message WebcastGameReqSetGuessMessage {
+    CommonMessageData baseMessage = 1;
     Text toastContext = 2;
     string requestCntStr = 3;
     string limitSupremacyStr = 4;
@@ -11697,6 +11871,7 @@ message WebcastGameReqSetGuessMessage {
 }
 
 message WebcastLinkMicFanTicketMethod {
+    CommonMessageData baseMessage = 1;
     FanTicketRoomNoticeContent fanTicketRoomNotice = 2;
 
 }
@@ -11718,6 +11893,7 @@ message VideoResource {
 }
 
 message WebcastSpeakerMessage {
+    CommonMessageData baseMessage = 1;
 
 }
 
@@ -11736,9 +11912,9 @@ message CrowdSelectionResponse {
     Data data = 1;
 
     message Data {
-        int64 anchorCrowd = 1;
+    	int64 anchorCrowd = 1;
 
-    }
+	}
 
 }
 
@@ -11753,10 +11929,10 @@ message CompetitionSettlementEndResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        CompetitionCommon bizCommon = 1;
-        CompetitionSettleEnd settleEnd = 2;
+    	CompetitionCommon bizCommon = 1;
+    	CompetitionSettleEnd settleEnd = 2;
 
-    }
+	}
 
 }
 
@@ -11773,6 +11949,7 @@ message SubPinCardText {
 }
 
 message WebcastLinkMicAnchorGuideMessage {
+    CommonMessageData baseMessage = 1;
     string guideContent = 2;
     string buttonContent = 3;
     int32 connectType = 4;
@@ -11811,7 +11988,7 @@ message TriggerReserveNoticeResponse {
 
     message ResponseData {
 
-    }
+	}
 
 }
 
@@ -11857,12 +12034,14 @@ message CompetitionCommon {
 }
 
 message WebcastAvatarReportDeleteMessage {
+    CommonMessageData baseMessage = 1;
     int64 avatarId = 2;
     int64 avatarOwnerUserId = 3;
 
 }
 
 message WebcastEffectPreloadingMessage {
+    CommonMessageData baseMessage = 1;
     repeated int64 giftId = 2;
     repeated int64 effectId = 3;
     GiftIMPriority priority = 14;
@@ -11919,6 +12098,7 @@ message FlashSaleAtmosphereInfo {
 }
 
 message WebcastEnvelopeMessage {
+    CommonMessageData baseMessage = 1;
     MessageRedEnvelopInfo envelopeInfo = 2;
     int32 display = 3;
 
@@ -11980,6 +12160,7 @@ message BattleSetting {
 }
 
 message WebcastColdStartMessage {
+    CommonMessageData baseMessage = 1;
     int32 msgType = 2;
     int32 status = 3;
     int64 viewerCount = 4;
@@ -12002,17 +12183,18 @@ message AboutMeResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        AboutMe aboutMe = 1;
-        BenefitsInfo benefitsInfo = 2;
-        IntroConflictInfo conflictInfo = 3;
-        int32 mergeType = 4;
-        bool oldVersion = 5;
+    	AboutMe aboutMe = 1;
+    	BenefitsInfo benefitsInfo = 2;
+    	IntroConflictInfo conflictInfo = 3;
+    	int32 mergeType = 4;
+    	bool oldVersion = 5;
 
-    }
+	}
 
 }
 
 message WebcastCountdownForAllMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     CountdownForAllContent playContent = 3;
     LinkerMediaChangeOperator operatorUserInfo = 4;
@@ -12032,6 +12214,7 @@ message MultiGuestRecommendRoomInfo {
 }
 
 message WebcastGiftBroadcastMessage {
+    CommonMessageData baseMessage = 1;
     int64 mFromUserId = 2;
     ImageModel mLeftIcon = 3;
     WebcastRoomNotifyMessage mNotifyMessage = 4;
@@ -12126,10 +12309,10 @@ message DynamicListConfig {
     map<string, SectionConfig> sectionConfigs = 2;
 
     message SectionConfig {
-        string schema = 1;
-        string initialData = 2;
+    	string schema = 1;
+    	string initialData = 2;
 
-    }
+	}
 
 }
 
@@ -12159,9 +12342,9 @@ message GiftListAckResponse {
     Extra extra = 2;
 
     message Extra {
-        string logId = 1;
+    	string logId = 1;
 
-    }
+	}
 
 }
 
@@ -12183,9 +12366,9 @@ message CompetitionSwitchTurnResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        CompetitionSwitchTurn switchTurnInfo = 1;
+    	CompetitionSwitchTurn switchTurnInfo = 1;
 
-    }
+	}
 
 }
 
@@ -12193,35 +12376,35 @@ message GuideInfoResponse {
     Data data = 1;
 
     message GuidePageResource {
-        repeated Text texts = 1;
-        repeated ImageModel icons = 2;
-        repeated ImageModel animations = 3;
+    	repeated Text texts = 1;
+    	repeated ImageModel icons = 2;
+    	repeated ImageModel animations = 3;
 
-    }
+	}
 
     message GuideEntry {
-        repeated GuidePageResource guidePageResources = 10;
+    	repeated GuidePageResource guidePageResources = 10;
 
-    }
+	}
 
     message UserStats {
-        int64 giftPanelShowCnt = 1;
-        int64 shortcutGiftClickCnt = 2;
-        int64 giftGuidePopupShowCnt = 3;
-        int64 likeCnt = 4;
-        int64 watchDuration = 5;
+    	int64 giftPanelShowCnt = 1;
+    	int64 shortcutGiftClickCnt = 2;
+    	int64 giftGuidePopupShowCnt = 3;
+    	int64 likeCnt = 4;
+    	int64 watchDuration = 5;
 
-    }
+	}
 
     message Data {
-        UserStats userStats = 1;
-        string guideType = 2;
-        string schemaUrl = 3;
-        bool shouldUseConfig = 4;
-        GuideEntry guideEntry = 5;
-        UGGiftTaskInfo ugGiftTaskInfo = 6;
+    	UserStats userStats = 1;
+    	string guideType = 2;
+    	string schemaUrl = 3;
+    	bool shouldUseConfig = 4;
+    	GuideEntry guideEntry = 5;
+    	UGGiftTaskInfo ugGiftTaskInfo = 6;
 
-    }
+	}
 
 }
 
@@ -12292,10 +12475,10 @@ message LiveStreamGoal {
     bool isUneditable = 21;
 
     message AuditInfo {
-        int64 violationId = 1;
-        int32 taskType = 2;
+    	int64 violationId = 1;
+    	int32 taskType = 2;
 
-    }
+	}
 
 }
 
@@ -12312,6 +12495,7 @@ message LeaveJoinGroupResp {
 }
 
 message WebcastPreviewGameMomentMessage {
+    CommonMessageData baseMessage = 1;
     repeated PreviewGameMomentData momentDataList = 2;
 
 }
@@ -12329,6 +12513,7 @@ message EffectingCard {
 }
 
 message WebcastGameRecommendCreateGuessMessage {
+    CommonMessageData baseMessage = 1;
     string templateIdStr = 2;
     int64 betDurationInSecond = 3;
     GuessText guessTitle = 4;
@@ -12368,16 +12553,17 @@ message BannerCollapseInfo {
 }
 
 message WebcastVideoLiveGoodsOrderMessage {
+    CommonMessageData baseMessage = 1;
     User user = 2;
     GoodsOrder goodsOrder = 3;
 
     message GoodsOrder {
-        int64 goodsRoomOrder = 1;
-        int64 orderNum = 2;
-        int64 orderMoney = 3;
-        string orderId = 4;
+    	int64 goodsRoomOrder = 1;
+    	int64 orderNum = 2;
+    	int64 orderMoney = 3;
+    	string orderId = 4;
 
-    }
+	}
 
 }
 
@@ -12408,14 +12594,15 @@ message NoticeboardEndResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool success = 1;
-        NoticeboardContent noticeboardContent = 2;
+    	bool success = 1;
+    	NoticeboardContent noticeboardContent = 2;
 
-    }
+	}
 
 }
 
 message WebcastStarCommentNotificationMessage {
+    CommonMessageData baseMessage = 1;
     int32 starCommentAction = 2;
     int64 msgId = 3;
     User operator = 4;
@@ -12432,6 +12619,7 @@ message HourlyRankRewardInfo {
 }
 
 message WebcastInRoomBannerRefreshMessage {
+    CommonMessageData baseMessage = 1;
     int32 delaySeconds = 2;
     bool onlyAnchor = 3;
 
@@ -12481,6 +12669,7 @@ message GuestShowdownUpdateParams {
 }
 
 message WebcastRoomStickerMessage {
+    CommonMessageData baseMessage = 1;
     repeated RoomSticker stickerList = 2;
 
 }
@@ -12506,6 +12695,7 @@ message PosIdentity {
 }
 
 message WebcastOChannelUserMessage {
+    CommonMessageData baseMessage = 1;
     int64 startTimeStamp = 2;
     int64 maxEnterTime = 3;
 
@@ -12533,22 +12723,23 @@ message BizPermitResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        WebcastPerceptionMessage hostPerceptionInfo = 1;
+    	WebcastPerceptionMessage hostPerceptionInfo = 1;
 
-    }
+	}
 
 }
 
 message WebcastGiftProgressMessage {
+    CommonMessageData baseMessage = 1;
     string progressType = 2;
     repeated ProgressStruct progress = 3;
 
     message ProgressStruct {
-        int64 progressId = 1;
-        int64 progressValue = 2;
-        int32 progressStatus = 3;
+    	int64 progressId = 1;
+    	int64 progressValue = 2;
+    	int32 progressStatus = 3;
 
-    }
+	}
 
 }
 
@@ -12572,6 +12763,7 @@ message AudienceReserveContent {
 }
 
 message WebcastOecLiveManagerMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     PurchaseProductInfo purchaseProductInfo = 3;
     SubscriptionInfo subscriptionInfo = 4;
@@ -12587,6 +12779,7 @@ message TopicSessionStatus {
 }
 
 message WebcastDiggMessage {
+    CommonMessageData baseMessage = 1;
     int32 diggCount = 2;
     int32 duration = 3;
     int32 color = 4;
@@ -12596,6 +12789,7 @@ message WebcastDiggMessage {
 }
 
 message WebcastAILiveSummaryMessage {
+    CommonMessageData baseMessage = 1;
     AILiveSummary aiLiveSummary = 2;
 
 }
@@ -12604,16 +12798,16 @@ message EffectListResponse {
     Data data = 1;
 
     message Data {
-        string version = 1;
-        Panel panel = 2;
-        repeated EffectStruct effects = 3;
-        repeated EffectStruct collection = 4;
-        repeated EffectCategory category = 5;
-        string frontEffectId = 6;
-        string rearEffectId = 7;
-        repeated string urlPrefix = 8;
+    	string version = 1;
+    	Panel panel = 2;
+    	repeated EffectStruct effects = 3;
+    	repeated EffectStruct collection = 4;
+    	repeated EffectCategory category = 5;
+    	string frontEffectId = 6;
+    	string rearEffectId = 7;
+    	repeated string urlPrefix = 8;
 
-    }
+	}
 
 }
 
@@ -12666,10 +12860,10 @@ message RefreshPaidStreamResp {
     ResponseData data = 1;
 
     message ResponseData {
-        StreamUrl streamUrl = 1;
-        StreamUrl multiStreamUrl = 2;
+    	StreamUrl streamUrl = 1;
+    	StreamUrl multiStreamUrl = 2;
 
-    }
+	}
 
 }
 
@@ -12695,11 +12889,13 @@ message LinkGetSettingResult {
 }
 
 message WebcastAnchorToolModificationMessage {
+    CommonMessageData baseMessage = 1;
     AnchorToolModification modification = 2;
 
 }
 
 message WebcastLiveIntroMessage {
+    CommonMessageData baseMessage = 1;
     int64 id = 2;
     int32 auditStatus = 3;
     string content = 4;
@@ -12725,10 +12921,10 @@ message CompetitionABInfo {
     TakeTheStageABInfo tts = 1;
 
     message TakeTheStageABInfo {
-        bool atmosphereAnimation = 1;
-        bool atmosphereDuration = 2;
+    	bool atmosphereAnimation = 1;
+    	bool atmosphereDuration = 2;
 
-    }
+	}
 
 }
 
@@ -12749,10 +12945,10 @@ message GiftFavouriteSaveResponse {
     Data data = 1;
 
     message Data {
-        bool success = 1;
-        repeated int64 favouriteGiftIds = 2;
+    	bool success = 1;
+    	repeated int64 favouriteGiftIds = 2;
 
-    }
+	}
 
 }
 
@@ -12763,30 +12959,31 @@ message GiftRecord {
     repeated string tags = 4;
 
     message User {
-        int64 id = 1;
-        string nickname = 2;
-        ImageModel avatar = 3;
+    	int64 id = 1;
+    	string nickname = 2;
+    	ImageModel avatar = 3;
 
-    }
+	}
 
     message Gift {
-        int64 id = 1;
-        string name = 2;
-        ImageModel image = 3;
-        int32 giftCount = 4;
+    	int64 id = 1;
+    	string name = 2;
+    	ImageModel image = 3;
+    	int32 giftCount = 4;
 
-    }
+	}
 
     message Message {
-        int64 msgId = 1;
-        int64 groupId = 2;
-        int64 createdOnTimestamp = 3;
+    	int64 msgId = 1;
+    	int64 groupId = 2;
+    	int64 createdOnTimestamp = 3;
 
-    }
+	}
 
 }
 
 message WebcastMGPunishCenterActionMessage {
+    CommonMessageData baseMessage = 1;
     int32 actionType = 2;
 
 }
@@ -12831,9 +13028,9 @@ message NoticeboardGetUserRestrictedHistoryResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        map<string, int32> restrictedMap = 1;
+    	map<string, int32> restrictedMap = 1;
 
-    }
+	}
 
 }
 
@@ -12896,6 +13093,7 @@ message DisplayControl {
 }
 
 message WebcastPictionaryExitMessage {
+    CommonMessageData baseMessage = 1;
     int64 sessionId = 2;
     bool showStats = 3;
     int32 pictionaryType = 4;
@@ -12929,11 +13127,13 @@ message LiveJourneyImMessage {
 }
 
 message WebcastQuestionNewMessage {
+    CommonMessageData baseMessage = 1;
     Question question = 2;
 
 }
 
 message WebcastCountdownMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     CountdownContent countdownContent = 3;
     LinkerMediaChangeOperator operatorUserInfo = 4;
@@ -12941,6 +13141,7 @@ message WebcastCountdownMessage {
 }
 
 message WebcastGameServerFeatureMessage {
+    CommonMessageData baseMessage = 1;
     repeated GameServerFeature allFeatures = 2;
 
 }
@@ -12949,9 +13150,9 @@ message OwnerSettingResponse {
     Data data = 1;
 
     message Data {
-        bool success = 1;
+    	bool success = 1;
 
-    }
+	}
 
 }
 
@@ -12969,6 +13170,7 @@ message GuessTaskPackInfo {
 }
 
 message WebcastPlaybookMessage {
+    CommonMessageData baseMessage = 1;
     int32 messageType = 2;
     int64 playId = 3;
     int32 playStatus = 4;
@@ -12979,6 +13181,7 @@ message WebcastPlaybookMessage {
 }
 
 message WebcastGiftRecordCapsuleMessage {
+    CommonMessageData baseMessage = 1;
     string extra = 2;
 
 }
@@ -13013,77 +13216,78 @@ message CohostHistoryResponse {
     ResponseData data = 1;
 
     message Host {
-        int64 userId = 1;
-        int64 historyGroupChannelId = 2;
+    	int64 userId = 1;
+    	int64 historyGroupChannelId = 2;
 
-    }
+	}
 
     message User {
-        int64 userId = 1;
-        int64 points = 2;
+    	int64 userId = 1;
+    	int64 points = 2;
 
-    }
+	}
 
     message Team {
-        repeated User users = 1;
+    	repeated User users = 1;
 
-    }
+	}
 
     message MatchRecord {
-        int64 matchId = 1;
-        int64 historyGroupChannelId = 2;
-        int32 matchType = 3;
-        int64 startTimestampSec = 4;
-        int32 result = 6;
-        Team myTeam = 7;
-        repeated Team opposingTeams = 8;
+    	int64 matchId = 1;
+    	int64 historyGroupChannelId = 2;
+    	int32 matchType = 3;
+    	int64 startTimestampSec = 4;
+    	int32 result = 6;
+    	Team myTeam = 7;
+    	repeated Team opposingTeams = 8;
 
-    }
+	}
 
     message TakeTheStageUser {
-        int64 userId = 1;
-        int64 rank = 2;
-        int64 points = 3;
+    	int64 userId = 1;
+    	int64 rank = 2;
+    	int64 points = 3;
 
-    }
+	}
 
     message TakeTheStageRecord {
-        int64 showdownId = 1;
-        int64 startTimestampSec = 2;
-        int64 historyGroupChannelId = 3;
-        TakeTheStageUser myTakeTheStageInfo = 4;
-        repeated TakeTheStageUser otherTakeTheStageInfos = 5;
+    	int64 showdownId = 1;
+    	int64 startTimestampSec = 2;
+    	int64 historyGroupChannelId = 3;
+    	TakeTheStageUser myTakeTheStageInfo = 4;
+    	repeated TakeTheStageUser otherTakeTheStageInfos = 5;
 
-    }
+	}
 
     message CohostSession {
-        int64 id = 1;
-        int64 historyGroupChannelId = 2;
-        int64 startTimestampSec = 3;
-        int64 viewersAccumulated = 4;
-        repeated Host hosts = 5;
-        repeated MatchRecord matchRecords = 6;
-        repeated TakeTheStageRecord takeTheStageRecords = 7;
+    	int64 id = 1;
+    	int64 historyGroupChannelId = 2;
+    	int64 startTimestampSec = 3;
+    	int64 viewersAccumulated = 4;
+    	repeated Host hosts = 5;
+    	repeated MatchRecord matchRecords = 6;
+    	repeated TakeTheStageRecord takeTheStageRecords = 7;
 
-    }
+	}
 
     message UserInfo {
-        Room room = 1;
-        RivalExtraInfo extraInfo = 2;
+    	Room room = 1;
+    	RivalExtraInfo extraInfo = 2;
 
-    }
+	}
 
     message ResponseData {
-        repeated CohostSession cohostSessions = 1;
-        map<int64, UserInfo> userInfos = 2;
-        int64 oldestTimestampSec = 10;
-        bool hasMore = 11;
+    	repeated CohostSession cohostSessions = 1;
+    	map<int64, UserInfo> userInfos = 2;
+    	int64 oldestTimestampSec = 10;
+    	bool hasMore = 11;
 
-    }
+	}
 
 }
 
 message WebcastQuickChatListMessage {
+    CommonMessageData baseMessage = 1;
     int64 duration = 2;
     repeated QuickChatContent contentList = 3;
     int64 priority = 4;
@@ -13100,6 +13304,7 @@ message RecommendComment {
 }
 
 message WebcastPartnershipCardChangeMessage {
+    CommonMessageData baseMessage = 1;
     int32 changeMode = 2;
     int32 sequenceId = 3;
     string taskId = 4;
@@ -13171,20 +13376,20 @@ message StarCommentPurchaseResponse {
     Extra extra = 2;
 
     message Data {
-        int32 purchaseResult = 1;
-        StarCommentQueue queue = 2;
-        int64 serverCurMsgStartTimeMs = 3;
-        PayGradeInfo payGradeInfo = 4;
-        int64 roomUserCount = 5;
-        int64 coins = 6;
-        int64 msgId = 7;
+    	int32 purchaseResult = 1;
+    	StarCommentQueue queue = 2;
+    	int64 serverCurMsgStartTimeMs = 3;
+    	PayGradeInfo payGradeInfo = 4;
+    	int64 roomUserCount = 5;
+    	int64 coins = 6;
+    	int64 msgId = 7;
 
-    }
+	}
 
     message Extra {
-        RechargeCustomError customError = 1;
+    	RechargeCustomError customError = 1;
 
-    }
+	}
 
 }
 
@@ -13219,22 +13424,22 @@ message GetLiveEventUserResponse {
     ResponseData data = 1;
 
     message InvitedListUser {
-        User user = 1;
+    	User user = 1;
 
-    }
+	}
 
     message RegisteredListUser {
-        User user = 1;
-        bool alreadyRead = 2;
-        int64 registeredTime = 3;
+    	User user = 1;
+    	bool alreadyRead = 2;
+    	int64 registeredTime = 3;
 
-    }
+	}
 
     message ResponseData {
-        repeated InvitedListUser invitedUsers = 1;
-        repeated RegisteredListUser registeredUsers = 2;
+    	repeated InvitedListUser invitedUsers = 1;
+    	repeated RegisteredListUser registeredUsers = 2;
 
-    }
+	}
 
 }
 
@@ -13292,10 +13497,10 @@ message BizJoinGroupResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        int32 perceptionStatus = 1;
-        WebcastPerceptionMessage perceptionMessage = 2;
+    	int32 perceptionStatus = 1;
+    	WebcastPerceptionMessage perceptionMessage = 2;
 
-    }
+	}
 
 }
 
@@ -13502,6 +13707,7 @@ message AllListUser {
 }
 
 message WebcastScreenChatMessage {
+    CommonMessageData baseMessage = 1;
     User userInfo = 2;
     int32 chatType = 3;
     string content = 4;
@@ -13515,11 +13721,13 @@ message WebcastScreenChatMessage {
 }
 
 message WebcastGameEmoteUpdateMessage {
+    CommonMessageData baseMessage = 1;
     GameEmotesTab gameEmotesTab = 2;
 
 }
 
 message WebcastBoostCardMessage {
+    CommonMessageData baseMessage = 1;
     repeated BoostCard mCards = 3;
 
 }
@@ -13528,10 +13736,10 @@ message GroupChatLiveEntranceResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        int32 entranceStatus = 1;
-        repeated GroupChatWatchLiveInfo watchLiveInfos = 2;
+    	int32 entranceStatus = 1;
+    	repeated GroupChatWatchLiveInfo watchLiveInfos = 2;
 
-    }
+	}
 
 }
 
@@ -13589,9 +13797,9 @@ message CheckLineupResponse {
     ResponseData data = 1;
 
     message ResponseData {
-        bool disconnect = 1;
+    	bool disconnect = 1;
 
-    }
+	}
 
 }
 
@@ -13637,6 +13845,7 @@ message TeamMatchCampaign {
 }
 
 message WebcastRoomPinMessage {
+    CommonMessageData baseMessage = 1;
     WebcastChatMessage chatMessage = 2;
     WebcastSocialMessage socialMessage = 3;
     WebcastGiftMessage giftMessage = 4;
@@ -13710,6 +13919,7 @@ message LinkmicUser {
 }
 
 message WebcastProjectDModifyH5 {
+    CommonMessageData baseMessage = 1;
     string mTopLeftUrl = 2;
     string mBottomRightUrl = 3;
 
@@ -13809,17 +14019,19 @@ message RoomNotifyMessageExtra {
 
     message Background {
 
-    }
+	}
 
 }
 
 message WebcastRoomStreamAdaptationMessage {
+    CommonMessageData baseMessage = 1;
     int64 action = 2;
     SubjectPositionInfo subjectPositionInfo = 3;
 
 }
 
 message WebcastLinkmicBattleNoticeMessage {
+    CommonMessageData baseMessage = 1;
     int32 noticeType = 2;
     BattleNoticeAnchorGuide anchorGuide = 3;
     BattleNoticeToast toast = 4;
@@ -13885,10 +14097,10 @@ message RivalsListExtra {
     LogPbBean logPbBean = 1;
 
     message LogPbBean {
-        string imprId = 1;
-        string clientLogId = 2;
+    	string imprId = 1;
+    	string clientLogId = 2;
 
-    }
+	}
 
 }
 
@@ -13991,16 +14203,16 @@ message CompetitionReply {
     TakeTheStageBiz takeTheStageBiz = 100;
 
     message AnchorInfo {
-        int64 userId = 1;
+    	int64 userId = 1;
 
-    }
+	}
 
     message TakeTheStageBiz {
-        int32 takeTheStageStatus = 1;
-        int64 performanceStartTime = 2;
-        repeated AnchorInfo anchors = 3;
+    	int32 takeTheStageStatus = 1;
+    	int64 performanceStartTime = 2;
+    	repeated AnchorInfo anchors = 3;
 
-    }
+	}
 
 }
 
@@ -14011,11 +14223,11 @@ message CreateShowParams {
     repeated ListUser showUsers = 4;
 
     message ListUser {
-        int64 userId = 1;
-        string linkmicId = 2;
-        int32 order = 3;
+    	int64 userId = 1;
+    	string linkmicId = 2;
+    	int32 order = 3;
 
-    }
+	}
 
 }
 

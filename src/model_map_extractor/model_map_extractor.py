@@ -57,12 +57,24 @@ def parse_java_class(java_text):
                 print('Found Nested Class:', nested_name)
                 nested_classes[nested_name] = parse_class(nested_body, nested_name)
 
-        return {
+        class_data = {
             "class_name": class_name,
             "fields": fields,
             "nested_classes": nested_classes,
             "event_name": enum_map.get(event_name.group(1) if event_name else None, None)
         }
+
+        if class_data['event_name']:
+            class_data['fields'].insert(
+                0,
+                {
+                    "name": "baseMessage",
+                    "annotation": None,
+                    "type": "CommonMessageData"
+                }
+            )
+
+        return class_data
 
     # Find the Outer Class
     outer_class_match = re.search(r'(?:public\s+|static\s+|final\s+)?class\s+(\w+)', java_text)
