@@ -46,7 +46,7 @@ def parse_java_class(java_text):
             })
 
         # Find and Parse Nested Classes
-        nested_class_pattern = r'class\s+(\w+)\s*\{'
+        nested_class_pattern = r'\bclass\s+(\w+)(\s+extends\s+\w+(\s*,\s*\w+)*)?(\s+implements\s+\w+(\s*,\s*\w+)*)?\s*\{'
         nested_classes = {}
 
         for nested in re.finditer(nested_class_pattern, class_body, re.DOTALL):
@@ -54,6 +54,7 @@ def parse_java_class(java_text):
             nested_start_index = nested.end() - 1  # Position after class declaration
             nested_body = find_class_body(class_body, nested_start_index)
             if nested_body:
+                print('Found Nested Class:', nested_name)
                 nested_classes[nested_name] = parse_class(nested_body, nested_name)
 
         return {
@@ -78,7 +79,7 @@ def parse_java_class(java_text):
 models: Path = Path(__file__).parent.parent.parent / './resources/models'
 model_maps: Path = Path(__file__).parent.parent.parent / './resources/model_maps'
 model_files = [file for file in models.iterdir() if file.suffix == '.java']
-enum_map = json.load(open(Path(__file__).parent.parent.parent / './resources/enum_map/enum_map.json', 'r'))
+enum_map = json.load(open(Path(__file__).parent.parent.parent / './resources/enum_maps/event_map.json', 'r'))
 
 
 def de_duplicate_fields(model_map_data):
@@ -100,16 +101,19 @@ def de_duplicate_fields(model_map_data):
     return model_map_data
 
 
+skipped = 0
+
 for idx, file in enumerate(model_files):
     model_map = model_maps / f"{file.stem}.json"
 
     if model_map.exists():
-        print(f"Skipping {file.stem} as it already exists")
+        skipped += 1
         continue
     else:
         print(f'Parsing Model {idx + 1}/{len(model_files)}: {file.stem}')
 
     model_map_data: ModelMap = parse_java_class(file.read_text())
-    model_map_data = de_duplicate_fields(model_map_data)
     with open(model_map, 'w') as f:
         f.write(json.dumps(model_map_data, indent=4))
+
+print(f'Skipped {skipped} files')

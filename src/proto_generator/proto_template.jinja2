@@ -1,19 +1,21 @@
 syntax = "proto3";
 {% for import in imports %}
-    import "{{ import }}";
+import "{{ import }}";
 {% endfor %}
 {%- macro render_message(message, indent=0) -%}
-    message {{ message.name }} {
+    {{ "\t" * (indent - 1) }}message {{ message.name }} {
     {%- for field in message.fields %}
-        {%- if field.annotation %}
+        {%- if field.annotation_disabled %}
 
-    {{ "\t" * (indent) }}// {{ field.annotation }}
+    {{ "\t" * (indent) }}// "{{ field.annotation }}"
         {%- endif %}
-    {{ "\t" * (indent) }}{{ field.type }} {{ field.name }} = {{ loop.position }};
+    {{ "\t" * (indent) }}{{ field.type }} {{ field.name }} = {{ field.position }};
     {%- endfor %}
     {%- for nested_message in message.nested_messages %}
+
     {{ render_message(nested_message, indent + 1) }}
     {%-endfor %}
+
 {{ "\t" * indent }}}
 {%- endmacro %}
 {% for message in root_messages %}

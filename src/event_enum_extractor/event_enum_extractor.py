@@ -44,6 +44,6 @@ for line in file_text.split("\n"):
 
     ENUM_VALUE_MAP[enum_entry_name] = enum_entry_value
 
-enum_map: Path = Path(__file__).parent.parent.parent / './resources/enum_map/enum_map.json'
+enum_map: Path = Path(__file__).parent.parent.parent / './resources/enum_maps/event_map.json'
 with open(enum_map, 'w') as f:
     f.write(json.dumps(ENUM_VALUE_MAP, indent=4))

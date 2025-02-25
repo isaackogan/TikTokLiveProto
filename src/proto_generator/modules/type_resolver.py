@@ -1,5 +1,3 @@
-from pathlib import Path
-
 BASIC_TYPE_MAP = {
     "int": "int32",
     "Integer": "int32",
@@ -15,6 +13,10 @@ BASIC_TYPE_MAP = {
     "byte[]": "bytes",
     "List": "repeated",
     "Map": "map",
+
+    # Not sure what this is, com.google.gson.m is where it comes from
+    # But the m package doesn't exist, so idk why it's a type
+    "m": "map<string, string>",
 }
 
 

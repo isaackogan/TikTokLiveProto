@@ -17,6 +17,9 @@ def extract_proto_decoder(text: str) -> str | None:
     >>> extract_proto_decoder("bannerInfo.bannerList.add(_BannerInRoom_ProtoDecoder.LIZIZ(c140922mme));")
     '_BannerInRoom_ProtoDecoder.java'
 
+    >>> extract_proto_decoder("_RoomNotifyMessageExtra_Background_ProtoDecoder.LIZIZ(c140922mme);")
+    '_RoomNotifyMessageExtra_Background_ProtoDecoder.java'
+
     :param text: The java text to extract the proto decoder from
     :return: The extracted proto decoder
 
@@ -25,7 +28,8 @@ def extract_proto_decoder(text: str) -> str | None:
     if '_ProtoDecoder' not in text:
         return None
 
-    proto_name: str = text.split("_ProtoDecoder")[0].split("_")[-1]
+    paths = text.split("_ProtoDecoder")[0].split("_")
+    proto_name = "_".join(paths[1:])
     return f"_{proto_name}_ProtoDecoder.java"
 
 
