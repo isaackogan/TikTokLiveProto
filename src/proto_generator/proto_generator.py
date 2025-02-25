@@ -125,7 +125,7 @@ def snake_case_field_names(_root_messages):
 replaced_names = replace_event_names(root_messages)
 
 context = {
-    "imports": [],
+    "imports": ["enums.proto"],
     "root_messages": replaced_names,
 }
 

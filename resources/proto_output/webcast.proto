@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+import "enums.proto";
 
 message AuthenticationInfo {
     string custom_verify = 1;
@@ -351,7 +351,7 @@ message SpriteImageItem {
 
 message WebcastNoticeboardReviewMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     string mediaNodeId = 3;
     int32 postReviewStatus = 4;
     int32 preReviewStatus = 5;
@@ -466,7 +466,7 @@ message WebcastBottomMessage {
     CommonMessageData baseMessage = 1;
     string content = 2;
     int32 showType = 3;
-    int32 textType = 4;
+    TextType textType = 4;
     int64 duration = 5;
     int32 bizType = 6;
     int64 violationUserId = 7;
@@ -501,7 +501,7 @@ message WebcastCapsuleMessage {
     Text buttonText = 4;
     string schema = 5;
     int32 capsuleType = 6;
-    string scene = 7;
+    Scene scene = 7;
     CapsuleBizParams bizParams = 8;
 
 }
@@ -809,7 +809,7 @@ message WallpaperPicReplyResponse {
 
 message WebcastLinkScreenChangeMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     LinkerGuestCancelEnlargeContent guestCancelEnlarge = 3;
     LinkerEnlargeStatusSynContent enlargeStatusSyn = 4;
     EnlargePositionStatusSynContent enlargePosStatusSyn = 5;
@@ -923,7 +923,7 @@ message TryMode {
 message PlaybookContent {
     int64 playbookContentId = 1;
     int64 originalPlaybookContentId = 2;
-    int32 textType = 3;
+    TextType textType = 3;
     string title = 4;
     string coverUrl = 5;
     string description = 6;
@@ -976,7 +976,7 @@ message WaveAlgorithmData {
 
 message WebcastLinkBusinessMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     PopupStateChangeContent popupStateChangeContent = 3;
 
 }
@@ -1097,9 +1097,9 @@ message GuestShowdownGetContentParams {
 
 message WebcastLinkLayerMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     int64 channelId = 3;
-    int32 scene = 4;
+    Scene scene = 4;
     string source = 5;
     string centerizedIdc = 6;
     int64 rtcRoomId = 7;
@@ -1273,7 +1273,7 @@ message ChannelMessage {
 }
 
 message LinkCommon {
-    int32 scene = 1;
+    Scene scene = 1;
     string source = 200;
     int64 appId = 201;
     int64 live_id = 202;
@@ -1575,10 +1575,10 @@ message WebcastSubNotifyMessage {
     User user = 2;
     int32 exhibitionType = 3;
     int64 subMonth = 4;
-    int32 subscribeType = 5;
-    int32 oldSubscribeStatus = 6;
+    SubscribeType subscribeType = 5;
+    OldSubscribeStatus oldSubscribeStatus = 6;
     int32 subscribeMessageType = 7;
-    int32 subscribingStatus = 8;
+    SubscribingStatus subscribingStatus = 8;
     bool isSend = 9;
     bool isCustom = 10;
     int32 giftSource = 11;
@@ -1634,7 +1634,7 @@ message WebcastCommonPopupMessage {
 }
 
 message PlayTogetherWidgetsData {
-    int32 messageType = 1;
+    MessageType messageType = 1;
     PlayTogetherBasicInfo basicInfo = 2;
 
 }
@@ -2191,7 +2191,7 @@ message WebcastGuideMessage {
     string description = 4;
     int64 duration = 5;
     int64 displayStyle = 6;
-    string scene = 7;
+    Scene scene = 7;
 
 }
 
@@ -2282,7 +2282,7 @@ message AckStateResp {
 message ReplyContent {
     User replier = 1;
     int64 replierRoomId = 2;
-    int32 replyStatus = 3;
+    ReplyStatus replyStatus = 3;
 
 }
 
@@ -2752,7 +2752,7 @@ message VideoMetaInfo {
 
 message WebcastLinkMicAdMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     repeated LinkMicAdContent linkAdContents = 3;
 
 }
@@ -3005,7 +3005,7 @@ message LinkerMediaChangeContent {
 message LinkerSetting {
     int64 maxMemberLimit = 1;
     int64 linkType = 2;
-    int32 scene = 3;
+    Scene scene = 3;
     int64 ownerUid = 4;
     int64 ownerRoomId = 5;
     int32 vendor = 6;
@@ -3119,7 +3119,7 @@ message MigrateGroupReq {
 
 message WebcastNoticeboardMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     NoticeboardContent noticeboardContent = 3;
     LinkerMediaChangeOperator operatorUserInfo = 4;
 
@@ -3309,7 +3309,7 @@ message BattleNoticeRuleGuide {
 message WebcastLiveInfoAuditNoticeMessage {
     CommonMessageData baseMessage = 1;
     int32 auditContentType = 2;
-    int32 auditStatus = 3;
+    AuditStatus auditStatus = 3;
     string textStarlingKey = 4;
 
 }
@@ -3385,7 +3385,7 @@ message GetUserPlaySettingsResponse {
 message LinkerEnlargeStatusSynContent {
     int32 isEnlarge = 1;
     string enlargeLinkmicId = 2;
-    int32 scene = 3;
+    Scene scene = 3;
     string targetLinkmicId = 4;
     LinkerMediaChangeOperator operatorInfo = 5;
     string layoutId = 6;
@@ -3456,7 +3456,7 @@ message BattleDisplayConfig {
 }
 
 message QuizQuestionInfo {
-    int32 messageType = 1;
+    MessageType messageType = 1;
     string quizId = 2;
     int32 quizType = 3;
     string extra = 4;
@@ -3482,7 +3482,7 @@ message QuizQuestionInfo {
 }
 
 message QuizCallUpWebview {
-    int32 messageType = 1;
+    MessageType messageType = 1;
     string quizId = 2;
     int32 quizType = 3;
     string extra = 4;
@@ -3709,7 +3709,7 @@ message WebcastToastMessage {
     CommonMessageData baseMessage = 1;
     int64 displayDuration = 2;
     int64 delayDuration = 3;
-    string scene = 4;
+    Scene scene = 4;
 
 }
 
@@ -3745,7 +3745,7 @@ message WebcastRoomMessage {
     bool supprotLandscape = 3;
     int32 source = 4;
     ImageModel icon = 5;
-    string scene = 6;
+    Scene scene = 6;
     bool isWelcome = 7;
     PublicAreaMessageCommon publicAreaCommon = 8;
     int64 showDurationMs = 9;
@@ -3769,7 +3769,7 @@ message KickOutContent {
 
 message WebcastPollMessage {
     CommonMessageData baseMessage = 1;
-    int64 messageType = 2;
+    MessageType messageType = 2;
     int64 pollId = 3;
     PollStartContent startContent = 4;
     PollEndContent endContent = 5;
@@ -4134,7 +4134,7 @@ message WebcastForceFetchRecommendationsMessage {
 
 message AboutMe {
     string id = 1;
-    int64 auditStatus = 2;
+    AuditStatus auditStatus = 2;
     bool switchStatus = 3;
     User user = 4;
     ImageModel image = 5;
@@ -4205,7 +4205,7 @@ message BattleTriggerGuideResponse {
 
 message WebcastLinkLayoutMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     int64 roomId = 3;
     int64 channelId = 4;
     string layoutId = 5;
@@ -4312,7 +4312,7 @@ message LinkerReplyContent {
     int64 inviteeUid = 4;
     LinkmicInfo inviteeLinkmicInfo = 5;
     int64 linkType = 6;
-    int32 replyStatus = 7;
+    ReplyStatus replyStatus = 7;
     LinkerSetting linkerSetting = 8;
     User inviterUser = 9;
     User inviteeUser = 10;
@@ -4466,7 +4466,7 @@ message TimerDetail {
     int64 screenH = 19;
     int32 timerStatus = 20;
     int32 antidirtStatus = 21;
-    int32 auditStatus = 22;
+    AuditStatus auditStatus = 22;
     AuditInfo auditInfo = 23;
 
     message AuditInfo {
@@ -4550,7 +4550,7 @@ message CurrencyPriceItem {
 }
 
 message QuizFinalResult {
-    int32 messageType = 1;
+    MessageType messageType = 1;
     string quizId = 2;
     int32 quizType = 3;
     string extra = 4;
@@ -4633,7 +4633,7 @@ message LinkInviteResult {
     int64 channelId = 1;
     int32 vendor = 2;
     string channelIdStr = 3;
-    int64 scene = 4;
+    Scene scene = 4;
     bool rtcJoinChannel = 5;
     string rtcExtInfo = 6;
     string linkMicIdStr = 7;
@@ -4903,7 +4903,7 @@ message StreamGoalData {
 message EnlargePositionStatusSynContent {
     int32 isEnlarge = 1;
     string targetPosition = 2;
-    int32 scene = 3;
+    Scene scene = 3;
     LinkerMediaChangeOperator operatorInfo = 4;
     string layoutId = 5;
     repeated string linkedUserUiPositions = 6;
@@ -5186,7 +5186,7 @@ message BattleTaskGiftAmountGuide {
 }
 
 message ReqItem {
-    int32 scene = 1;
+    Scene scene = 1;
     DispersionParam dispersionParam = 2;
 
 }
@@ -5231,7 +5231,7 @@ message AnchorToolModification {
     int64 from = 23;
     double value = 24;
     string url = 25;
-    string scene = 26;
+    Scene scene = 26;
     int64 status = 27;
     string content = 28;
 
@@ -5253,7 +5253,7 @@ message RoomAuthStatus {
     int64 deprecated4 = 14;
     int32 landscape = 15;
     int64 landscapechat = 16;
-    int32 messageType = 17;
+    MessageType messageType = 17;
     int32 anchorGiftType = 18;
     int64 deprecated5 = 19;
     int32 donationSticker = 20;
@@ -5635,7 +5635,7 @@ message WebcastActivityQuizUserIdentityMessage {
 }
 
 message LastLayoutSetting {
-    int64 scene = 1;
+    Scene scene = 1;
     string layoutId = 2;
 
 }
@@ -5649,7 +5649,7 @@ message PerceptionSheetInfo {
     Text notAllowedTitle = 6;
     Text notAllowedText = 7;
     Text defaultActionText = 8;
-    int32 scene = 9;
+    Scene scene = 9;
     int64 targetUserId = 10;
     int64 targetRoomId = 11;
     int64 countDownTime = 12;
@@ -5696,7 +5696,7 @@ message AnimationData {
 }
 
 message PermitJoinGroupBizContent {
-    int32 replyStatus = 1;
+    ReplyStatus replyStatus = 1;
     int32 sourceType = 2;
 
 }
@@ -5846,7 +5846,7 @@ message UserAttr {
 message WebcastLinkStateMessage {
     CommonMessageData baseMessage = 1;
     int64 channelId = 2;
-    int32 scene = 3;
+    Scene scene = 3;
     int64 version = 4;
     int32 needAck = 5;
     LayoutState layout = 6;
@@ -5864,7 +5864,7 @@ message WebcastAccessRecallMessage {
     int32 status = 2;
     int64 duration = 3;
     int64 endTime = 4;
-    string scene = 5;
+    Scene scene = 5;
     Text notice = 6;
     Text content = 7;
     PunishEventInfo punishInfo = 8;
@@ -5908,7 +5908,7 @@ message FreqLimitGiftOption {
 
 message WebcastAISummaryMessage {
     CommonMessageData baseMessage = 1;
-    string scene = 2;
+    Scene scene = 2;
     bool showAtFirst = 3;
     ImageModel icon = 4;
     Text title = 5;
@@ -6157,7 +6157,7 @@ message WebcastGuideTaskMessage {
 }
 
 message InviterRivalExtra {
-    int32 textType = 1;
+    TextType textType = 1;
     string text = 2;
     string label = 3;
     int32 userCount = 4;
@@ -6571,7 +6571,7 @@ message SubQueue {
     string id = 1;
     int32 type = 2;
     int32 status = 3;
-    int32 auditStatus = 4;
+    AuditStatus auditStatus = 4;
     string anchorId = 5;
     string roomId = 6;
     int64 createTimeSec = 7;
@@ -6615,7 +6615,7 @@ message WebcastSocialMessage {
 message WebcastPrivilegeAdvanceMessage {
     CommonMessageData baseMessage = 1;
     WebcastRoomNotifyMessage notify = 2;
-    string scene = 3;
+    Scene scene = 3;
     DisplayControl control = 4;
     ImageModel leftIcon = 5;
     ImageModel rightIcon = 6;
@@ -6893,7 +6893,7 @@ message WebcastMsgDetectMessage {
 }
 
 message BizPermitJoinGroupParams {
-    int32 replyStatus = 1;
+    ReplyStatus replyStatus = 1;
     int32 sourceType = 2;
     string algoRequestId = 3;
     CohostStreamConfig streamConfig = 4;
@@ -6949,7 +6949,7 @@ message EOYBanner {
 message Skin {
     SkinHostAccount account = 1;
     SkinDrawerEntrance drawerEntrance = 2;
-    string scene = 3;
+    Scene scene = 3;
 
 }
 
@@ -7182,9 +7182,9 @@ message RandomGiftBubble {
 
 message WebcastLinkMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     int64 channelId = 3;
-    int32 scene = 4;
+    Scene scene = 4;
     LinkerInviteContent inviteContent = 5;
     LinkerReplyContent replyContent = 6;
     LinkerCreateContent createContent = 7;
@@ -7229,7 +7229,7 @@ message WebcastBarrageMessage {
     ImageModel rightIcon = 8;
     int32 displayConfig = 9;
     int64 galleryGiftId = 10;
-    string scene = 11;
+    Scene scene = 11;
     DisplayControl control = 12;
     RightLabel rightLabel = 13;
     bool useMarquee = 14;
@@ -7419,7 +7419,7 @@ message AnchorLevel {
 
 message WebcastGuestShowdownMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     GuestShowdownContent playContent = 3;
     LinkerMediaChangeOperator operatorUserInfo = 4;
     int32 playClosedReason = 5;
@@ -7456,7 +7456,7 @@ message AnchorSettingInfo {
     repeated AnchorLastLayoutSetting lastLayoutSettings = 1;
 
     message AnchorLastLayoutSetting {
-    	int64 scene = 1;
+    	Scene scene = 1;
     	string layoutId = 2;
 
 	}
@@ -7777,7 +7777,7 @@ message GuideReportResponse {
 }
 
 message StateReqCommon {
-    int32 scene = 1;
+    Scene scene = 1;
     int64 appId = 2;
     int64 liveId = 3;
     Player myself = 4;
@@ -8332,7 +8332,7 @@ message PerceptionDialogInfo {
     Text adviceActionText = 4;
     Text defaultActionText = 5;
     string violationDetailUrl = 6;
-    int32 scene = 7;
+    Scene scene = 7;
     int64 targetUserId = 8;
     int64 targetRoomId = 9;
     int64 countDownTime = 10;
@@ -8350,7 +8350,7 @@ message PollInfo {
 }
 
 message AnchorReminderWordInfoMsg {
-    string scene = 1;
+    Scene scene = 1;
     Text title = 2;
     string content = 3;
     string messageKey = 4;
@@ -8370,7 +8370,7 @@ message WebcastSpecialPushMessage {
 }
 
 message AnchorReminderWordStatus {
-    string scene = 1;
+    Scene scene = 1;
     int32 status = 2;
     string title = 3;
     string desc = 4;
@@ -8848,7 +8848,7 @@ message StringBadge {
 
 message WebcastRankTextMessage {
     CommonMessageData baseMessage = 1;
-    int32 scene = 2;
+    Scene scene = 2;
     int64 ownerIdxBeforeUpdate = 3;
     int64 ownerIdxAfterUpdate = 4;
     Text selfGetBadgeMsg = 5;
@@ -8860,11 +8860,11 @@ message WebcastRankTextMessage {
 message EmoteModel {
     string emoteId = 1;
     ImageModel image = 2;
-    int32 auditStatus = 3;
+    AuditStatus auditStatus = 3;
     string uuid = 4;
-    int32 emoteType = 5;
-    int32 contentSource = 6;
-    int32 emotePrivateType = 7;
+    EmoteType emoteType = 5;
+    ContentSource contentSource = 6;
+    EmotePrivateType emotePrivateType = 7;
     string packageId = 8;
     AuditInfo auditInfo = 9;
     int32 rewardCondition = 10;
@@ -9712,7 +9712,7 @@ message PermitApplyContent {
     Player approver = 1;
     string approverLinkMicId = 2;
     MicPositionData positionData = 3;
-    int32 replyStatus = 4;
+    ReplyStatus replyStatus = 4;
     DSLConfig dsl = 5;
     Player applier = 6;
     Player operator = 7;
@@ -9952,7 +9952,7 @@ message GiftCollection {
     int64 round = 1;
     string effectNameKey = 2;
     Gift gift = 3;
-    int64 messageType = 4;
+    MessageType messageType = 4;
     bool isFilterHost = 5;
     string schemaUrl = 6;
 
@@ -10072,7 +10072,7 @@ message WebcastDonationInfoMessage {
 
 message WebcastGameMomentMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     int64 eventTime = 3;
     int64 maxTime = 4;
     string uniqueId = 5;
@@ -10194,7 +10194,7 @@ message GuideKeywordsReportResponse {
 
 message WebcastPrivilegeDynamicEffectMessage {
     CommonMessageData baseMessage = 1;
-    string scene = 2;
+    Scene scene = 2;
     ResourceAttr resourceAttr = 3;
     DisplayControl control = 4;
     repeated Placeholder placeholderList = 5;
@@ -10310,7 +10310,7 @@ message HashtagResponse {
 }
 
 message LinkerGuestCancelEnlargeContent {
-    int32 scene = 1;
+    Scene scene = 1;
     int32 isRejectEnlarge = 2;
     string cancelLinkmicId = 3;
 
@@ -10553,7 +10553,7 @@ message RivalExtraInfo {
 
     message ReserveInfo {
     	int64 reservationId = 1;
-    	int32 replyStatus = 2;
+    	ReplyStatus replyStatus = 2;
     	string bubbleTip = 3;
     	int64 responseTime = 4;
     	bool isReservationSender = 5;
@@ -10599,7 +10599,7 @@ message GiftModeMeta {
 
 message WebcastWallpaperMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     WallpaperContent wallpaperContent = 3;
 
 }
@@ -10898,7 +10898,7 @@ message WebcastEffectControlMessage {
     int32 controlType = 2;
     string resourceId = 3;
     bool replaceResumeEffect = 4;
-    int32 scene = 5;
+    Scene scene = 5;
 
 }
 
@@ -10928,7 +10928,7 @@ message GuessTemplate {
     GuessText title = 2;
     repeated GuessOptions guessOptions = 3;
     string gameTypeName = 4;
-    int64 auditStatus = 5;
+    AuditStatus auditStatus = 5;
     int64 auditDetail = 6;
 
 }
@@ -10951,7 +10951,7 @@ message WebcastQuestionDeleteMessage {
     CommonMessageData baseMessage = 1;
     int64 questionId = 2;
     int64 userId = 3;
-    int32 scene = 4;
+    Scene scene = 4;
 
 }
 
@@ -11060,7 +11060,7 @@ message JoinGroupBizContent {
 
 message ReplyInviteContent {
     Player invitee = 1;
-    int32 replyStatus = 2;
+    ReplyStatus replyStatus = 2;
     string inviteeLinkMicId = 3;
     MicPositionData positionData = 4;
     Player inviteOperatorUser = 5;
@@ -11218,7 +11218,7 @@ message CapsuleBizParamsCommentFlaggedPromptForNewUser {
 
 message WebcastPlayTogetherMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     PlayTogetherBasicInfo basicInfo = 3;
     PlayTogetherListChangeContent listChangeContent = 4;
     PlayTogetherPermitNoticeContent permitNoticeContent = 5;
@@ -11226,7 +11226,7 @@ message WebcastPlayTogetherMessage {
 }
 
 message QuizRulesIntroduction {
-    int32 messageType = 1;
+    MessageType messageType = 1;
     string quizId = 2;
     int32 quizType = 3;
     string extra = 4;
@@ -11462,7 +11462,7 @@ message WebcastNoticeMessage {
     string tipUrl = 9;
     Text noticeTitle = 10;
     Text noticeContent = 11;
-    string scene = 12;
+    Scene scene = 12;
 
 }
 
@@ -11826,7 +11826,7 @@ message TimeTag {
 
 message WebcastLiveShowMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     ShowContent showContent = 3;
     int32 showuserfinishreason = 4;
     LinkerMediaChangeOperator operatorUserInfo = 5;
@@ -12051,7 +12051,7 @@ message WebcastEffectPreloadingMessage {
 
 message PermitJoinGroupContent {
     GroupPlayer approver = 1;
-    int32 agreeStatus = 2;
+    AgreeStatus agreeStatus = 2;
     int32 type = 3;
     repeated RTCExtraInfo groupExtInfo = 4;
     GroupChannelAllUser groupUser = 5;
@@ -12195,7 +12195,7 @@ message AboutMeResponse {
 
 message WebcastCountdownForAllMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     CountdownForAllContent playContent = 3;
     LinkerMediaChangeOperator operatorUserInfo = 4;
     int32 playEndReason = 5;
@@ -12296,7 +12296,7 @@ message ManageViewerSingReq {
     int64 channelId = 2;
     Player permiter = 3;
     Player applier = 4;
-    int32 replyStatus = 5;
+    ReplyStatus replyStatus = 5;
     DSLConfig dsl = 6;
     Player operator = 7;
     int64 songId = 8;
@@ -12458,7 +12458,7 @@ message LiveStreamGoal {
     int32 status = 3;
     repeated LiveStreamSubGoal subGoals = 4;
     string description = 5;
-    int32 auditStatus = 6;
+    AuditStatus auditStatus = 6;
     int32 cycleType = 7;
     int64 startTime = 8;
     int64 expireTime = 9;
@@ -12632,7 +12632,7 @@ message BoostedUsersPoint {
 }
 
 message RealtimeReminderWordInfoMsg {
-    string scene = 1;
+    Scene scene = 1;
     Text title = 2;
     string content = 3;
     string messageKey = 4;
@@ -12764,7 +12764,7 @@ message AudienceReserveContent {
 
 message WebcastOecLiveManagerMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     PurchaseProductInfo purchaseProductInfo = 3;
     SubscriptionInfo subscriptionInfo = 4;
     GiveawayInfo giveawayInfo = 5;
@@ -12897,7 +12897,7 @@ message WebcastAnchorToolModificationMessage {
 message WebcastLiveIntroMessage {
     CommonMessageData baseMessage = 1;
     int64 id = 2;
-    int32 auditStatus = 3;
+    AuditStatus auditStatus = 3;
     string content = 4;
     User user = 5;
     int32 introMode = 6;
@@ -13134,7 +13134,7 @@ message WebcastQuestionNewMessage {
 
 message WebcastCountdownMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     CountdownContent countdownContent = 3;
     LinkerMediaChangeOperator operatorUserInfo = 4;
 
@@ -13171,7 +13171,7 @@ message GuessTaskPackInfo {
 
 message WebcastPlaybookMessage {
     CommonMessageData baseMessage = 1;
-    int32 messageType = 2;
+    MessageType messageType = 2;
     int64 playId = 3;
     int32 playStatus = 4;
     string title = 5;
@@ -13291,7 +13291,7 @@ message WebcastQuickChatListMessage {
     int64 duration = 2;
     repeated QuickChatContent contentList = 3;
     int64 priority = 4;
-    string scene = 5;
+    Scene scene = 5;
 
 }
 
@@ -13394,7 +13394,7 @@ message StarCommentPurchaseResponse {
 }
 
 message QuizUserIdentityInfo {
-    int32 messageType = 1;
+    MessageType messageType = 1;
     string quizId = 2;
     int32 quizType = 3;
     string extra = 4;
@@ -14152,7 +14152,7 @@ message DSLConfig {
 }
 
 message QuizAnswerInfo {
-    int32 messageType = 1;
+    MessageType messageType = 1;
     string quizId = 2;
     int32 quizType = 3;
     string extra = 4;

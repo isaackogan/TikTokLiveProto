@@ -6,6 +6,10 @@ from model_map_extractor.utilities import ModelMap
 from .decoder_resolver import resolve_decoder, resolve_decoder_from_file_name
 from .type_resolver import BASIC_TYPE_MAP
 
+ENUM_LIST = json.load(
+    open(Path(__file__).parent.parent.parent.parent / './resources/enum_maps/enum_list.json')
+)
+
 type MessageField = {
     "type": str,
     "name": str,
@@ -70,10 +74,29 @@ def resolve_references(
     return base_struct
 
 
+def get_enum_type(field_name: str) -> str | None:
+    field_name = field_name[0].capitalize() + field_name[1:]
+
+    if field_name in ENUM_LIST:
+        return ENUM_LIST[ENUM_LIST.index(field_name)]
+
+    return None
+
+
 def resolve_field(field, model_map, decoder_map_dir, decoder_map, parent_message_type) -> tuple[MessageField, list[MessageStruct]]:
     field_type = field['type']
     field_position = decoder_map[field['name']]['field']
     annotation = field.get('annotation', None)
+
+    # Enum type
+    enum_type = get_enum_type(field['name'])
+    if enum_type:
+        return {
+            "type": enum_type,
+            "name": field['name'],
+            "annotation": annotation,
+            "position": field_position,
+        }, []
 
     # Basic type
     if field_type in BASIC_TYPE_MAP:

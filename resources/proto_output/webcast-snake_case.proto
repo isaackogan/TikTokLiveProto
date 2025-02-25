@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "enums.proto";
+
 
 message AuthenticationInfo {
     string custom_verify = 1;
@@ -351,7 +353,7 @@ message SpriteImageItem {
 
 message WebcastNoticeboardReviewMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     string media_node_id = 3;
     int32 post_review_status = 4;
     int32 pre_review_status = 5;
@@ -466,7 +468,7 @@ message WebcastBottomMessage {
     CommonMessageData base_message = 1;
     string content = 2;
     int32 show_type = 3;
-    int32 text_type = 4;
+    TextType text_type = 4;
     int64 duration = 5;
     int32 biz_type = 6;
     int64 violation_user_id = 7;
@@ -501,7 +503,7 @@ message WebcastCapsuleMessage {
     Text button_text = 4;
     string schema = 5;
     int32 capsule_type = 6;
-    string scene = 7;
+    Scene scene = 7;
     CapsuleBizParams biz_params = 8;
 
 }
@@ -809,7 +811,7 @@ message WallpaperPicReplyResponse {
 
 message WebcastLinkScreenChangeMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     LinkerGuestCancelEnlargeContent guest_cancel_enlarge = 3;
     LinkerEnlargeStatusSynContent enlarge_status_syn = 4;
     EnlargePositionStatusSynContent enlarge_pos_status_syn = 5;
@@ -923,7 +925,7 @@ message TryMode {
 message PlaybookContent {
     int64 playbook_content_id = 1;
     int64 original_playbook_content_id = 2;
-    int32 text_type = 3;
+    TextType text_type = 3;
     string title = 4;
     string cover_url = 5;
     string description = 6;
@@ -976,7 +978,7 @@ message WaveAlgorithmData {
 
 message WebcastLinkBusinessMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     PopupStateChangeContent popup_state_change_content = 3;
 
 }
@@ -1097,9 +1099,9 @@ message GuestShowdownGetContentParams {
 
 message WebcastLinkLayerMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     int64 channel_id = 3;
-    int32 scene = 4;
+    Scene scene = 4;
     string source = 5;
     string centerized_idc = 6;
     int64 rtc_room_id = 7;
@@ -1273,7 +1275,7 @@ message ChannelMessage {
 }
 
 message LinkCommon {
-    int32 scene = 1;
+    Scene scene = 1;
     string source = 200;
     int64 app_id = 201;
     int64 live_id = 202;
@@ -1575,10 +1577,10 @@ message WebcastSubNotifyMessage {
     User user = 2;
     int32 exhibition_type = 3;
     int64 sub_month = 4;
-    int32 subscribe_type = 5;
-    int32 old_subscribe_status = 6;
+    SubscribeType subscribe_type = 5;
+    OldSubscribeStatus old_subscribe_status = 6;
     int32 subscribe_message_type = 7;
-    int32 subscribing_status = 8;
+    SubscribingStatus subscribing_status = 8;
     bool is_send = 9;
     bool is_custom = 10;
     int32 gift_source = 11;
@@ -1634,7 +1636,7 @@ message WebcastCommonPopupMessage {
 }
 
 message PlayTogetherWidgetsData {
-    int32 message_type = 1;
+    MessageType message_type = 1;
     PlayTogetherBasicInfo basic_info = 2;
 
 }
@@ -2191,7 +2193,7 @@ message WebcastGuideMessage {
     string description = 4;
     int64 duration = 5;
     int64 display_style = 6;
-    string scene = 7;
+    Scene scene = 7;
 
 }
 
@@ -2282,7 +2284,7 @@ message AckStateResp {
 message ReplyContent {
     User replier = 1;
     int64 replier_room_id = 2;
-    int32 reply_status = 3;
+    ReplyStatus reply_status = 3;
 
 }
 
@@ -2752,7 +2754,7 @@ message VideoMetaInfo {
 
 message WebcastLinkMicAdMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     repeated LinkMicAdContent link_ad_contents = 3;
 
 }
@@ -3005,7 +3007,7 @@ message LinkerMediaChangeContent {
 message LinkerSetting {
     int64 max_member_limit = 1;
     int64 link_type = 2;
-    int32 scene = 3;
+    Scene scene = 3;
     int64 owner_uid = 4;
     int64 owner_room_id = 5;
     int32 vendor = 6;
@@ -3119,7 +3121,7 @@ message MigrateGroupReq {
 
 message WebcastNoticeboardMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     NoticeboardContent noticeboard_content = 3;
     LinkerMediaChangeOperator operator_user_info = 4;
 
@@ -3309,7 +3311,7 @@ message BattleNoticeRuleGuide {
 message WebcastLiveInfoAuditNoticeMessage {
     CommonMessageData base_message = 1;
     int32 audit_content_type = 2;
-    int32 audit_status = 3;
+    AuditStatus audit_status = 3;
     string text_starling_key = 4;
 
 }
@@ -3385,7 +3387,7 @@ message GetUserPlaySettingsResponse {
 message LinkerEnlargeStatusSynContent {
     int32 is_enlarge = 1;
     string enlarge_linkmic_id = 2;
-    int32 scene = 3;
+    Scene scene = 3;
     string target_linkmic_id = 4;
     LinkerMediaChangeOperator operator_info = 5;
     string layout_id = 6;
@@ -3456,7 +3458,7 @@ message BattleDisplayConfig {
 }
 
 message QuizQuestionInfo {
-    int32 message_type = 1;
+    MessageType message_type = 1;
     string quiz_id = 2;
     int32 quiz_type = 3;
     string extra = 4;
@@ -3482,7 +3484,7 @@ message QuizQuestionInfo {
 }
 
 message QuizCallUpWebview {
-    int32 message_type = 1;
+    MessageType message_type = 1;
     string quiz_id = 2;
     int32 quiz_type = 3;
     string extra = 4;
@@ -3709,7 +3711,7 @@ message WebcastToastMessage {
     CommonMessageData base_message = 1;
     int64 display_duration = 2;
     int64 delay_duration = 3;
-    string scene = 4;
+    Scene scene = 4;
 
 }
 
@@ -3745,7 +3747,7 @@ message WebcastRoomMessage {
     bool supprot_landscape = 3;
     int32 source = 4;
     ImageModel icon = 5;
-    string scene = 6;
+    Scene scene = 6;
     bool is_welcome = 7;
     PublicAreaMessageCommon public_area_common = 8;
     int64 show_duration_ms = 9;
@@ -3769,7 +3771,7 @@ message KickOutContent {
 
 message WebcastPollMessage {
     CommonMessageData base_message = 1;
-    int64 message_type = 2;
+    MessageType message_type = 2;
     int64 poll_id = 3;
     PollStartContent start_content = 4;
     PollEndContent end_content = 5;
@@ -4134,7 +4136,7 @@ message WebcastForceFetchRecommendationsMessage {
 
 message AboutMe {
     string id = 1;
-    int64 audit_status = 2;
+    AuditStatus audit_status = 2;
     bool switch_status = 3;
     User user = 4;
     ImageModel image = 5;
@@ -4205,7 +4207,7 @@ message BattleTriggerGuideResponse {
 
 message WebcastLinkLayoutMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     int64 room_id = 3;
     int64 channel_id = 4;
     string layout_id = 5;
@@ -4312,7 +4314,7 @@ message LinkerReplyContent {
     int64 invitee_uid = 4;
     LinkmicInfo invitee_linkmic_info = 5;
     int64 link_type = 6;
-    int32 reply_status = 7;
+    ReplyStatus reply_status = 7;
     LinkerSetting linker_setting = 8;
     User inviter_user = 9;
     User invitee_user = 10;
@@ -4466,7 +4468,7 @@ message TimerDetail {
     int64 screen_h = 19;
     int32 timer_status = 20;
     int32 antidirt_status = 21;
-    int32 audit_status = 22;
+    AuditStatus audit_status = 22;
     AuditInfo audit_info = 23;
 
     message AuditInfo {
@@ -4550,7 +4552,7 @@ message CurrencyPriceItem {
 }
 
 message QuizFinalResult {
-    int32 message_type = 1;
+    MessageType message_type = 1;
     string quiz_id = 2;
     int32 quiz_type = 3;
     string extra = 4;
@@ -4633,7 +4635,7 @@ message LinkInviteResult {
     int64 channel_id = 1;
     int32 vendor = 2;
     string channel_id_str = 3;
-    int64 scene = 4;
+    Scene scene = 4;
     bool rtc_join_channel = 5;
     string rtc_ext_info = 6;
     string link_mic_id_str = 7;
@@ -4903,7 +4905,7 @@ message StreamGoalData {
 message EnlargePositionStatusSynContent {
     int32 is_enlarge = 1;
     string target_position = 2;
-    int32 scene = 3;
+    Scene scene = 3;
     LinkerMediaChangeOperator operator_info = 4;
     string layout_id = 5;
     repeated string linked_user_ui_positions = 6;
@@ -5186,7 +5188,7 @@ message BattleTaskGiftAmountGuide {
 }
 
 message ReqItem {
-    int32 scene = 1;
+    Scene scene = 1;
     DispersionParam dispersion_param = 2;
 
 }
@@ -5231,7 +5233,7 @@ message AnchorToolModification {
     int64 from = 23;
     double value = 24;
     string url = 25;
-    string scene = 26;
+    Scene scene = 26;
     int64 status = 27;
     string content = 28;
 
@@ -5253,7 +5255,7 @@ message RoomAuthStatus {
     int64 deprecated4 = 14;
     int32 landscape = 15;
     int64 landscapechat = 16;
-    int32 message_type = 17;
+    MessageType message_type = 17;
     int32 anchor_gift_type = 18;
     int64 deprecated5 = 19;
     int32 donation_sticker = 20;
@@ -5635,7 +5637,7 @@ message WebcastActivityQuizUserIdentityMessage {
 }
 
 message LastLayoutSetting {
-    int64 scene = 1;
+    Scene scene = 1;
     string layout_id = 2;
 
 }
@@ -5649,7 +5651,7 @@ message PerceptionSheetInfo {
     Text not_allowed_title = 6;
     Text not_allowed_text = 7;
     Text default_action_text = 8;
-    int32 scene = 9;
+    Scene scene = 9;
     int64 target_user_id = 10;
     int64 target_room_id = 11;
     int64 count_down_time = 12;
@@ -5696,7 +5698,7 @@ message AnimationData {
 }
 
 message PermitJoinGroupBizContent {
-    int32 reply_status = 1;
+    ReplyStatus reply_status = 1;
     int32 source_type = 2;
 
 }
@@ -5846,7 +5848,7 @@ message UserAttr {
 message WebcastLinkStateMessage {
     CommonMessageData base_message = 1;
     int64 channel_id = 2;
-    int32 scene = 3;
+    Scene scene = 3;
     int64 version = 4;
     int32 need_ack = 5;
     LayoutState layout = 6;
@@ -5864,7 +5866,7 @@ message WebcastAccessRecallMessage {
     int32 status = 2;
     int64 duration = 3;
     int64 end_time = 4;
-    string scene = 5;
+    Scene scene = 5;
     Text notice = 6;
     Text content = 7;
     PunishEventInfo punish_info = 8;
@@ -5908,7 +5910,7 @@ message FreqLimitGiftOption {
 
 message WebcastAISummaryMessage {
     CommonMessageData base_message = 1;
-    string scene = 2;
+    Scene scene = 2;
     bool show_at_first = 3;
     ImageModel icon = 4;
     Text title = 5;
@@ -6157,7 +6159,7 @@ message WebcastGuideTaskMessage {
 }
 
 message InviterRivalExtra {
-    int32 text_type = 1;
+    TextType text_type = 1;
     string text = 2;
     string label = 3;
     int32 user_count = 4;
@@ -6571,7 +6573,7 @@ message SubQueue {
     string id = 1;
     int32 type = 2;
     int32 status = 3;
-    int32 audit_status = 4;
+    AuditStatus audit_status = 4;
     string anchor_id = 5;
     string room_id = 6;
     int64 create_time_sec = 7;
@@ -6615,7 +6617,7 @@ message WebcastSocialMessage {
 message WebcastPrivilegeAdvanceMessage {
     CommonMessageData base_message = 1;
     WebcastRoomNotifyMessage notify = 2;
-    string scene = 3;
+    Scene scene = 3;
     DisplayControl control = 4;
     ImageModel left_icon = 5;
     ImageModel right_icon = 6;
@@ -6893,7 +6895,7 @@ message WebcastMsgDetectMessage {
 }
 
 message BizPermitJoinGroupParams {
-    int32 reply_status = 1;
+    ReplyStatus reply_status = 1;
     int32 source_type = 2;
     string algo_request_id = 3;
     CohostStreamConfig stream_config = 4;
@@ -6949,7 +6951,7 @@ message EOYBanner {
 message Skin {
     SkinHostAccount account = 1;
     SkinDrawerEntrance drawer_entrance = 2;
-    string scene = 3;
+    Scene scene = 3;
 
 }
 
@@ -7182,9 +7184,9 @@ message RandomGiftBubble {
 
 message WebcastLinkMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     int64 channel_id = 3;
-    int32 scene = 4;
+    Scene scene = 4;
     LinkerInviteContent invite_content = 5;
     LinkerReplyContent reply_content = 6;
     LinkerCreateContent create_content = 7;
@@ -7229,7 +7231,7 @@ message WebcastBarrageMessage {
     ImageModel right_icon = 8;
     int32 display_config = 9;
     int64 gallery_gift_id = 10;
-    string scene = 11;
+    Scene scene = 11;
     DisplayControl control = 12;
     RightLabel right_label = 13;
     bool use_marquee = 14;
@@ -7419,7 +7421,7 @@ message AnchorLevel {
 
 message WebcastGuestShowdownMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     GuestShowdownContent play_content = 3;
     LinkerMediaChangeOperator operator_user_info = 4;
     int32 play_closed_reason = 5;
@@ -7456,7 +7458,7 @@ message AnchorSettingInfo {
     repeated AnchorLastLayoutSetting last_layout_settings = 1;
 
     message AnchorLastLayoutSetting {
-    	int64 scene = 1;
+    	Scene scene = 1;
     	string layout_id = 2;
 
 	}
@@ -7777,7 +7779,7 @@ message GuideReportResponse {
 }
 
 message StateReqCommon {
-    int32 scene = 1;
+    Scene scene = 1;
     int64 app_id = 2;
     int64 live_id = 3;
     Player myself = 4;
@@ -8332,7 +8334,7 @@ message PerceptionDialogInfo {
     Text advice_action_text = 4;
     Text default_action_text = 5;
     string violation_detail_url = 6;
-    int32 scene = 7;
+    Scene scene = 7;
     int64 target_user_id = 8;
     int64 target_room_id = 9;
     int64 count_down_time = 10;
@@ -8350,7 +8352,7 @@ message PollInfo {
 }
 
 message AnchorReminderWordInfoMsg {
-    string scene = 1;
+    Scene scene = 1;
     Text title = 2;
     string content = 3;
     string message_key = 4;
@@ -8370,7 +8372,7 @@ message WebcastSpecialPushMessage {
 }
 
 message AnchorReminderWordStatus {
-    string scene = 1;
+    Scene scene = 1;
     int32 status = 2;
     string title = 3;
     string desc = 4;
@@ -8848,7 +8850,7 @@ message StringBadge {
 
 message WebcastRankTextMessage {
     CommonMessageData base_message = 1;
-    int32 scene = 2;
+    Scene scene = 2;
     int64 owner_idx_before_update = 3;
     int64 owner_idx_after_update = 4;
     Text self_get_badge_msg = 5;
@@ -8860,11 +8862,11 @@ message WebcastRankTextMessage {
 message EmoteModel {
     string emote_id = 1;
     ImageModel image = 2;
-    int32 audit_status = 3;
+    AuditStatus audit_status = 3;
     string uuid = 4;
-    int32 emote_type = 5;
-    int32 content_source = 6;
-    int32 emote_private_type = 7;
+    EmoteType emote_type = 5;
+    ContentSource content_source = 6;
+    EmotePrivateType emote_private_type = 7;
     string package_id = 8;
     AuditInfo audit_info = 9;
     int32 reward_condition = 10;
@@ -9712,7 +9714,7 @@ message PermitApplyContent {
     Player approver = 1;
     string approver_link_mic_id = 2;
     MicPositionData position_data = 3;
-    int32 reply_status = 4;
+    ReplyStatus reply_status = 4;
     DSLConfig dsl = 5;
     Player applier = 6;
     Player operator = 7;
@@ -9952,7 +9954,7 @@ message GiftCollection {
     int64 round = 1;
     string effect_name_key = 2;
     Gift gift = 3;
-    int64 message_type = 4;
+    MessageType message_type = 4;
     bool is_filter_host = 5;
     string schema_url = 6;
 
@@ -10072,7 +10074,7 @@ message WebcastDonationInfoMessage {
 
 message WebcastGameMomentMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     int64 event_time = 3;
     int64 max_time = 4;
     string unique_id = 5;
@@ -10194,7 +10196,7 @@ message GuideKeywordsReportResponse {
 
 message WebcastPrivilegeDynamicEffectMessage {
     CommonMessageData base_message = 1;
-    string scene = 2;
+    Scene scene = 2;
     ResourceAttr resource_attr = 3;
     DisplayControl control = 4;
     repeated Placeholder placeholder_list = 5;
@@ -10310,7 +10312,7 @@ message HashtagResponse {
 }
 
 message LinkerGuestCancelEnlargeContent {
-    int32 scene = 1;
+    Scene scene = 1;
     int32 is_reject_enlarge = 2;
     string cancel_linkmic_id = 3;
 
@@ -10553,7 +10555,7 @@ message RivalExtraInfo {
 
     message ReserveInfo {
     	int64 reservation_id = 1;
-    	int32 reply_status = 2;
+    	ReplyStatus reply_status = 2;
     	string bubble_tip = 3;
     	int64 response_time = 4;
     	bool is_reservation_sender = 5;
@@ -10599,7 +10601,7 @@ message GiftModeMeta {
 
 message WebcastWallpaperMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     WallpaperContent wallpaper_content = 3;
 
 }
@@ -10898,7 +10900,7 @@ message WebcastEffectControlMessage {
     int32 control_type = 2;
     string resource_id = 3;
     bool replace_resume_effect = 4;
-    int32 scene = 5;
+    Scene scene = 5;
 
 }
 
@@ -10928,7 +10930,7 @@ message GuessTemplate {
     GuessText title = 2;
     repeated GuessOptions guess_options = 3;
     string game_type_name = 4;
-    int64 audit_status = 5;
+    AuditStatus audit_status = 5;
     int64 audit_detail = 6;
 
 }
@@ -10951,7 +10953,7 @@ message WebcastQuestionDeleteMessage {
     CommonMessageData base_message = 1;
     int64 question_id = 2;
     int64 user_id = 3;
-    int32 scene = 4;
+    Scene scene = 4;
 
 }
 
@@ -11060,7 +11062,7 @@ message JoinGroupBizContent {
 
 message ReplyInviteContent {
     Player invitee = 1;
-    int32 reply_status = 2;
+    ReplyStatus reply_status = 2;
     string invitee_link_mic_id = 3;
     MicPositionData position_data = 4;
     Player invite_operator_user = 5;
@@ -11218,7 +11220,7 @@ message CapsuleBizParamsCommentFlaggedPromptForNewUser {
 
 message WebcastPlayTogetherMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     PlayTogetherBasicInfo basic_info = 3;
     PlayTogetherListChangeContent list_change_content = 4;
     PlayTogetherPermitNoticeContent permit_notice_content = 5;
@@ -11226,7 +11228,7 @@ message WebcastPlayTogetherMessage {
 }
 
 message QuizRulesIntroduction {
-    int32 message_type = 1;
+    MessageType message_type = 1;
     string quiz_id = 2;
     int32 quiz_type = 3;
     string extra = 4;
@@ -11462,7 +11464,7 @@ message WebcastNoticeMessage {
     string tip_url = 9;
     Text notice_title = 10;
     Text notice_content = 11;
-    string scene = 12;
+    Scene scene = 12;
 
 }
 
@@ -11826,7 +11828,7 @@ message TimeTag {
 
 message WebcastLiveShowMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     ShowContent show_content = 3;
     int32 showuserfinishreason = 4;
     LinkerMediaChangeOperator operator_user_info = 5;
@@ -12051,7 +12053,7 @@ message WebcastEffectPreloadingMessage {
 
 message PermitJoinGroupContent {
     GroupPlayer approver = 1;
-    int32 agree_status = 2;
+    AgreeStatus agree_status = 2;
     int32 type = 3;
     repeated RTCExtraInfo group_ext_info = 4;
     GroupChannelAllUser group_user = 5;
@@ -12195,7 +12197,7 @@ message AboutMeResponse {
 
 message WebcastCountdownForAllMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     CountdownForAllContent play_content = 3;
     LinkerMediaChangeOperator operator_user_info = 4;
     int32 play_end_reason = 5;
@@ -12296,7 +12298,7 @@ message ManageViewerSingReq {
     int64 channel_id = 2;
     Player permiter = 3;
     Player applier = 4;
-    int32 reply_status = 5;
+    ReplyStatus reply_status = 5;
     DSLConfig dsl = 6;
     Player operator = 7;
     int64 song_id = 8;
@@ -12458,7 +12460,7 @@ message LiveStreamGoal {
     int32 status = 3;
     repeated LiveStreamSubGoal sub_goals = 4;
     string description = 5;
-    int32 audit_status = 6;
+    AuditStatus audit_status = 6;
     int32 cycle_type = 7;
     int64 start_time = 8;
     int64 expire_time = 9;
@@ -12632,7 +12634,7 @@ message BoostedUsersPoint {
 }
 
 message RealtimeReminderWordInfoMsg {
-    string scene = 1;
+    Scene scene = 1;
     Text title = 2;
     string content = 3;
     string message_key = 4;
@@ -12764,7 +12766,7 @@ message AudienceReserveContent {
 
 message WebcastOecLiveManagerMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     PurchaseProductInfo purchase_product_info = 3;
     SubscriptionInfo subscription_info = 4;
     GiveawayInfo giveaway_info = 5;
@@ -12897,7 +12899,7 @@ message WebcastAnchorToolModificationMessage {
 message WebcastLiveIntroMessage {
     CommonMessageData base_message = 1;
     int64 id = 2;
-    int32 audit_status = 3;
+    AuditStatus audit_status = 3;
     string content = 4;
     User user = 5;
     int32 intro_mode = 6;
@@ -13134,7 +13136,7 @@ message WebcastQuestionNewMessage {
 
 message WebcastCountdownMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     CountdownContent countdown_content = 3;
     LinkerMediaChangeOperator operator_user_info = 4;
 
@@ -13171,7 +13173,7 @@ message GuessTaskPackInfo {
 
 message WebcastPlaybookMessage {
     CommonMessageData base_message = 1;
-    int32 message_type = 2;
+    MessageType message_type = 2;
     int64 play_id = 3;
     int32 play_status = 4;
     string title = 5;
@@ -13291,7 +13293,7 @@ message WebcastQuickChatListMessage {
     int64 duration = 2;
     repeated QuickChatContent content_list = 3;
     int64 priority = 4;
-    string scene = 5;
+    Scene scene = 5;
 
 }
 
@@ -13394,7 +13396,7 @@ message StarCommentPurchaseResponse {
 }
 
 message QuizUserIdentityInfo {
-    int32 message_type = 1;
+    MessageType message_type = 1;
     string quiz_id = 2;
     int32 quiz_type = 3;
     string extra = 4;
@@ -14152,7 +14154,7 @@ message DSLConfig {
 }
 
 message QuizAnswerInfo {
-    int32 message_type = 1;
+    MessageType message_type = 1;
     string quiz_id = 2;
     int32 quiz_type = 3;
     string extra = 4;
