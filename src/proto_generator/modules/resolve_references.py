@@ -1,3 +1,4 @@
+import copy
 import json
 import logging
 from pathlib import Path
@@ -38,12 +39,12 @@ def resolve_references(
     }
 
     if decoder_file_name:
-        decoder_map = resolve_decoder_from_file_name(
+        decoder_map, decoder_map_path = resolve_decoder_from_file_name(
             file_name=decoder_file_name,
             decoder_map_dir=decoder_map_dir,
         )
     else:
-        decoder_map = resolve_decoder(
+        decoder_map, decoder_map_path = resolve_decoder(
             message_type=model_map['class_name'],
             parent_message_type=parent_message_type,
             decoder_map_dir=decoder_map_dir,
@@ -51,14 +52,31 @@ def resolve_references(
 
     for field in model_map['fields']:
         if field['name'] not in decoder_map:
-            logging.error(f"Field {field['name']} not found in decoder map")
+            # replace the decoder_map_path file extension with .java
+            if decoder_map_path is not None:
+                decoder_map_path_str = str(decoder_map_path.with_suffix('.java').absolute()).replace("decoder_maps", "decoders")
+                file_data = open(decoder_map_path_str, 'r').read()
+
+                # Remove everything before the class declaration
+                file_data = file_data[file_data.find("public class"):]
+
+                if field['name'] in file_data:
+
+                    if f"{field['name']} = new ArrayList();" in file_data:
+                        logging.info('ArrayList with no decoder. Skipping, this is filled dynamically')
+                        continue
+
+                    logging.error(f"Field named \"{field['name']}\" NOT in decoder-map for {model_map['class_name']}, TikTok sucks")
+                    continue
+
+            logging.debug(f"Field {field['name']} not found in decoder map for {model_map['class_name']}")
             continue
 
         resolved_field, nested_messages = resolve_field(
             field,
             model_map,
             decoder_map_dir,
-            decoder_map,
+            copy.deepcopy(decoder_map),
             parent_message_type=parent_message_type,
         )
 
@@ -140,6 +158,10 @@ def resolve_field(field, model_map, decoder_map_dir, decoder_map, parent_message
 
     if field_type.startswith("ArrayMap<"):
         field_type = field_type.replace("ArrayMap<", "Map<")
+        field['type'] = field_type
+
+    if field_type.startswith("HashMap<"):
+        field_type = field_type.replace("HashMap<", "Map<")
         field['type'] = field_type
 
     if field_type.startswith("List<"):
@@ -241,3 +263,6 @@ def resolve_external_type(field, decoder_map_dir, field_position, annotation, pa
     except FileNotFoundError:
         logging.warning(f"External type not found for child of {parent_message_type}: {json.dumps(field, indent=4)}")
         return None
+
+
+

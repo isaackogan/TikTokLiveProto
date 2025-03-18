@@ -4,6 +4,7 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 
+from modules.enum_map_replacer import resolve_enum_types
 from modules.resolve_references import resolve_references
 
 decoder_maps: Path = Path(__file__).parent.parent.parent / './resources/decoder_maps'
@@ -26,7 +27,8 @@ for root, dirs, files in os.walk(model_maps):
         model_map_files.append(os.path.join(root, file))
 
 environment = Environment(loader=FileSystemLoader(searchpath=Path(__file__).parent))
-template = environment.get_template("proto_template.jinja2")
+proto_template = environment.get_template("proto_template.jinja2")
+enum_template = environment.get_template("enum_template.jinja2")
 
 root_messages = []
 
@@ -56,9 +58,6 @@ def de_nest_message(_root_message):
 
 
 for model_map_file in model_map_files:
-    # if 'LiveCoreSDKData' not in model_map_file:
-    #    continue
-
     model_map = json.loads(Path(model_map_file).read_text())
     references = resolve_references(model_map, decoder_maps)
     references = de_nest_message(references)
@@ -122,24 +121,32 @@ def snake_case_field_names(_root_messages):
     return _root_messages
 
 
-replaced_names = replace_event_names(root_messages)
+root_messages = replace_event_names(root_messages)
+top_level_enums = resolve_enum_types(root_messages)
 
-context = {
+proto_context = {
     "imports": ["enums.proto"],
-    "root_messages": replaced_names,
+    "root_messages": root_messages,
+}
+
+enum_context = {
+    "enums": top_level_enums
 }
 
 proto_output = Path(__file__).parent.parent.parent / './resources/proto_output'
 
+with open(proto_output / 'enums.proto', 'w') as f:
+    output = enum_template.render(enum_context)
+    f.write(output)
+
 if not proto_output.is_dir():
     proto_output.mkdir()
 
-
 with open(proto_output / 'webcast.proto', 'w') as f:
-    output = template.render(context)
+    output = proto_template.render(proto_context)
     f.write(output)
 
 with open(proto_output / 'webcast-snake_case.proto', 'w') as f:
-    context['root_messages'] = snake_case_field_names(replaced_names)
-    output = template.render(context)
+    proto_context['root_messages'] = snake_case_field_names(root_messages)
+    output = proto_template.render(proto_context)
     f.write(output)

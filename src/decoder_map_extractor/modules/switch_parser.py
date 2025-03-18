@@ -1,8 +1,10 @@
-import logging
-
 from antlr.generated.Java8Parser import Java8Parser
 from antlr.generated.Java8ParserListener import Java8ParserListener
-from .utilities import extract_proto_decoder, FieldMap
+
+if __name__ == '__main__':
+    from decoder_map_extractor.modules.utilities import FieldMap, extract_proto_decoder
+else:
+    from .utilities import FieldMap, extract_proto_decoder
 
 
 def extract_original_line(label, file_lines) -> str:
@@ -24,6 +26,46 @@ MANUAL_MAPPINGS = {
 }
 
 
+def extract_model_name(class_name: str) -> str:
+    """
+    >>> extract_model_name("_GalleryData_TitleData_ProtoDecoder")
+    'TitleData'
+
+    >>> extract_model_name("_GalleryData_ProtoDecoder")
+    'GalleryData'
+
+    """
+
+    return class_name.split("_")[-2]
+
+
+def extract_field_name(model_name: str, switch_statement_text: str) -> str:
+    """
+    Given a model name, extract the field name from the switch statement text.
+
+    >>> extract_field_name("BattleBonusConfig", "battleBonusConfig.previewStartTime = c140922mme.LJIIJJI();")
+    'previewStartTime'
+
+    >>> extract_field_name("BattleBonusConfig", "battleBonusConfig.extra.put(48, c140922mme.LJIIJJI());")
+    'extra'
+
+    >>> extract_field_name("BattleBonusConfig", "battleBonusConfig.previewPeriodConfig.add(_PreviewPeriod_ProtoDecoder.LIZIZ(c140922mme));")
+    'previewPeriodConfig'
+
+    """
+
+    model_name_instance: str = model_name[0].lower() + model_name[1:]
+
+    statement_start = switch_statement_text[switch_statement_text.index(model_name_instance) + len(model_name_instance) + 1:]
+
+    # End at the first index of a non-alphanumeric character that isn't an underscore
+    for idx, char in enumerate(statement_start):
+        if not char.isalnum() and char != "_":
+            return statement_start[:idx]
+
+    raise ValueError(f"Could not extract field name from {switch_statement_text}")
+
+
 class SwitchCaseListener(Java8ParserListener):
 
     def __init__(self, field_map: FieldMap, file_lines: list[str], class_name: str):
@@ -31,6 +73,7 @@ class SwitchCaseListener(Java8ParserListener):
         self._field_map: FieldMap = field_map
         self._file_lines: list[str] = file_lines
         self._class_name = class_name
+        self._model_name = extract_model_name(class_name)
 
     def enterSwitchStatement(self, ctx: Java8Parser.SwitchStatementContext):
 
@@ -54,19 +97,19 @@ class SwitchCaseListener(Java8ParserListener):
             assert block_statements, "The case block should have statements."
 
             block_statements_text = block_statements.getText()
+
             try:
-                field_name_partial = block_statements_text.split(".")[1]
-            except IndexError:
-                logging.error(
-                    f"Could not find field name for {case_label_expression_text} in class {self._class_name}, got {block_statements_text}"
-                )
-                continue
+                field_name = extract_field_name(self._model_name, block_statements_text)
+            except ValueError:
 
-            if '=' in field_name_partial:
-                field_name = field_name_partial.split("=")[0]
-            else:
-                field_name = field_name_partial
+                if self._model_name not in block_statements_text:
+                    print('Skipping empty block')
+                    continue
 
+                print("Failed with", block_statements_text, "in", self._class_name, "named", self._model_name)
+                raise
+
+                # Try to convert the case label to an integer
             try:
                 case_number = int(case_label_expression_text)
                 field_enum = None

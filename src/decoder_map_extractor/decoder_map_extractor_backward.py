@@ -40,10 +40,10 @@ decoder_maps: Path = Path(__file__).parent.parent.parent / './resources/decoder_
 
 decoder_files = [file for file in decoders.iterdir() if file.suffix == '.java']
 
-for idx, file in enumerate(decoder_files):
+for idx, file in enumerate(reversed(decoder_files)):
     decoder_map = decoder_maps / f"{file.stem}.json"
 
-    if decoder_map.exists() and 'PromotionInfo' not in file.stem:
+    if decoder_map.exists() and 'BattleBonusConfig' not in file.stem:
         # print(f"Skipping {file.stem} as it already exists")
         continue
     else:
