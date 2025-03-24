@@ -4,26 +4,23 @@ import "{{ import }}";
 {% endfor %}
 {%- macro render_message(message, indent=0) -%}
     {{ "\t" * (indent - 1) }}message {{ message.name }} {
-    {%- for field in message.fields %}
-        {%- if field.annotation_disabled %}
+    {% for field in message.fields -%}
+        {%- if field.annotation_disabled -%}
     {{ "\t" * (indent) }}// "{{ field.annotation }}"
-        {%- endif %}
+        {%- endif -%}
     {{ "\t" * (indent) }}{{ field.type }} {{ field.name }} = {{ field.position }};
-    {%- endfor %}
-    {% if message.enums %}
-        {%- for enum in message.enums %}
+    {% endfor -%}
+    {%- if message.enums -%}
+        {% for enum in message.enums %}
     {{ "\t" * (indent) }}enum {{ enum.identifier }} {
         {%- for enum_value in enum.data.items() %}
     {{ "\t" * (indent + 1) }}{{ enum_value[0] }} = {{ enum_value[1] }};
         {%- endfor -%}
-    {{ "\t" * (indent) }}
-    }
-        {%- endfor %}
+    {{ "\t" * (indent) }}}{% endfor %}
     {%- endif -%}
-    {%- for nested_message in message.nested_messages %}
+    {% for nested_message in message.nested_messages %}
     {{ render_message(nested_message, indent + 1) }}
-    {%-endfor %}
-
+    {%-endfor%}
 {{ "\t" * indent }}}
 {%- endmacro %}
 {% for message in root_messages %}

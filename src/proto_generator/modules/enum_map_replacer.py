@@ -46,6 +46,31 @@ def clean_enum_values(enum: dict):
             del enum['data'][key]
 
 
+def re_order_enum_data(enum_name: str, enum_data: dict) -> dict:
+    """
+    TikTok give us enum fields in random value orders.
+    This fn re-orders it, which is important for 2 reasons:
+    1) It makes it easier to read
+    2) The first field in a proto enum must be 0 to compile
+
+    """
+
+    enum_data = dict(sorted(enum_data.items(), key=lambda item: item[1]))
+
+    # If the first value is NOT 0, it's not a valid proto enum.
+    # Add a 0 FALLBACK_UNKNOWN field.
+    if list(enum_data.values())[0] != 0:
+        # convert enum name in EnumName to upper snake case
+        enum_name_upper_snake_case = ''.join(['_' + c.upper() if c.isupper() else c for c in enum_name]).lstrip('_').upper()
+
+        enum_data = {
+            enum_name_upper_snake_case + "_" + "FALLBACK_UNKNOWN": 0,
+            **enum_data
+        }
+
+    return enum_data
+
+
 def resolve_enum_types(root_messages: list[dict]) -> list[dict]:
     """"
     Resolves enum types & returns a list of root enums
@@ -99,13 +124,14 @@ def resolve_enum_types(root_messages: list[dict]) -> list[dict]:
                     'num_references': len(enum['references']),
                 }
 
+                enum_data['data'] = re_order_enum_data(enum_data['identifier'], enum_data['data'])
                 root_message['enums'].append(enum_data)
                 resolved_enums.append(enum_data)
 
                 for field_number in referenced_fields:
                     for field in root_message['fields']:
                         if field['position'] == field_number:
-                            field['type'] = enum_data['identifier']
+                            field['type'] = field['type'].replace('int32', enum_data['identifier'])
 
     # Pick only the resolved enum with the most references
     top_level_enums = []
@@ -120,6 +146,7 @@ def resolve_enum_types(root_messages: list[dict]) -> list[dict]:
 
             continue
 
+        enum['data'] = re_order_enum_data(enum['identifier'], enum['data'])
         top_level_enums.append(enum)
 
     return top_level_enums

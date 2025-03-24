@@ -121,32 +121,63 @@ def snake_case_field_names(_root_messages):
     return _root_messages
 
 
+def split_root_messages(_root_messages):
+    """
+    Split into event messages (messages starting with Webcast) and data messages, which are part OF
+    event messages vis a vis their references.
+
+    """
+
+    event_messages = []
+    _data_messages = []
+
+    for message in _root_messages:
+        if message['name'].startswith('Webcast'):
+            event_messages.append(message)
+        # if any fields start with Webcast
+        elif any(field['type'].startswith('Webcast') for field in message['fields']):
+            event_messages.append(message)
+        else:
+            _data_messages.append(message)
+
+    return event_messages, _data_messages
+
+
 root_messages = replace_event_names(root_messages)
 top_level_enums = resolve_enum_types(root_messages)
 
-proto_context = {
-    "imports": ["enums.proto"],
+webcast_file_context = {
+    "imports": NotImplemented,
     "root_messages": root_messages,
 }
 
-enum_context = {
+data_file_context = {
+    "imports": NotImplemented,
+    "root_messages": root_messages,
+}
+
+enums_file_context = {
     "enums": top_level_enums
 }
 
 proto_output = Path(__file__).parent.parent.parent / './resources/proto_output'
 
-with open(proto_output / 'enums.proto', 'w') as f:
-    output = enum_template.render(enum_context)
-    f.write(output)
-
 if not proto_output.is_dir():
     proto_output.mkdir()
 
+with open(proto_output / 'enums.proto', 'w') as f:
+    output = enum_template.render(enums_file_context)
+    f.write(output)
+
 with open(proto_output / 'webcast.proto', 'w') as f:
-    output = proto_template.render(proto_context)
+    webcast_file_context['imports'] = ["enums.proto", "data.proto"]
+    output = proto_template.render(webcast_file_context)
     f.write(output)
 
 with open(proto_output / 'webcast-snake_case.proto', 'w') as f:
-    proto_context['root_messages'] = snake_case_field_names(root_messages)
-    output = proto_template.render(proto_context)
+    webcast_file_context['imports'] = ["enums.proto", "data-snake_case.proto"]
+    webcast_file_context['root_messages'] = snake_case_field_names(root_messages)
+    output = proto_template.render(webcast_file_context)
     f.write(output)
+
+print("Generated proto files in", proto_output)
